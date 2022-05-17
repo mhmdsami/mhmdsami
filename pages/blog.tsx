@@ -4,13 +4,13 @@ import {Layout} from "../components";
 const blog: NextPage = () => {
     return (
         <Layout pageName="blog">
-            <div className="flex flex-col gap-4 mt-48 items-center">
+            <div className="flex flex-col gap-4 mt-48 items-center min-h-screen">
                 <div className="text-4xl font-bold">Coming Soon 👀</div>
                 <div>
                     For updates <a href="https://github.com/sm-sami/blog" className="bg-gray-100 px-1 py-0.5 rounded-md cursor-pointer">⭐ Star</a> the repo on GitHub
                 </div>
                 <div>
-                    View the latest deployment <a href="https://blog-sm-sami.vercel.app/" className="cursor-pointer hover:underline">here</a>
+                    View the latest deployment <a href="https://blog-sm-sami.vercel.app/" className="cursor-pointer font-bold hover:underline">here</a>
                 </div>
             </div>
         </Layout>
