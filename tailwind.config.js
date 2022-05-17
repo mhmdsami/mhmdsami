@@ -4,7 +4,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily : {
+        "body": ["DM Sans", "sans-serif"]
+      },
+      animation : {
+        "wave": "wave 2.5s infinite"
+      }
+    },
   },
   plugins: [],
 }
