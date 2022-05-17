@@ -1,6 +1,12 @@
 import Link from "next/link";
 
 const Navbar = () => {
+    const navElements = [
+        { page: "blog", href: "/blog" },
+        { page: "github", href: "https://github.com/sm-sami" },
+        { page: "resume", href: "#" }
+    ]
+
     return (
         <nav className="flex justify-between mx-48 my-20">
             <div className="text-2xl font-bold cursor-pointer">
@@ -8,9 +14,9 @@ const Navbar = () => {
             </div>
             <div className="text-xl cursor-pointer">
                 <ul className="flex gap-5">
-                    <li className="hover:underline"><Link href="/blog">blog</Link></li>
-                    <li className="hover:underline"><a href="https://github.com/sm-sami">github</a></li>
-                    <li className="hover:underline">resume</li>
+                    {navElements.map(({ page, href }, index) => (
+                        <li key={index} className="hover:underline"><Link href={href}>{page}</Link></li>
+                    ))}
                 </ul>
             </div>
         </nav>
