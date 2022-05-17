@@ -1,14 +1,9 @@
 import type {NextPage} from "next";
-import Navbar from "../components/Navbar";
-import Head from "next/head";
+import {Layout} from "../components";
 
 const blog: NextPage = () => {
     return (
-        <>
-            <Head>
-                <title>Mohamed Sami | Blog</title>
-            </Head>
-            <Navbar />
+        <Layout pageName="blog">
             <div className="flex flex-col gap-4 mt-48 items-center">
                 <div className="text-4xl font-bold">Coming Soon 👀</div>
                 <div>
@@ -18,7 +13,7 @@ const blog: NextPage = () => {
                     View the latest deployment <a href="https://blog-sm-sami.vercel.app/" className="cursor-pointer hover:underline">here</a>
                 </div>
             </div>
-        </>
+        </Layout>
     )
 }
 
