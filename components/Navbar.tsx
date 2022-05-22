@@ -3,6 +3,7 @@ import Link from "next/link";
 const Navbar = () => {
     const navElements = [
         { page: "skills", href: "#skills" },
+        { page: "projects", href: "#projects"},
         { page: "blog", href: "/blog" },
         { page: "github", href: "https://github.com/sm-sami" },
         { page: "resume", href: "#" }
