@@ -1,7 +1,7 @@
 const Hero = () => {
     return (
-    <div className="flex flex-col min-h-screen">
-        <main className="flex justify-between px-48 py-20">
+    <div className="flex flex-col min-h-[90vh]">
+        <main className="flex justify-between my-28">
             <div className="text-5xl leading-relaxed font-medium select-none">
                 Hey there<span className="inline-block origin-bottom-right animate-wave">👋</span>, I&apos;m<br />
                 Mohamed Sami

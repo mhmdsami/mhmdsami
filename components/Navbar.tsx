@@ -8,7 +8,7 @@ const Navbar = () => {
     ]
 
     return (
-        <nav className="flex justify-between mx-48 my-20">
+        <nav className="flex justify-between my-[10vh]">
             <div className="text-2xl font-bold cursor-pointer">
                 <Link href="/">sm-sami</Link>
             </div>
