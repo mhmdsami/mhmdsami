@@ -13,7 +13,7 @@ const Layout = ({pageName, children}: LayoutProps) => {
             <Head>
                 <title>Mohamed Sami | {pageName}</title>
             </Head>
-            <div className="mx-48">
+            <div className="mx-10 md:mx-14 lg:mx-20 xl:mx-48">
                 <Navbar />
                 <main>{children}</main>
             </div>
