@@ -1,6 +1,6 @@
 import { Landing } from "../components";
 import type {GetServerSideProps} from 'next'
-import type {SkillSet} from "./api/skills";
+import type {SkillSet} from "./api/data";
 
 interface HomeProps {
     name: string;

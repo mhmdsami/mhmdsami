@@ -6,7 +6,7 @@ interface Skill {
     slug: string;
 }
 
-interface SkillSet {
+export interface SkillSet {
     title: string;
     skills: Array<Skill>
 }

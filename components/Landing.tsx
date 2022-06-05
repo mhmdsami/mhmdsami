@@ -1,5 +1,5 @@
 import { Layout, Hero, Skills, FeaturedProjects } from "./";
-import type {SkillSet} from "../pages/api/skills";
+import type {SkillSet} from "../pages/api/data";
 
 interface LandingProps {
     name: string;
