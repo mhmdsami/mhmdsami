@@ -1,6 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import database from "../../utils/database";
-import {SkillSet} from "./skills";
+
+interface Skill {
+    name: string;
+    slug: string;
+}
+
+export interface SkillSet {
+    title: string;
+    skills: Array<Skill>
+}
 
 interface Data {
     name: string;
