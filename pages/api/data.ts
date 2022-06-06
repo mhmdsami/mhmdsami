@@ -22,7 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     const db = await database();
     const collection = db.collection("data");
     const data: Data = JSON.parse(JSON.stringify(await collection.find().toArray()));
-    res.status(200).json(data)
+    res.status(200).send(data)
 }
 
 export default handler;
