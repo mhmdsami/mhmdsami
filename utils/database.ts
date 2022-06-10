@@ -4,7 +4,7 @@ let db: Db;
 
 async function initializeClient(): Promise<Db> {
     const client = await MongoClient.connect(process.env.DB_URI || "");
-    return client.db("portfolio");
+    return client.db(process.env.DB_NAME);
 }
 
 const database = async (): Promise<Db> => {
