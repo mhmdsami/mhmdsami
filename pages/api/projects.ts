@@ -1,7 +1,7 @@
 import database from "../../utils/database";
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-interface ProjectDataProps {
+export interface ProjectDataProps {
     name: string;
     image?: string;
     repo?: string;
