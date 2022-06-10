@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const res = await fetch(`${process.env.API_BASE_URL}/api/data`);
     const data = await res.json();
 
-    const [ { name, greetings, tags, skillSets } ] = data;
+    const { name, greetings, tags, skillSets } = data;
 
     return {
         props: { name, greetings, tags, skillSets }

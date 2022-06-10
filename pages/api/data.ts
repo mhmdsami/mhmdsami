@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import database from "../../utils/database";
 
-interface Skill {
+export interface SkillProps {
     name: string;
     slug: string;
 }
 
 export interface SkillSet {
     title: string;
-    skills: Array<Skill>
+    skills: Array<SkillProps>
 }
 
 interface Data {
@@ -20,9 +20,9 @@ interface Data {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     const db = await database();
-    const collection = db.collection("data");
-    const data: Data = JSON.parse(JSON.stringify(await collection.find().toArray()));
-    res.status(200).send(data)
+    const data: Data = JSON.parse(JSON.stringify(await db.collection("data").findOne({})));
+
+    res.status(200).json(data);
 }
 
 export default handler;
