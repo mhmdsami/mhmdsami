@@ -1,5 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import database from "../../utils/database";
+import {ProjectProps} from "./projects";
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 export interface SkillProps {
     name: string;
@@ -16,6 +17,7 @@ interface Data {
     greetings: Array<string>;
     tags: Array<string>;
     skillSets: Array<SkillSet>;
+    featuredProjects: Array<ProjectProps>
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
