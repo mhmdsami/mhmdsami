@@ -11,7 +11,7 @@ interface ProjectComponentProps {
 
 const Project = ({ name, children, image, repo, deps }: ProjectComponentProps) => {
     return (
-        <div id="projects" className="bg-gray-200 rounded-md md:rounded-xl p-5 mt-4 mb-7">
+        <div className="text-black bg-white rounded-md md:rounded-xl p-5 mt-4 mb-7">
             <div className="text-lg font-bold">{name}</div>
             {children &&
                 <div className="flex flex-col gap-3">
