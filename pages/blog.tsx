@@ -4,7 +4,7 @@ import {Layout} from "../components";
 const blog: NextPage = () => {
     return (
         <Layout pageName="Blog">
-            <div className="flex flex-col gap-4 mt-48 items-center min-h-screen">
+            <div className="flex flex-col gap-4 mt-48 items-center">
                 <div className="text-4xl font-bold">Coming Soon 👀</div>
                 <div>
                     For updates <a href="https://github.com/sm-sami/blog" className="bg-gray-100 px-1 py-0.5 rounded-md cursor-pointer">⭐ Star</a> the repo on GitHub

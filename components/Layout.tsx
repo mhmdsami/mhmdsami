@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout = ({pageName, children}: LayoutProps) => {
     return (
-        <>
+        <div className="grid min-h-screen">
             <Head>
                 <title>Mohamed Sami{pageName ? ` | ${pageName}` : ''}</title>
             </Head>
@@ -17,8 +17,10 @@ const Layout = ({pageName, children}: LayoutProps) => {
                 <Navbar />
                 <main>{children}</main>
             </div>
-            <Footer />
-        </>
+            <div className="w-full place-self-end">
+                <Footer />
+            </div>
+        </div>
     )
 }
 
