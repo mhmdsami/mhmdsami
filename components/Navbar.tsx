@@ -12,8 +12,7 @@ const Navbar = () => {
             { page: "skills", href: "/#skills" },
             { page: "projects", href: "/projects"},
             { page: "blog", href: "/blog" },
-            { page: "github", href: "https://github.com/sm-sami" },
-            { page: "resume", href: "#" }
+            { page: "github", href: "https://github.com/sm-sami" }
         ]
 
         return (
@@ -21,13 +20,14 @@ const Navbar = () => {
                 {navLinks.map(({ page, href }, index) => (
                     <li key={index} className="hover:underline"><Link href={href}>{page}</Link></li>
                 ))}
+                <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110"><a href="#">resume</a></li>
             </>
         )
     }
 
     return (
         <nav className="flex justify-between my-[10vh]">
-            <div className="text-2xl font-bold cursor-pointer">
+            <div className="text-2xl font-bold cursor-pointer text-red">
                 <Link href="/">sm-sami</Link>
             </div>
             <div className="text-xl cursor-pointer">
@@ -42,7 +42,7 @@ const Navbar = () => {
                     </button>
                     {isNavToggled && <NavbarElements />}
                 </ul>
-                <ul className="hidden md:flex gap-5">
+                <ul className="hidden md:flex gap-5 items-center">
                     <NavbarElements />
                 </ul>
             </div>
