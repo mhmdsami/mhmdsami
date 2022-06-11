@@ -17,10 +17,10 @@ const Project = ({ name, children, image, repo, deps }: ProjectComponentProps) =
                 <div className="flex flex-col gap-3">
                     {children}
                     {
-                        image ? (
-                            deps && <a href={deps}>{image && <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>}</a>
+                        deps ? (
+                            image && <a href={deps}>{image && <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>}</a>
                         ) : (
-                            <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>
+                            image && <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>
                         )
                     }
                 </div>
