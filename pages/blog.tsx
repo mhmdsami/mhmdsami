@@ -3,7 +3,7 @@ import {Layout} from "../components";
 
 const blog: NextPage = () => {
     return (
-        <Layout pageName="blog">
+        <Layout pageName="Blog">
             <div className="flex flex-col gap-4 mt-48 items-center min-h-screen">
                 <div className="text-4xl font-bold">Coming Soon 👀</div>
                 <div>
