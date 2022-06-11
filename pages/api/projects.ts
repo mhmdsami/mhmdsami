@@ -1,7 +1,7 @@
 import database from "../../utils/database";
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export interface ProjectDataProps {
+export interface ProjectProps {
     name: string;
     image?: string;
     repo?: string;
@@ -11,7 +11,7 @@ export interface ProjectDataProps {
 }
 
 interface Data {
-    data: Array<ProjectDataProps>
+    data: Array<ProjectProps>
 }
 
 const projectsHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) =>{

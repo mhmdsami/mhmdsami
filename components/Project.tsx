@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export interface ProjectProps {
+interface ProjectComponentProps {
     name: string;
     children?: React.ReactNode;
     image?: string;
@@ -9,14 +9,20 @@ export interface ProjectProps {
     deps?: string;
 }
 
-const Project = ({ name, children, image, repo, deps }: ProjectProps) => {
+const Project = ({ name, children, image, repo, deps }: ProjectComponentProps) => {
     return (
         <div id="projects" className="bg-gray-200 rounded-md md:rounded-xl p-5 mt-4 mb-7">
             <div className="text-lg font-bold">{name}</div>
             {children &&
                 <div className="flex flex-col gap-3">
                     {children}
-                    {deps && <a href={deps}><img src={image} alt={name} className="rounded-sm md:rounded-md"/></a>}
+                    {
+                        image ? (
+                            deps && <a href={deps}>{image && <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>}</a>
+                        ) : (
+                            <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>
+                        )
+                    }
                 </div>
             }
             <div className="flex gap-2 place-content-center mt-5">
