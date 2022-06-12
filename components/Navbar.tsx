@@ -26,7 +26,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="flex justify-between my-[10vh]">
+        <nav className="flex justify-between my-[10vh] content-padding">
             <div className="text-2xl font-bold cursor-pointer text-red">
                 <Link href="/">sm-sami</Link>
             </div>
