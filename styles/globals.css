@@ -58,3 +58,13 @@ a {
 .content-padding {
   @apply px-10 md:px-14 lg:px-20 xl:px-48;
 }
+
+::-webkit-scrollbar {
+  @apply rounded-b-full;
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  @apply bg-red;
+}
