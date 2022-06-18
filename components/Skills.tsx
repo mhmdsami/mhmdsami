@@ -15,7 +15,7 @@ const Skills = ({ skillSets }: SkillsProps) => {
                         <div className="text-2xl md:text-3xl text-gray-600 font-bold">{skillSet.title}</div>
                         <div className="flex gap-2 flex-wrap">
                             {skillSet.skills.map(( { name, slug }, ind) => (
-                                <div key={ind} className="bg-red text-black-dark px-2 rounded-lg font-bold"><Link href={`/skill/${slug}`}>{name}</Link></div>
+                                <div key={ind} className="bg-red text-black-dark px-2 rounded-lg font-bold transition-all duration-300 hover:-translate-y-1"><Link href={`/skill/${slug}`}>{name}</Link></div>
                             ))}
                         </div>
                     </div>

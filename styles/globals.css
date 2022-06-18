@@ -4,17 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes zoom {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-
 @keyframes wave {
-  0% {
+  from {
     transform: rotate(0deg)
   }
   10% {
@@ -32,7 +23,7 @@
   80% {
     transform: rotate(6deg)
   }
-  100% {
+  to {
     transform: rotate(0deg)
   }
 }

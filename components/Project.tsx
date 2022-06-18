@@ -31,7 +31,7 @@ const Project = ({ name, children, image, tags, repo, deps }: ProjectComponentPr
                 <div className="flex flex-wrap gap-2 mt-5 w-2/3 md:w-full">
                     <div className="font-medium">built with </div>
                     {tags.map((tag, ind) => (
-                        <div key={ind} className="bg-red text-black-dark px-2 rounded-lg font-medium h-min w-min"><Link href={`/skill/${tag}`}>{tag}</Link></div>
+                        <div key={ind} className="bg-red text-black-dark px-2 rounded-lg font-medium h-min w-min transition-all duration-300 hover:-translate-y-1"><Link href={`/skill/${tag}`}>{tag}</Link></div>
                     ))}
                 </div>
                 <div className="flex gap-2 mt-5">
