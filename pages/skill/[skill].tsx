@@ -10,7 +10,7 @@ interface SkillPageProps {
 const skill = ( { projects } : SkillPageProps) => {
     return (
         <Layout>
-            <div className="grid md:grid-cols-2 gap-x-7">
+            <div className="grid md:grid-cols-2 gap-x-7 content-padding">
                 {projects.map(( {name, image, repo, deps, tags, desc}: ProjectProps, index: number) => (
                     <Project key={index} name={name} image={image} repo={repo} deps={deps}>
                         {desc}

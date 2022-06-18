@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 @keyframes wave {
   0% {
     transform: rotate(0deg)
@@ -33,6 +42,8 @@ body {
   padding: 0;
   margin: 0;
   @apply font-body;
+  @apply bg-black-dark;
+  @apply text-white;
 }
 
 a {
@@ -42,4 +53,18 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.content-padding {
+  @apply px-10 md:px-14 lg:px-20 xl:px-48;
+}
+
+::-webkit-scrollbar {
+  @apply rounded-b-full;
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  @apply bg-red;
 }
