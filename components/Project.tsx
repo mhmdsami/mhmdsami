@@ -28,7 +28,7 @@ const Project = ({ name, children, image, tags, repo, deps }: ProjectComponentPr
                 </div>
             }
             <div className="flex justify-between items-center">
-                <div className="flex flex-wrap gap-2 mt-5 w-2/3">
+                <div className="flex flex-wrap gap-2 mt-5 w-2/3 md:w-full">
                     <div className="font-medium">built with </div>
                     {tags.map((tag, ind) => (
                         <div key={ind} className="bg-black text-white px-2 rounded-lg font-medium h-min w-min"><Link href={`/skill/${tag}`}>{tag}</Link></div>
