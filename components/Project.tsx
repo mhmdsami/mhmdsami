@@ -6,7 +6,7 @@ interface ProjectComponentProps {
     name: string;
     children?: React.ReactNode;
     image?: string;
-    tags?: Array<string>;
+    tags: Array<string>;
     repo?: string;
     deps?: string;
 }
@@ -30,7 +30,7 @@ const Project = ({ name, children, image, tags, repo, deps }: ProjectComponentPr
             <div className="flex justify-between items-center">
                 <div className="flex gap-2 mt-5">
                     <div className="font-medium">built with </div>
-                    {tags && tags.map((tag, ind) => (
+                    {tags.map((tag, ind) => (
                         <div key={ind} className="bg-black text-white px-2 rounded-lg font-medium"><Link href={`/skill/${tag}`}>{tag}</Link></div>
                     ))}
                 </div>

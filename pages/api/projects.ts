@@ -6,7 +6,7 @@ export interface ProjectProps {
     image?: string;
     repo?: string;
     deps?: string;
-    tags?: Array<string>;
+    tags: Array<string>;
     desc: string;
 }
 
