@@ -28,13 +28,13 @@ const Project = ({ name, children, image, tags, repo, deps }: ProjectComponentPr
                 </div>
             }
             <div className="flex justify-between items-center">
-                <div className="flex gap-2 mt-5">
+                <div className="flex flex-wrap gap-2 mt-5 w-2/3">
                     <div className="font-medium">built with </div>
                     {tags.map((tag, ind) => (
-                        <div key={ind} className="bg-black text-white px-2 rounded-lg font-medium"><Link href={`/skill/${tag}`}>{tag}</Link></div>
+                        <div key={ind} className="bg-black text-white px-2 rounded-lg font-medium h-min w-min"><Link href={`/skill/${tag}`}>{tag}</Link></div>
                     ))}
                 </div>
-                <div className="flex gap-2 place-content-center mt-5">
+                <div className="flex gap-2 mt-5">
                     {repo &&
                         <a href={repo} className="transition-all duration-300 hover:-translate-y-1">
                             <Image src={`/socials/github.svg`}  alt="github logo" width={28} height={28}/>
