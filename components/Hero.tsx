@@ -7,10 +7,10 @@ interface HeroProps {
 const Hero = ( {name, greetings, tags} : HeroProps) => {
     return (
     <div className="flex flex-col min-h-[85vh] bg-gradient-to-t from-black to-black-dark content-padding">
-        <main className="flex flex-col md:flex-row justify-between my-28">
-            <div className="text-3xl md:text-4xl xl:text-5xl font-medium select-none">
-                Hey there<span className="inline-block origin-bottom-right animate-wave">👋</span>, I&apos;m<br />
-                {name}
+        <main className="flex flex-col md:flex-row justify-between my-24">
+            <div className="text-3xl md:text-4xl xl:text-5xl select-none">
+                Hey there!<span className="inline-block origin-bottom-right animate-wave">👋</span> <br />
+                I&apos;m <span className="font-bold">{name}</span>
             </div>
             <div className="flex text-xl xl:text-2xl items-end text-gray select-none">
                 I craft memorable web experiences
