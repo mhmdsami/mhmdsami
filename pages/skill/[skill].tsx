@@ -12,7 +12,7 @@ const skill = ( { projects } : SkillPageProps) => {
         <Layout>
             <div className="grid md:grid-cols-2 gap-x-7 content-padding">
                 {projects.map(( {name, image, repo, deps, tags, desc}: ProjectProps, index: number) => (
-                    <Project key={index} name={name} image={image} repo={repo} deps={deps}>
+                    <Project key={index} name={name} image={image} repo={repo} deps={deps} tags={tags}>
                         {desc}
                     </Project>
                 ))}
