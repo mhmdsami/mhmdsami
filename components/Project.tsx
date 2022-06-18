@@ -20,7 +20,7 @@ const Project = ({ name, children, image, tags, repo, deps }: ProjectComponentPr
                     {children}
                     {
                         deps ? (
-                            image && <a href={deps}>{image && <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>}</a>
+                            image && <a href={deps}>{image && <img src={`/projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>}</a>
                         ) : (
                             image && <img src={`./projects/${image}`} alt={name} className="rounded-sm md:rounded-md"/>
                         )
