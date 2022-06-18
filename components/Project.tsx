@@ -37,7 +37,7 @@ const Project = ({ name, children, image, tags, repo, deps }: ProjectComponentPr
                 <div className="flex gap-2 mt-5">
                     {repo &&
                         <a href={repo} className="transition-all duration-300 hover:-translate-y-1">
-                            <Image src={`/socials/github.svg`}  alt="github logo" width={28} height={28}/>
+                            <Image src={`/socials/dark/github.svg`}  alt="github logo" width={28} height={28}/>
                         </a>
                     }
                     {deps &&
