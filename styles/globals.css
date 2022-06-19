@@ -63,3 +63,7 @@ a {
   @apply rounded-full;
   @apply bg-red;
 }
+
+::selection {
+  @apply bg-red text-black-dark
+}

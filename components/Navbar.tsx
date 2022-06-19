@@ -18,7 +18,7 @@ const Navbar = () => {
         return (
             <>
                 {navLinks.map(({ page, href }, index) => (
-                    <li key={index} className="hover:underline"><Link href={href}>{page}</Link></li>
+                    <li key={index} className="transition-all duration-300 hover:bg-red hover:text-black"><Link href={href}>{page}</Link></li>
                 ))}
                 <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110"><a href="#">resume</a></li>
             </>
