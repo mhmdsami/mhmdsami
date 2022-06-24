@@ -5,16 +5,16 @@ import type {ProjectProps} from "./api/projects";
 
 interface HomeProps {
     name: string;
-    greetings: Array<string>;
-    tags: Array<string>;
+    greeting: string;
+    tag: string;
     skillSets: Array<SkillSet>;
     featuredProjects: Array<ProjectProps>
 }
 
-const Home = ({ name, greetings, tags, skillSets, featuredProjects }: HomeProps) => {
+const Home = ({ name, greeting, tag, skillSets, featuredProjects }: HomeProps) => {
       return (
       <div className="flex flex-col">
-          <Landing name={name} greetings={greetings} tags={tags} skillSets={skillSets} featuredProjects={featuredProjects}/>
+          <Landing name={name} greeting={greeting} tag={tag} skillSets={skillSets} featuredProjects={featuredProjects}/>
       </div>
       )
 }
@@ -25,8 +25,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     const { name, greetings, tags, skillSets, featuredProjects } = data;
 
+    const greeting = greetings[Math.floor(Math.random()*greetings.length)]
+    const tag = tags[Math.floor(Math.random()*tags.length)]
+
     return {
-        props: { name, greetings, tags, skillSets, featuredProjects }
+        props: { name, greeting, tag, skillSets, featuredProjects }
     };
 }
 

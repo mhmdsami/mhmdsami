@@ -2,20 +2,20 @@ import {Link} from "react-scroll";
 
 interface HeroProps {
     name: string;
-    greetings: Array<string>;
-    tags: Array<string>;
+    greeting: string;
+    tag: string;
 }
 
-const Hero = ( {name, greetings, tags} : HeroProps) => {
+const Hero = ( {name, greeting, tag} : HeroProps) => {
     return (
     <div className="flex flex-col min-h-[85vh] bg-gradient-to-b from-black-dark to-black content-padding">
         <main className="flex flex-col md:flex-row justify-between my-28">
-            <div className="text-3xl md:text-4xl xl:text-5xl select-none">
-                Hey there!<span className="inline-block origin-bottom-right animate-wave">👋</span> <br />
-                I&apos;m <span className="font-bold">{name}</span>
+            <div className="text-3xl md:text-4xl xl:text-5xl">
+                {greeting}!<span className="inline-block origin-bottom-right animate-wave select-none">👋</span><br />
+                I&apos;m <span className="text-red font-emphasis">{name}</span>
             </div>
             <div className="flex text-xl xl:text-2xl items-end text-gray select-none">
-                I craft memorable web experiences
+                {tag}
             </div>
         </main>
         <div className="flex place-content-center animate-bounce pt-20 text-red cursor-pointer select-none">

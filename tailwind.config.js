@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily : {
-        "body": ["DM Sans", "sans-serif"]
+        "body": ["DM Sans", "sans-serif"],
+        "emphasis": ["Caveat", "sans-serif"]
       },
       colors: {
         "black": "#252423",
