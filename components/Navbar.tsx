@@ -2,28 +2,30 @@ import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll"
 import { useState } from "react";
 
+export interface NavbarRoute {
+    page: string;
+    href: string;
+    isSamePage?: boolean;
+}
 
-const Navbar = () => {
+interface NavbarProps {
+    routes: Array<NavbarRoute>;
+}
+
+const Navbar = ( {routes}: NavbarProps ) => {
     const [isNavToggled, setNavToggled] = useState<boolean>(false)
 
     const toggleNav = () => setNavToggled(!isNavToggled);
 
-    const NavbarElements = () => {
-        const navLinks = [
-            { page: "skills", href: "skills", samePage: true },
-            { page: "projects", href: "/projects", samePage: false },
-            { page: "blog", href: "/blog", samePage: false },
-            { page: "github", href: "https://github.com/sm-sami", samePage: false }
-        ]
-
+    const NavbarElements = ( {routes}: NavbarProps ) => {
         return (
             <>
-                {navLinks.map(({ page, href, samePage }, index) => (
-                    <li key={index} className="px-1 rounded-lg transition-all duration-300 hover:scale-110 hover:bg-red hover:text-black">
-                        {samePage ? <ScrollLink to={href} smooth={true} duration={700}>{page}</ScrollLink> : <Link href={href}>{page}</Link>}
+                {routes.map(( { page, href, isSamePage }: NavbarRoute, index) => (
+                    <li key={index} className="transition-all duration-300 hover:scale-110">
+                        {isSamePage ? <ScrollLink to={href} smooth={true} duration={700}>{page}</ScrollLink> : <Link href={href}>{page}</Link>}
                     </li>
                 ))}
-                <li className="px-3 py-1 rounded-xl bg-red text-black font-medium transition-all duration-300 hover:scale-110">
+                <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110">
                     <a href="#">resume</a>
                 </li>
             </>
@@ -45,10 +47,10 @@ const Navbar = () => {
                                 d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
                         </svg>
                     </button>
-                    {isNavToggled && <NavbarElements />}
+                    {isNavToggled && <NavbarElements routes={routes} />}
                 </ul>
-                <ul className="hidden md:flex gap-3 items-center">
-                    <NavbarElements />
+                <ul className="hidden md:flex gap-5 items-center">
+                    <NavbarElements routes={routes}/>
                 </ul>
             </div>
         </nav>
