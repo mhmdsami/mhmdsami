@@ -1,13 +1,14 @@
 import Link from "next/link";
-import type {SkillSet} from "../pages/api/data";
+import type { SkillSet } from "../pages/api/data";
 
 interface SkillsProps {
     skillSets: Array<SkillSet>
+    backgroundColor?: string;
 }
 
-const Skills = ({ skillSets }: SkillsProps) => {
+const Skills = ({ skillSets, backgroundColor }: SkillsProps) => {
     return (
-        <div id="skills" className="py-[5vh] content-padding bg-gradient-to-b from-black to-black-dark">
+        <div id="skills" className={`py-[5vh] content-padding ${backgroundColor}`}>
             <div className="text-base md:text-xl font-bold uppercase text-red">Skills</div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-7">
                 {skillSets.map((skillSet, index) => (

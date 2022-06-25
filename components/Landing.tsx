@@ -25,7 +25,7 @@ const Landing = ({ name, greeting, tag, skillSets, featuredProjects }: LandingPr
             <Slide top>
                 <Hero name={name} greeting={greeting} tag={tag}/>
             </Slide>
-            <Skills skillSets={skillSets}/>
+            <Skills skillSets={skillSets} backgroundColor="bg-gradient-to-b from-black to-black-dark"/>
             <FeaturedProjects projects={featuredProjects}/>
         </Layout>
     )
