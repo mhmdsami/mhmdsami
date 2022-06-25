@@ -1,5 +1,5 @@
 import { Layout, Hero, Skills, FeaturedProjects } from "./";
-import {Slide} from 'react-reveal';
+import { Slide } from 'react-awesome-reveal';
 import type {SkillSet} from "../pages/api/data";
 import {ProjectProps} from "../pages/api/projects";
 
@@ -14,7 +14,7 @@ interface LandingProps {
 const Landing = ( { name, greeting, tag, skillSets, featuredProjects }: LandingProps) => {
     return (
         <Layout pageName="Home">
-            <Slide top>
+            <Slide triggerOnce={true} direction="down">
                 <Hero name={name} greeting={greeting} tag={tag}/>
             </Slide>
             <Skills skillSets={skillSets}/>
