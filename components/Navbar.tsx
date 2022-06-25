@@ -18,16 +18,16 @@ const Navbar = () => {
         return (
             <>
                 {navLinks.map(({ page, href }, index) => (
-                    <li key={index} className="transition-all duration-300 hover:bg-red hover:text-black"><Link href={href}>{page}</Link></li>
+                    <li key={index} className="px-1 rounded-lg transition-all duration-300 hover:scale-110 hover:bg-red hover:text-black"><Link href={href}>{page}</Link></li>
                 ))}
-                <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110"><a href="#">resume</a></li>
+                <li className="px-3 py-1 rounded-xl bg-red text-black font-medium transition-all duration-300 hover:scale-110"><a href="#">resume</a></li>
             </>
         )
     }
 
     return (
         <nav className="flex justify-between my-[10vh] content-padding">
-            <div className="text-2xl font-bold cursor-pointer text-red">
+            <div className="text-2xl font-bold cursor-pointer text-red transition-all duration-300 hover:scale-110">
                 <Link href="/">sm-sami</Link>
             </div>
             <div className="text-xl cursor-pointer">
@@ -42,7 +42,7 @@ const Navbar = () => {
                     </button>
                     {isNavToggled && <NavbarElements />}
                 </ul>
-                <ul className="hidden md:flex gap-5 items-center">
+                <ul className="hidden md:flex gap-3 items-center">
                     <NavbarElements />
                 </ul>
             </div>
