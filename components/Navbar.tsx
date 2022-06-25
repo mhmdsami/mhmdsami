@@ -1,5 +1,6 @@
 import Link from "next/link";
-import {useState} from "react";
+import { Link as ScrollLink } from "react-scroll"
+import { useState } from "react";
 
 
 const Navbar = () => {
@@ -9,18 +10,22 @@ const Navbar = () => {
 
     const NavbarElements = () => {
         const navLinks = [
-            { page: "skills", href: "/#skills" },
-            { page: "projects", href: "/projects"},
-            { page: "blog", href: "/blog" },
-            { page: "github", href: "https://github.com/sm-sami" }
+            { page: "skills", href: "skills", samePage: true },
+            { page: "projects", href: "/projects", samePage: false },
+            { page: "blog", href: "/blog", samePage: false },
+            { page: "github", href: "https://github.com/sm-sami", samePage: false }
         ]
 
         return (
             <>
-                {navLinks.map(({ page, href }, index) => (
-                    <li key={index} className="px-1 rounded-lg transition-all duration-300 hover:scale-110 hover:bg-red hover:text-black"><Link href={href}>{page}</Link></li>
+                {navLinks.map(({ page, href, samePage }, index) => (
+                    <li key={index} className="px-1 rounded-lg transition-all duration-300 hover:scale-110 hover:bg-red hover:text-black">
+                        {samePage ? <ScrollLink to={href} smooth={true} duration={700}>{page}</ScrollLink> : <Link href={href}>{page}</Link>}
+                    </li>
                 ))}
-                <li className="px-3 py-1 rounded-xl bg-red text-black font-medium transition-all duration-300 hover:scale-110"><a href="#">resume</a></li>
+                <li className="px-3 py-1 rounded-xl bg-red text-black font-medium transition-all duration-300 hover:scale-110">
+                    <a href="#">resume</a>
+                </li>
             </>
         )
     }
