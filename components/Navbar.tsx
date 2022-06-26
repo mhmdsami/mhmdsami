@@ -1,26 +1,32 @@
 import Link from "next/link";
-import {useState} from "react";
+import { useState } from "react";
 
+export interface NavbarRoute {
+    page: string;
+    href: string;
+    isSamePage?: boolean;
+}
 
-const Navbar = () => {
+interface NavbarProps {
+    routes: Array<NavbarRoute>;
+}
+
+const Navbar = ( {routes}: NavbarProps ) => {
     const [isNavToggled, setNavToggled] = useState<boolean>(false)
 
     const toggleNav = () => setNavToggled(!isNavToggled);
 
-    const NavbarElements = () => {
-        const navLinks = [
-            { page: "skills", href: "/#skills" },
-            { page: "projects", href: "/projects"},
-            { page: "blog", href: "/blog" },
-            { page: "github", href: "https://github.com/sm-sami" }
-        ]
-
+    const NavbarElements = ( {routes}: NavbarProps ) => {
         return (
             <>
-                {navLinks.map(({ page, href }, index) => (
-                    <li key={index} className="transition-all duration-300 hover:bg-red hover:text-black"><Link href={href}>{page}</Link></li>
+                {routes.map(( { page, href, isSamePage }: NavbarRoute, index) => (
+                    <li key={index} className="transition-all duration-300 hover:scale-110">
+                        <Link href={href}>{page}</Link>
+                    </li>
                 ))}
-                <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110"><a href="#">resume</a></li>
+                <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110">
+                    <a href="#">resume</a>
+                </li>
             </>
         )
     }
@@ -40,10 +46,10 @@ const Navbar = () => {
                                 d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
                         </svg>
                     </button>
-                    {isNavToggled && <NavbarElements />}
+                    {isNavToggled && <NavbarElements routes={routes} />}
                 </ul>
                 <ul className="hidden md:flex gap-5 items-center">
-                    <NavbarElements />
+                    <NavbarElements routes={routes}/>
                 </ul>
             </div>
         </nav>
