@@ -1,5 +1,4 @@
 import { Error } from "../components";
-import type { GetStaticProps, GetStaticPropsContext } from "next";
 
 const custom404 = () => {
     return (
