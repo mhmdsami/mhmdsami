@@ -13,7 +13,7 @@ interface NavbarProps {
     routes: Array<NavbarRoute>;
 }
 
-const Navbar = ({ routes }: NavbarProps) => {
+const Navbar = ( {routes}: NavbarProps ) => {
     const [isNavToggled, setNavToggled] = useState<boolean>(false)
 
     const toggleNav = () => setNavToggled(!isNavToggled);
