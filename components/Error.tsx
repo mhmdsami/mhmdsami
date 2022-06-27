@@ -10,7 +10,7 @@ interface ErrorProps {
     buttonContent: string;
 }
 
-const Error = ({ pageName, errorCode, error, redirectTo, buttonContent }: ErrorProps) => {
+const Error = ({ pageName, errorCode, error, redirectTo, accessedUrl, buttonContent }: ErrorProps) => {
     const routes = [
         { page: "projects", href: "/projects"},
         { page: "blog", href: "/blog" },
@@ -23,7 +23,10 @@ const Error = ({ pageName, errorCode, error, redirectTo, buttonContent }: ErrorP
                 <Tilt>
                     <div className="text-[10rem] text-red font-bold">{errorCode}</div>
                 </Tilt>
-                <div className="text-2xl mb-5">{error}</div>
+                <div className="text-2xl mb-5">
+                    {error}&nbsp;
+                    {accessedUrl && <span className="bg-red text-black-dark font-medium px-2 py-0.5 rounded-xl">{accessedUrl}</span>}
+                </div>
                 <Button buttonContent={buttonContent} href={redirectTo} />
             </div>
         </Layout>
