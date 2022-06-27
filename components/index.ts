@@ -6,4 +6,5 @@ export { default as Skills } from "./Skills";
 export { default as Project } from "./Project";
 export { default as FeaturedProjects } from "./FeaturedProjects";
 export { default as Button } from "./Button";
+export { default as Error } from "./Error";
 export { default as Footer } from "./Footer";
