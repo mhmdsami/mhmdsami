@@ -54,7 +54,7 @@ const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
                                     <span className="bg-red text-black-dark font-medium px-2 py-0.5 rounded-xl">{name}</span>
                                     &nbsp;at the moment
                                 </div>
-                                <Button buttonContent="Show me your skills" href="/skill" />
+                                <Button buttonContent="show me your skills" href="/skill" />
                             </div>
                         )}
                     </Layout>

@@ -6,7 +6,7 @@ const custom404 = () => {
                errorCode="404"
                error="Page Not Found"
                redirectTo="/"
-               buttonContent="Take me back home"
+               buttonContent="take me back home"
         />
     )
 }
