@@ -1,7 +1,8 @@
-import { Button } from "./index";
+import { Button } from "./";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll"
 import { useState } from "react";
+import { defaultRoutes } from "../constants";
 
 export interface NavbarRoute {
     page: string;
@@ -10,15 +11,17 @@ export interface NavbarRoute {
 }
 
 interface NavbarProps {
-    routes: Array<NavbarRoute>;
+    routes?: Array<NavbarRoute>;
 }
 
-const Navbar = ( {routes}: NavbarProps ) => {
+const Navbar = ({ routes }: NavbarProps) => {
     const [isNavToggled, setNavToggled] = useState<boolean>(false)
 
     const toggleNav = () => setNavToggled(!isNavToggled);
 
     const NavbarElements = ({ routes }: NavbarProps) => {
+        routes = routes ?? defaultRoutes;
+
         return (
             <>
                 {routes.map(( { page, href, isSamePage }: NavbarRoute, index) => (

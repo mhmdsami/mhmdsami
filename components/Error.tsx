@@ -11,14 +11,8 @@ interface ErrorProps {
 }
 
 const Error = ({ pageName, errorCode, error, redirectTo, accessedUrl, buttonContent }: ErrorProps) => {
-    const routes = [
-        { page: "projects", href: "/projects"},
-        { page: "blog", href: "/blog" },
-        { page: "github", href: "https://github.com/sm-sami" }
-    ]
-
     return(
-        <Layout pageName={pageName} routes={routes}>
+        <Layout pageName={pageName}>
             <div className="grid place-items-center">
                 <Tilt>
                     <div className="text-[10rem] text-red font-bold">{errorCode}</div>

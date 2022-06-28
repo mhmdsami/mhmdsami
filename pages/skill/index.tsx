@@ -1,7 +1,6 @@
 import { Layout, Skills } from "../../components";
-import { NavbarRoute } from "../../components/Navbar";
 import { Slide } from "react-awesome-reveal";
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import type { SkillSet } from "../api/data";
 
 interface SkillPageProps {
@@ -9,15 +8,9 @@ interface SkillPageProps {
 }
 
 const skill = ({ skillSets }: SkillPageProps) => {
-    const routes: Array<NavbarRoute> = [
-        { page: "projects", href: "/projects"},
-        { page: "blog", href: "/blog" },
-        { page: "github", href: "https://github.com/sm-sami" }
-    ]
-
     return (
         <Slide triggerOnce={true} direction="down">
-            <Layout pageName="Skills" routes={routes}>
+            <Layout pageName="Skills">
                <Skills skillSets={skillSets} />
             </Layout>
         </Slide>

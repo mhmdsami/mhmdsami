@@ -1,6 +1,5 @@
 import { Layout, Project, Error, Button } from "../../components";
 import { Slide } from "react-awesome-reveal"
-import { NavbarRoute } from "../../components/Navbar";
 import React from "react";
 import type { ProjectProps } from "../api/projects";
 import type { SkillSet } from "../api/data";
@@ -13,12 +12,6 @@ interface SkillPageProps {
 }
 
 const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
-    const routes: Array<NavbarRoute> = [
-        { page: "projects", href: "/projects"},
-        { page: "blog", href: "/blog" },
-        { page: "github", href: "https://github.com/sm-sami" }
-    ]
-
     const isValidSkill = (skill: string): string | undefined => {
         let name;
         skillSets.forEach(
@@ -37,7 +30,7 @@ const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
         <>
             {name ? (
                 <Slide triggerOnce={true} direction="down">
-                    <Layout routes={routes} pageName={name}>
+                    <Layout pageName={name}>
                         {projects.length ? (
                             <div className="grid gap-x-7 content-margin">
                                 {projects.map(( {name, image, repo, deps, tags, desc}: ProjectProps, index: number) => (
