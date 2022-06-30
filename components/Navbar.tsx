@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll"
 import { useState } from "react";
 
 export interface NavbarRoute {
@@ -21,7 +22,7 @@ const Navbar = ( {routes}: NavbarProps ) => {
             <>
                 {routes.map(( { page, href, isSamePage }: NavbarRoute, index) => (
                     <li key={index} className="transition-all duration-300 hover:scale-110">
-                        <Link href={href}>{page}</Link>
+                        {isSamePage ? <ScrollLink to={href} smooth={true} duration={700}>{page}</ScrollLink> : <Link href={href}>{page}</Link>}
                     </li>
                 ))}
                 <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110">
@@ -33,7 +34,7 @@ const Navbar = ( {routes}: NavbarProps ) => {
 
     return (
         <nav className="flex justify-between my-[10vh] content-padding">
-            <div className="text-2xl font-bold cursor-pointer text-red">
+            <div className="text-2xl font-bold cursor-pointer text-red transition-all duration-300 hover:scale-110">
                 <Link href="/">sm-sami</Link>
             </div>
             <div className="text-xl cursor-pointer">
