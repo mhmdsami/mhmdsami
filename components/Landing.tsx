@@ -1,8 +1,8 @@
 import { Layout, Hero, Skills, FeaturedProjects } from "./";
 import { Slide } from 'react-awesome-reveal';
+import { homePageRoutes } from "../constants";
 import type { SkillSet } from "../pages/api/data";
-import { ProjectProps } from "../pages/api/projects";
-import type { NavbarRoute } from "./Navbar";
+import type { ProjectProps } from "../pages/api/projects";
 
 interface LandingProps {
     name: string;
@@ -13,19 +13,12 @@ interface LandingProps {
 }
 
 const Landing = ({ name, greeting, tag, skillSets, featuredProjects }: LandingProps) => {
-    const routes: Array<NavbarRoute> = [
-        { page: "skills", href: "skills", isSamePage: true },
-        { page: "projects", href: "/projects"},
-        { page: "blog", href: "/blog" },
-        { page: "github", href: "https://github.com/sm-sami" }
-    ]
-
     return (
-        <Layout pageName="Home" routes={routes}>
+        <Layout pageName="Home" routes={homePageRoutes}>
             <Slide triggerOnce={true} direction="down">
                 <Hero name={name} greeting={greeting} tag={tag}/>
             </Slide>
-            <Skills skillSets={skillSets}/>
+            <Skills skillSets={skillSets} backgroundColor="bg-gradient-to-b from-black to-black-dark"/>
             <FeaturedProjects projects={featuredProjects}/>
         </Layout>
     )

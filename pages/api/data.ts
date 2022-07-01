@@ -5,6 +5,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 export interface SkillProps {
     name: string;
     slug: string;
+    hasPage: boolean;
 }
 
 export interface SkillSet {

@@ -5,7 +5,7 @@ import { NavbarRoute } from "./Navbar";
 
 interface LayoutProps {
     pageName?: string,
-    routes: Array<NavbarRoute>
+    routes?: Array<NavbarRoute>
     children: React.ReactNode
 }
 
