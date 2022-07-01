@@ -1,6 +1,8 @@
+import { Button } from "./";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll"
 import { useState } from "react";
+import { defaultRoutes } from "../constants";
 
 export interface NavbarRoute {
     page: string;
@@ -9,15 +11,17 @@ export interface NavbarRoute {
 }
 
 interface NavbarProps {
-    routes: Array<NavbarRoute>;
+    routes?: Array<NavbarRoute>;
 }
 
-const Navbar = ( {routes}: NavbarProps ) => {
+const Navbar = ({ routes }: NavbarProps) => {
     const [isNavToggled, setNavToggled] = useState<boolean>(false)
 
     const toggleNav = () => setNavToggled(!isNavToggled);
 
-    const NavbarElements = ( {routes}: NavbarProps ) => {
+    const NavbarElements = ({ routes }: NavbarProps) => {
+        routes = routes ?? defaultRoutes;
+
         return (
             <>
                 {routes.map(( { page, href, isSamePage }: NavbarRoute, index) => (
@@ -25,9 +29,7 @@ const Navbar = ( {routes}: NavbarProps ) => {
                         {isSamePage ? <ScrollLink to={href} smooth={true} duration={700}>{page}</ScrollLink> : <Link href={href}>{page}</Link>}
                     </li>
                 ))}
-                <li className="px-4 py-1 rounded-3xl bg-red text-black font-medium transition-all duration-300 hover:scale-110">
-                    <a href="#">resume</a>
-                </li>
+                <Button buttonContent="resume" href="#"/>
             </>
         )
     }
