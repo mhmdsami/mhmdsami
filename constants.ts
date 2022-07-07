@@ -22,3 +22,9 @@ export const blogPageRoutes = [
     { page: "projects", href: "/projects"},
     { page: "github", href: "https://github.com/sm-sami" }
 ]
+
+export const footerRoutes = [
+    { page: "github" , href: "https://github.com/sm-sami" },
+    { page: "linkedin", href: "https://www.linkedin.com/in/sm-sami/" },
+    { page: "instagram", href: "https://www.instagram.com/graphicdesigner.js/" }
+]
