@@ -1,6 +1,6 @@
 import { Layout, Hero, Skills, FeaturedProjects } from "./";
-import { Slide } from 'react-awesome-reveal';
 import { homePageRoutes } from "../constants";
+import { Slide } from 'react-awesome-reveal';
 import type { SkillSet } from "../pages/api/data";
 import type { ProjectProps } from "../pages/api/projects";
 
