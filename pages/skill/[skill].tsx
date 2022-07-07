@@ -1,5 +1,4 @@
 import { Layout, Project, Error, Button } from "../../components";
-import { Slide } from "react-awesome-reveal"
 import React from "react";
 import type { ProjectProps } from "../api/projects";
 import type { SkillSet } from "../api/data";
@@ -29,29 +28,27 @@ const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
     return (
         <>
             {name ? (
-                <Slide triggerOnce={true} direction="down">
-                    <Layout pageName={name}>
-                        {projects.length ? (
-                            <div className="grid gap-x-7 content-margin">
-                                {projects.map(( {name, image, repo, deps, tags, desc}: ProjectProps, index: number) => (
-                                    <Project key={index} name={name} image={image} repo={repo} deps={deps} tags={tags}>
-                                        {desc}
-                                    </Project>
-                                ))}
+                <Layout pageName={name}>
+                    {projects.length ? (
+                        <div className="grid gap-x-7 content-margin">
+                            {projects.map(( {name, image, repo, deps, tags, desc}: ProjectProps, index: number) => (
+                                <Project key={index} name={name} image={image} repo={repo} deps={deps} tags={tags}>
+                                    {desc}
+                                </Project>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="flex flex-col gap-4 items-center content-padding">
+                            <div className="text-3xl font-bold">
+                                Unfortunately,<br/>
+                                I don&apos;t have any open source projects for&nbsp;
+                                <span className="bg-red text-black-dark font-bold px-2 py-0.5 rounded-xl">{name}</span>
+                                &nbsp;at the moment
                             </div>
-                        ) : (
-                            <div className="flex flex-col gap-4 items-center">
-                                <div className="text-3xl font-bold">
-                                    Unfortunately,<br/>
-                                    I don&apos;t have any open source projects for&nbsp;
-                                    <span className="bg-red text-black-dark font-medium px-2 py-0.5 rounded-xl">{name}</span>
-                                    &nbsp;at the moment
-                                </div>
-                                <Button buttonContent="show me your skills" href="/skill" />
-                            </div>
-                        )}
-                    </Layout>
-                </Slide>
+                            <Button buttonContent="show me your skills" href="/skill" />
+                        </div>
+                    )}
+                </Layout>
             ) : (
                 <Error pageName="Skill Not Found"
                        errorCode="404"
