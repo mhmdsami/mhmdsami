@@ -1,4 +1,4 @@
-import {Link} from "react-scroll";
+import { Link } from "react-scroll";
 
 interface HeroProps {
     name: string;
@@ -10,7 +10,7 @@ const Hero = ( {name, greeting, tag} : HeroProps) => {
     return (
     <div className="flex flex-col min-h-[85vh] bg-gradient-to-b from-black-dark to-black content-padding">
         <main className="flex flex-col md:flex-row justify-between my-28">
-            <div className="text-3xl md:text-4xl xl:text-5xl">
+            <div className="text-4xl lg:text-5xl">
                 {greeting}!<span className="inline-block origin-bottom-right animate-wave select-none">👋</span><br />
                 I&apos;m <span className="text-red font-emphasis">{name}</span>
             </div>
