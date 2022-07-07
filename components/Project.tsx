@@ -14,13 +14,13 @@ interface ProjectComponentProps {
 
 const Project = ({ name, children, image, tags, repo, deps }: ProjectComponentProps) => {
     return (
-        <Fade triggerOnce={true}>
+        <Fade triggerOnce={true} className="hover:z-20">
             <div className="bg-black rounded-md md:rounded-xl p-5 mt-4 mb-7">
                 <div className="text-lg font-bold">{name}</div>
                 {children &&
                     <div className="flex flex-col gap-3">
                         {children}
-                        <div className="hover:scale-150 z-10 hover:z-20 duration-300">
+                        <div className="hover:scale-150 z-10 duration-300">
                             {
                                 deps ? (
                                     image && <a href={deps}><Image src={`/projects/${image}`} width={2880} height={1410} alt={name} className="rounded-sm md:rounded-md"/></a>
