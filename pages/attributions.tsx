@@ -1,6 +1,7 @@
-import { Layout, Inspirations, AssetAttributions } from "../components";
+import { Layout, Inspirations, AssetAttributions, TechStack } from "../components";
 import { Fade }  from "react-awesome-reveal";
 import type { GetServerSideProps } from "next";
+import techStack from "../components/TechStack";
 
 export interface InspirationProps {
     name: string;
@@ -15,17 +16,24 @@ export interface AssetAttributionProps {
     contributorUrl: string;
 }
 
+export interface TechStackProps {
+    name: string;
+    url: string;
+}
+
 interface AttributionPageProps {
     inspirations: Array<InspirationProps>;
     assets: Array<AssetAttributionProps>
+    techStack: Array<TechStackProps>
 }
 
-const attributions = ({ inspirations, assets }: AttributionPageProps) => {
+const attributions = ({ inspirations, assets, techStack }: AttributionPageProps) => {
     return (
         <Layout pageName="Attributions">
             <Fade triggerOnce={true}>
                 <div className="grid gap-3 place-content-center">
                     <Inspirations inspirations={inspirations} />
+                    <TechStack techStack={techStack} />
                     <AssetAttributions assets={assets} />
                 </div>
             </Fade>
@@ -37,10 +45,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const res = await fetch(`${process.env.API_BASE_URL}/api/data`);
     const data = await res.json();
 
-    const { inspirations, assets } = data;
+    const { inspirations, assets, techStack } = data;
 
     return {
-        props: { inspirations, assets }
+        props: { inspirations, assets, techStack }
     };
 }
 
