@@ -31,7 +31,7 @@ const Project = ({ name, children, image, tags, repo, deps, contributed, organiz
                                 deps ? (
                                     image && <a href={deps}><Image src={`/projects/${image}`} width={2880} height={1410} alt={name} className="rounded-sm md:rounded-md"/></a>
                                 ) : (
-                                    image && <Image src={`./projects/${image}`} width={2880} height={1410} alt={name} className="rounded-sm md:rounded-md"/>
+                                    image && <Image src={`/projects/${image}`} width={2880} height={1410} alt={name} className="rounded-sm md:rounded-md"/>
                                 )
                             }
                         </div>
