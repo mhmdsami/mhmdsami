@@ -1,4 +1,5 @@
 import { Layout, Inspirations, AssetAttributions } from "../components";
+import { Fade }  from "react-awesome-reveal";
 import type { GetServerSideProps } from "next";
 
 export interface InspirationProps {
@@ -22,10 +23,12 @@ interface AttributionPageProps {
 const attributions = ({ inspirations, assets }: AttributionPageProps) => {
     return (
         <Layout pageName="Attributions">
-            <div className="grid gap-3 place-content-center">
-                <Inspirations inspirations={inspirations} />
-                <AssetAttributions assets={assets} />
-            </div>
+            <Fade triggerOnce={true}>
+                <div className="grid gap-3 place-content-center">
+                    <Inspirations inspirations={inspirations} />
+                    <AssetAttributions assets={assets} />
+                </div>
+            </Fade>
         </Layout>
     )
 }

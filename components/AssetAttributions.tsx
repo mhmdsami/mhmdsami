@@ -9,7 +9,7 @@ const AssetAttributions = ({ assets }: AssetAttributionComponentProps) => {
         <>
             <h1 className="text-base md:text-xl font-bold uppercase text-red">Asset Attribution</h1>
             {assets.map(({ name, assetUrl, contributorName, contributorUrl }: AssetAttributionProps, index: number) => (
-                <div key={index} className="text-lg">
+                <div key={index} className="text-base md:text-lg">
                     <a href={assetUrl} target="_blank" className="font-bold hover:underline" rel="noreferrer">{name}</a> by <a href={contributorUrl} target="_blank" className="font-bold hover:underline" rel="noreferrer">{contributorName}</a>
                 </div>
             ))}
