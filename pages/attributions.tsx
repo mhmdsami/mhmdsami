@@ -1,7 +1,6 @@
 import { Layout, Inspirations, AssetAttributions, TechStack } from "../components";
 import { Fade }  from "react-awesome-reveal";
 import type { GetServerSideProps } from "next";
-import techStack from "../components/TechStack";
 
 export interface InspirationProps {
     name: string;
