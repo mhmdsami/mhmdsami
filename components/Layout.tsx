@@ -1,7 +1,7 @@
+import { Navbar, Footer } from "./";
 import React from "react";
 import Head from "next/head";
-import { Navbar, Footer } from "./";
-import { NavbarRoute } from "./Navbar";
+import type { NavbarRoute } from "./Navbar";
 
 interface LayoutProps {
     pageName?: string,

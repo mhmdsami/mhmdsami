@@ -1,7 +1,7 @@
 import { Landing } from "../components";
-import type {GetServerSideProps} from 'next'
-import type {SkillSet} from "./api/data";
-import type {ProjectProps} from "./api/projects";
+import type { GetServerSideProps } from 'next'
+import type { SkillSet } from "./api/data";
+import type { ProjectProps } from "./api/projects";
 
 interface HomeProps {
     name: string;
@@ -13,9 +13,9 @@ interface HomeProps {
 
 const Home = ({ name, greeting, tag, skillSets, featuredProjects }: HomeProps) => {
       return (
-      <div className="flex flex-col">
-          <Landing name={name} greeting={greeting} tag={tag} skillSets={skillSets} featuredProjects={featuredProjects}/>
-      </div>
+          <div className="flex flex-col">
+              <Landing name={name} greeting={greeting} tag={tag} skillSets={skillSets} featuredProjects={featuredProjects}/>
+          </div>
       )
 }
 

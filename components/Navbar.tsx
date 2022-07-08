@@ -1,8 +1,8 @@
 import { Button } from "./";
-import Link from "next/link";
+import { defaultRoutes } from "../constants";
 import { Link as ScrollLink } from "react-scroll"
 import { useState } from "react";
-import { defaultRoutes } from "../constants";
+import Link from "next/link";
 
 export interface NavbarRoute {
     page: string;

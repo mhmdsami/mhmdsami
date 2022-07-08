@@ -1,12 +1,11 @@
-import {Project} from "./";
-import React from "react";
-import {ProjectProps} from "../pages/api/projects";
+import { Project } from "./";
+import type { ProjectProps } from "../pages/api/projects";
 
 interface FeaturedProjectsProps {
     projects: Array<ProjectProps>
 }
 
-const FeaturedProjects = ( {projects}: FeaturedProjectsProps ) => {
+const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
     return (
         <div id="projects" className="mt-[5vh] content-padding mb-10">
             <div className="text-red text-base md:text-xl font-bold uppercase">Featured Projects</div>

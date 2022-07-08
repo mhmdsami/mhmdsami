@@ -1,5 +1,5 @@
 import database from "../../utils/database";
-import {ProjectProps} from "./projects";
+import type { ProjectProps } from "./projects";
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export interface SkillProps {
