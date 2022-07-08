@@ -41,7 +41,7 @@ const Project = ({ name, children, image, tags, repo, deps, contributed, organiz
                     <div className="flex flex-wrap gap-2 mt-5 w-2/3 md:w-full">
                         <div className="font-medium">built with </div>
                         {tags.slice(0, 3).map((tag, index) => (
-                            <div key={index}><Link href={`/skill/${tag}`}><Tag>{tag}</Tag></Link></div>
+                            <div key={index}><Tag><Link href={`/skill/${tag}`}>{tag}</Link></Tag></div>
                         ))}
                         {tags.length > 3 && <Tag>+{tags.length - 3}</Tag>}
                     </div>
