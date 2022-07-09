@@ -8,6 +8,8 @@ export interface ProjectProps {
     deps?: string;
     tags: Array<string>;
     desc: string;
+    contributed?: boolean;
+    organizationUrl?: string;
 }
 
 interface Data {
