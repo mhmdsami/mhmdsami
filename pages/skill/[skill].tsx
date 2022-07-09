@@ -1,5 +1,4 @@
 import { Layout, Project, Error, Button } from "../../components";
-import React from "react";
 import type { ProjectProps } from "../api/projects";
 import type { SkillSet } from "../api/data";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
@@ -31,8 +30,8 @@ const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
                 <Layout pageName={name}>
                     {projects.length ? (
                         <div className="grid gap-x-7 content-margin">
-                            {projects.map(( {name, image, repo, deps, tags, desc}: ProjectProps, index: number) => (
-                                <Project key={index} name={name} image={image} repo={repo} deps={deps} tags={tags}>
+                            {projects.map(({ name, image, repo, deps, tags, desc, contributed, organizationUrl }: ProjectProps, index: number) => (
+                                <Project key={index} name={name} image={image} repo={repo} deps={deps} tags={tags} contributed={contributed} organizationUrl={organizationUrl}>
                                     {desc}
                                 </Project>
                             ))}
