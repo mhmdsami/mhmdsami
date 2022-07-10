@@ -21,7 +21,7 @@ const Error = ({ pageName, errorCode, error, redirectTo, accessedUrl, buttonCont
                     {error}&nbsp;
                     {accessedUrl && <span className="bg-red text-black-dark font-medium px-2 py-0.5 rounded-xl">{accessedUrl}</span>}
                 </div>
-                <Button buttonContent={buttonContent} href={redirectTo} />
+                <Button href={redirectTo}>{buttonContent}</Button>
             </div>
         </Layout>
     )
