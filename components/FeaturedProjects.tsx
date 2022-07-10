@@ -1,4 +1,4 @@
-import { Project } from "./";
+import {Button, Project} from "./";
 import type { ProjectProps } from "../pages/api/projects";
 
 interface FeaturedProjectsProps {
@@ -15,6 +15,9 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
                         {desc}
                     </Project>
                 ))}
+            </div>
+            <div className="float-right text-lg transition-all duration-300 hover:scale-110">
+                <Button href="/projects">browse other projects</Button>
             </div>
         </div>
     )
