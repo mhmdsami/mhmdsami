@@ -29,7 +29,7 @@ const Navbar = ({ routes }: NavbarProps) => {
                         {isSamePage ? <ScrollLink to={href} smooth={true} duration={700}>{page}</ScrollLink> : <Link href={href}>{page}</Link>}
                     </li>
                 ))}
-                <Button buttonContent="resume" href="sm-sami.pdf" download="sm-sami.pdf"/>
+                <Button href="sm-sami.pdf" download="sm-sami.pdf">resume</Button>
             </>
         )
     }
