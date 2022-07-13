@@ -6,6 +6,7 @@ import Link from "next/link";
 
 interface ProjectComponentProps {
     name: string;
+    project?: string;
     children?: React.ReactNode;
     image?: string;
     tags: Array<string>;
@@ -15,12 +16,16 @@ interface ProjectComponentProps {
     organizationUrl?: string;
 }
 
-const Project = ({ name, children, image, tags, repo, deps, contributed, organizationUrl }: ProjectComponentProps) => {
+const Project = ({ name, project, children, image, tags, repo, deps, contributed, organizationUrl }: ProjectComponentProps) => {
     return (
         <Fade triggerOnce={true} className="hover:z-20">
             <div className="bg-black rounded-md md:rounded-xl p-5 mt-4 mb-7">
                 <div className="flex justify-between">
-                    <div className="text-lg font-bold">{name}</div>
+                    {project ? (
+                        <div className="text-lg font-bold"><Link href={`/projects/${project}`}>{name}</Link></div>
+                    ) : (
+                        <div className="text-lg font-bold">{name}</div>
+                    )}
                     {contributed && <Tag><a href={organizationUrl}>contributed</a></Tag>}
                 </div>
                 {children &&
@@ -43,7 +48,12 @@ const Project = ({ name, children, image, tags, repo, deps, contributed, organiz
                         {tags.slice(0, 3).map((tag, index) => (
                             <div key={index}><Tag><Link href={`/skill/${tag}`}>{tag}</Link></Tag></div>
                         ))}
-                        {tags.length > 3 && <Tag>+{tags.length - 3}</Tag>}
+                        {tags.length > 3 && (
+                            project ? (
+                                <Tag><Link href={`/projects/${project}`}>{`+${tags.length-3}`}</Link></Tag>
+                            ) : (
+                                <Tag>+{tags.length - 3}</Tag>
+                        ))}
                     </div>
                     <div className="flex gap-2 mt-5">
                         {repo &&
