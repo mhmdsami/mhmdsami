@@ -1,4 +1,4 @@
-import database from "../../utils/database";
+import database from "../../../utils/database";
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export interface ProjectProps {
@@ -10,6 +10,7 @@ export interface ProjectProps {
     desc: string;
     contributed?: boolean;
     organizationUrl?: string;
+    project: string;
 }
 
 interface Data {
