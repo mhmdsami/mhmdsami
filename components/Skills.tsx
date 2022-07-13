@@ -17,7 +17,7 @@ const Skills = ({ skillSets, backgroundColor }: SkillsProps) => {
                         <div className="flex gap-2 flex-wrap">
                             {skills.map(( { name, slug, hasPage }, ind) => (
                                 <div key={ind} className="bg-red text-black-dark px-2 rounded-lg font-bold transition-all duration-300 hover:-translate-y-1">
-                                    {hasPage ? <Link href={`/skill/${slug}`}>{name}</Link> : name}
+                                    {hasPage ? <Link href={`/skills/${slug}`}>{name}</Link> : name}
                                 </div>
                             ))}
                         </div>
