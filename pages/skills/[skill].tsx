@@ -53,7 +53,7 @@ const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
                        errorCode="404"
                        error="Skill Not Found"
                        accessedUrl={skill}
-                       redirectTo="/skill"
+                       redirectTo="/skills"
                        buttonContent="Show me your skills"
                 />
             )}
