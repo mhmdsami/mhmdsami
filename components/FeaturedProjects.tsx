@@ -1,4 +1,4 @@
-import { ProjectList, Button } from "./";
+import { ProjectList, Button } from "@components";
 import type { ProjectProps } from "../pages/api/projects";
 
 interface FeaturedProjectsProps {
