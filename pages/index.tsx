@@ -11,10 +11,10 @@ interface HomeProps {
     featuredProjects: Array<ProjectProps>
 }
 
-const Home = ({ name, greeting, tag, skillSets, featuredProjects }: HomeProps) => {
+const Home = (homeProps: HomeProps) => {
       return (
           <div className="flex flex-col">
-              <Landing name={name} greeting={greeting} tag={tag} skillSets={skillSets} featuredProjects={featuredProjects}/>
+              <Landing {...homeProps}/>
           </div>
       )
 }

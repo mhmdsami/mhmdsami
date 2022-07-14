@@ -12,19 +12,9 @@ const projects = ({ projects }: ProjectsPageProps) => {
     return (
         <Layout pageName="Projects" routes={projectsPageRoutes}>
             <div className="grid gap-x-7 content-margin">
-                {projects.map(({ name, project, image, repo, deps, tags, desc, contributed, organizationUrl }: ProjectProps, index: number) => (
-                    <Project
-                        key={index}
-                        name={name}
-                        project={project}
-                        image={image}
-                        repo={repo}
-                        deps={deps}
-                        tags={tags}
-                        contributed={contributed}
-                        organizationUrl={organizationUrl}
-                    >
-                        {desc}
+                {projects.map((project: ProjectProps, index: number) => (
+                    <Project key={index} {...project}>
+                        {project.desc}
                     </Project>
                 ))}
             </div>
