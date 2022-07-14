@@ -1,4 +1,4 @@
-import { Tag } from "../components";
+import { Tag } from "@components";
 import { Fade } from "react-awesome-reveal"
 import React from "react";
 import Image from "next/image";

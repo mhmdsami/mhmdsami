@@ -1,4 +1,4 @@
-import { Error, Layout, Tag } from "../../components";
+import { Error, Layout, Tag } from "@components";
 import Image from "next/image";
 import Link from "next/link";
 import type { ProjectProps } from "../api/projects";

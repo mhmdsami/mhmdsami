@@ -1,4 +1,4 @@
-import { footerRoutes } from "../constants";
+import { footerRoutes } from "@constants";
 import Image from "next/image";
 import Link from "next/link"
 

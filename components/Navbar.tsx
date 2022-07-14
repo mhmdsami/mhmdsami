@@ -1,5 +1,5 @@
 import { Button } from "./";
-import { defaultRoutes } from "../constants";
+import { defaultRoutes } from "@constants";
 import { Link as ScrollLink } from "react-scroll"
 import { useState } from "react";
 import Link from "next/link";
