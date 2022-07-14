@@ -1,4 +1,4 @@
-import { Layout, Project, Error, Button } from "../../components";
+import { Layout, ProjectList, Error, Button } from "../../components";
 import type { ProjectProps } from "../api/projects";
 import type { SkillSet } from "../api/data";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
@@ -30,11 +30,7 @@ const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
                 <Layout pageName={name}>
                     {projects.length ? (
                         <div className="grid gap-x-7 content-margin">
-                            {projects.map((project: ProjectProps, index: number) => (
-                                <Project key={index} {...project}>
-                                    {project.desc}
-                                </Project>
-                            ))}
+                            <ProjectList projects={projects} />
                         </div>
                     ) : (
                         <div className="flex flex-col gap-4 items-center content-padding">
