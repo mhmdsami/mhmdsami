@@ -1,4 +1,4 @@
-import database from "../../../utils/database";
+import database from "@utils/database";
 import type { NextApiRequest, NextApiResponse } from 'next'
 import type { ProjectProps } from "./";
 
@@ -6,7 +6,7 @@ interface Data {
     data: ProjectProps
 }
 
-const projectsHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) =>{
+const projectHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) =>{
     const { project } = req.query;
     const db = await database();
     const data: Data = JSON.parse(JSON.stringify(await db.collection("projects").findOne({ project })));
@@ -14,4 +14,4 @@ const projectsHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) 
     res.status(200).json(data);
 }
 
-export default projectsHandler;
+export default projectHandler;

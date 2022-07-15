@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@components": ["components/index.ts"],
+      "@utils/*": ["utils/*"],
       "@constants": ["constants.ts"]
     }
   },
