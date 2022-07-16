@@ -4,79 +4,110 @@ import type { SkillSet } from "../api/data";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 interface SkillPageProps {
-    projects: Array<ProjectProps>;
-    skill: string;
-    skillSets: Array<SkillSet>;
+  projects: Array<ProjectProps>;
+  skill: string;
+  skillSets: Array<SkillSet>;
 }
 
-const skill = ({ projects, skill, skillSets } : SkillPageProps) => {
-    const isValidSkill = (skill: string): string | undefined => {
-        let name;
-        skillSets.forEach(
-            skillSet => skillSet.skills.forEach(
-                _skill => {
-                    if(_skill.slug === skill) {
-                        name =  _skill.name;
-                    }
-                }));
-        return name;
-    }
+const skill = ({ projects, skill, skillSets }: SkillPageProps) => {
+  const isValidSkill = (skill: string): string | undefined => {
+    let name;
+    skillSets.forEach((skillSet) =>
+      skillSet.skills.forEach((_skill) => {
+        if (_skill.slug === skill) {
+          name = _skill.name;
+        }
+      })
+    );
+    return name;
+  };
 
-    const name = isValidSkill(skill);
+  const name = isValidSkill(skill);
 
-    return (
-        <>
-            {name ? (
-                <Layout pageName={name}>
-                    {projects.length ? (
-                        <div className="grid gap-x-7 content-margin">
-                            {projects.map(({ name, image, repo, deps, tags, desc, contributed, organizationUrl }: ProjectProps, index: number) => (
-                                <Project key={index} name={name} image={image} repo={repo} deps={deps} tags={tags} contributed={contributed} organizationUrl={organizationUrl}>
-                                    {desc}
-                                </Project>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="flex flex-col gap-4 items-center content-padding">
-                            <div className="text-3xl font-bold">
-                                Unfortunately,<br/>
-                                I don&apos;t have any open source projects for&nbsp;
-                                <span className="bg-red text-black-dark font-bold px-2 py-0.5 rounded-xl">{name}</span>
-                                &nbsp;at the moment
-                            </div>
-                            <Button buttonContent="show me your skills" href="/skills" />
-                        </div>
-                    )}
-                </Layout>
-            ) : (
-                <Error pageName="Skill Not Found"
-                       errorCode="404"
-                       error="Skill Not Found"
-                       accessedUrl={skill}
-                       redirectTo="/skills"
-                       buttonContent="Show me your skills"
-                />
-            )}
-        </>
-    )
-}
+  return (
+    <>
+      {name ? (
+        <Layout pageName={name}>
+          {projects.length ? (
+            <div className="content-margin grid gap-x-7">
+              {projects.map(
+                (
+                  {
+                    name,
+                    image,
+                    repo,
+                    deps,
+                    tags,
+                    desc,
+                    contributed,
+                    organizationUrl,
+                  }: ProjectProps,
+                  index: number
+                ) => (
+                  <Project
+                    key={index}
+                    name={name}
+                    image={image}
+                    repo={repo}
+                    deps={deps}
+                    tags={tags}
+                    contributed={contributed}
+                    organizationUrl={organizationUrl}
+                  >
+                    {desc}
+                  </Project>
+                )
+              )}
+            </div>
+          ) : (
+            <div className="content-padding flex flex-col items-center gap-4">
+              <div className="text-3xl font-bold">
+                Unfortunately,
+                <br />I don&apos;t have any open source projects for&nbsp;
+                <span className="rounded-xl bg-red px-2 py-0.5 font-bold text-black-dark">
+                  {name}
+                </span>
+                &nbsp;at the moment
+              </div>
+              <Button buttonContent="show me your skills" href="/skills" />
+            </div>
+          )}
+        </Layout>
+      ) : (
+        <Error
+          pageName="Skill Not Found"
+          errorCode="404"
+          error="Skill Not Found"
+          accessedUrl={skill}
+          redirectTo="/skills"
+          buttonContent="Show me your skills"
+        />
+      )}
+    </>
+  );
+};
 
-export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
-    const skill = typeof context.query.skill === "string" ? context.query.skill : " ";
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const skill =
+    typeof context.query.skill === "string" ? context.query.skill : " ";
 
-    let res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
-    let data = await res.json();
+  let res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
+  let data = await res.json();
 
-    const projects: Array<ProjectProps> = data.filter(({ tags }: ProjectProps) => tags.includes(skill));
+  const projects: Array<ProjectProps> = data.filter(({ tags }: ProjectProps) =>
+    tags.includes(skill)
+  );
 
-    res = await fetch(`${process.env.API_BASE_URL}/api/data`);
-    data = await res.json();
+  res = await fetch(`${process.env.API_BASE_URL}/api/data`);
+  data = await res.json();
 
-    const { skillSets } = data;
+  const { skillSets } = data;
 
-    return {
-        props: { projects, skill, skillSets }
-    };
+  return {
+    props: { projects, skill, skillSets },
+  };
 };
 
 export default skill;
