@@ -1,10 +1,10 @@
-import { Error, Layout, Tag } from "@components";
+import {Button, Error, Layout, Tag} from "@components";
 import Image from "next/image";
 import Link from "next/link";
 import type { ProjectProps } from "../api/projects";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-const project = ({ name, project, desc, tags, image }: ProjectProps) => {
+const project = ({ name, project, desc, deps, tags, image }: ProjectProps) => {
     return(
         <div>
             {name ?(
@@ -16,8 +16,11 @@ const project = ({ name, project, desc, tags, image }: ProjectProps) => {
                             <p className="uppercase font-bold whitespace-nowrap">built with</p>
                             <div className="flex flex-wrap md:flex-nowrap gap-2">{tags.map((tag, index) => <Tag key={index}><Link href={`/skills/${tag}`}>{tag}</Link></Tag>)}</div>
                         </div>
-                        <div className="p-1" />
-                        <div className="self-center">{image && <Image src={`/projects/${image}`} alt={name} width={2880} height={1410} className="rounded-sm md:rounded-md" />}</div>
+                        <div className="self-center">
+                            {image && (deps
+                                    ? <Link href={deps}><Image src={`/projects/${image}`} alt={name} width={2880} height={1410} className="rounded-sm md:rounded-md hover:cursor-pointer" /></Link>
+                                    : <Image src={`/projects/${image}`} alt={name} width={2880} height={1410} className="rounded-sm md:rounded-md" />)}
+                        </div>
                     </div>
                 </Layout>
             ) : (
