@@ -1,5 +1,5 @@
-import { Button } from "./";
-import { defaultRoutes } from "../constants";
+import { Button } from "@components";
+import { defaultRoutes } from "@constants";
 import { Link as ScrollLink } from "react-scroll";
 import { useState } from "react";
 import Link from "next/link";
@@ -21,7 +21,6 @@ const Navbar = ({ routes }: NavbarProps) => {
 
   const NavbarElements = ({ routes }: NavbarProps) => {
     routes = routes ?? defaultRoutes;
-
     return (
       <>
         {routes.map(({ page, href, isSamePage }: NavbarRoute, index) => (
@@ -38,11 +37,9 @@ const Navbar = ({ routes }: NavbarProps) => {
             )}
           </li>
         ))}
-        <Button
-          buttonContent="resume"
-          href="sm-sami.pdf"
-          download="sm-sami.pdf"
-        />
+        <Button href="sm-sami.pdf" download="sm-sami.pdf">
+          resume
+        </Button>
       </>
     );
   };

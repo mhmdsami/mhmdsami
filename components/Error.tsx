@@ -1,4 +1,4 @@
-import { Layout, Button } from "./";
+import { Layout, Button } from "@components";
 import Tilt from "react-tilt";
 
 interface ErrorProps {
@@ -32,7 +32,7 @@ const Error = ({
             </span>
           )}
         </div>
-        <Button buttonContent={buttonContent} href={redirectTo} />
+        <Button href={redirectTo}>{buttonContent}</Button>
       </div>
     </Layout>
   );

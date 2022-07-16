@@ -1,4 +1,4 @@
-import { Layout, Skills } from "../../components";
+import { Layout, Skills } from "@components";
 import { Slide } from "react-awesome-reveal";
 import type { GetServerSideProps } from "next";
 import type { SkillSet } from "../api/data";
@@ -7,7 +7,7 @@ interface SkillPageProps {
   skillSets: Array<SkillSet>;
 }
 
-const skill = ({ skillSets }: SkillPageProps) => {
+const skills = ({ skillSets }: SkillPageProps) => {
   return (
     <Slide triggerOnce={true} direction="down">
       <Layout pageName="Skills">
@@ -28,4 +28,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default skill;
+export default skills;

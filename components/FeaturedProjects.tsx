@@ -1,4 +1,4 @@
-import { Project } from "./";
+import { ProjectList, Button } from "@components";
 import type { ProjectProps } from "../pages/api/projects";
 
 interface FeaturedProjectsProps {
@@ -12,23 +12,7 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
         Featured Projects
       </div>
       <div className="grid gap-x-7 md:grid-cols-2">
-        {projects.map(
-          (
-            { name, image, repo, deps, tags, desc }: ProjectProps,
-            index: number
-          ) => (
-            <Project
-              key={index}
-              name={name}
-              image={image}
-              repo={repo}
-              tags={tags}
-              deps={deps}
-            >
-              {desc}
-            </Project>
-          )
-        )}
+        <ProjectList projects={projects} />
       </div>
     </div>
   );
