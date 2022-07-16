@@ -4,7 +4,15 @@ import Link from "next/link";
 import type { ProjectProps } from "../api/projects";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-const project = ({ name, project, desc, deps, tags, image }: ProjectProps) => {
+const project = ({
+  name,
+  project,
+  desc,
+  repo,
+  deps,
+  tags,
+  image,
+}: ProjectProps) => {
   return (
     <div>
       {name ? (
@@ -13,7 +21,7 @@ const project = ({ name, project, desc, deps, tags, image }: ProjectProps) => {
             <h1 className="text-3xl font-bold">{name}</h1>
             <p>{desc}</p>
             <div className="flex flex-col gap-2 md:w-3/4 md:flex-row">
-              <p className="whitespace-nowrap font-bold uppercase">
+              <p className="whitespace-nowrap font-bold uppercase text-red">
                 built with
               </p>
               <div className="flex flex-wrap gap-2 md:flex-nowrap">
@@ -24,7 +32,7 @@ const project = ({ name, project, desc, deps, tags, image }: ProjectProps) => {
                 ))}
               </div>
             </div>
-            <div className="self-center">
+            <div className="self-center pt-2">
               {image &&
                 (deps ? (
                   <Link href={deps}>
@@ -33,7 +41,7 @@ const project = ({ name, project, desc, deps, tags, image }: ProjectProps) => {
                       alt={name}
                       width={2880}
                       height={1410}
-                      className="rounded-sm hover:cursor-pointer md:rounded-md"
+                      className="rounded-sm hover:cursor-pointer hover:opacity-50 md:rounded-md"
                     />
                   </Link>
                 ) : (
@@ -45,6 +53,34 @@ const project = ({ name, project, desc, deps, tags, image }: ProjectProps) => {
                     className="rounded-sm md:rounded-md"
                   />
                 ))}
+            </div>
+            <div className="flex flex-col items-center gap-x-4 sm:flex-row sm:justify-center">
+              {repo && (
+                <Button href={repo}>
+                  <div className="flex gap-1">
+                    <Image
+                      src="/icons/dark/github.svg"
+                      width={20}
+                      height={20}
+                      alt="github repo"
+                    />
+                    view source code
+                  </div>
+                </Button>
+              )}
+              {deps && (
+                <Button href={deps}>
+                  <div className="flex gap-1">
+                    <Image
+                      src="/icons/dark/website.svg"
+                      width={20}
+                      height={20}
+                      alt="deployment link"
+                    />
+                    view deployment
+                  </div>
+                </Button>
+              )}
             </div>
           </div>
         </Layout>
