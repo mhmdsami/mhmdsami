@@ -37,11 +37,9 @@ const Navbar = ({ routes }: NavbarProps) => {
             )}
           </li>
         ))}
-        <Button
-          buttonContent="resume"
-          href="sm-sami.pdf"
-          download="sm-sami.pdf"
-        />
+        <Button href="sm-sami.pdf" download="sm-sami.pdf">
+          resume
+        </Button>
       </>
     );
   };

@@ -42,7 +42,7 @@ const skill = ({ projects, skill, skillSets }: SkillPageProps) => {
                 </span>
                 &nbsp;at the moment
               </div>
-              <Button buttonContent="show me your skills" href="/skills" />
+              <Button href="/skills">show me your skills</Button>
             </div>
           )}
         </Layout>

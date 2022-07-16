@@ -32,7 +32,7 @@ const Error = ({
             </span>
           )}
         </div>
-        <Button buttonContent={buttonContent} href={redirectTo} />
+        <Button href={redirectTo}>{buttonContent}</Button>
       </div>
     </Layout>
   );
