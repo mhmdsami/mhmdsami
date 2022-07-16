@@ -5,26 +5,28 @@ import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 import type { ProjectProps } from "../api/projects";
 
 interface ProjectsPageProps {
-    projects: Array<ProjectProps>;
+  projects: Array<ProjectProps>;
 }
 
 const projects = ({ projects }: ProjectsPageProps) => {
-    return (
-        <Layout pageName="Projects" routes={projectsPageRoutes}>
-            <div className="grid gap-x-7 content-margin">
-                <ProjectList projects={projects} />
-            </div>
-        </Layout>
-    )
-}
+  return (
+    <Layout pageName="Projects" routes={projectsPageRoutes}>
+      <div className="content-margin grid gap-x-7">
+        <ProjectList projects={projects} />
+      </div>
+    </Layout>
+  );
+};
 
-export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
-    const res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
-    const projects = await res.json();
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
+  const projects = await res.json();
 
-    return {
-        props: { projects }
-    };
+  return {
+    props: { projects },
+  };
 };
 
 export default projects;
