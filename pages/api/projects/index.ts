@@ -10,6 +10,7 @@ export interface ProjectProps {
   desc: string;
   contributed?: boolean;
   organizationUrl?: string;
+  project: string;
 }
 
 interface Data {
