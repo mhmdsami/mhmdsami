@@ -1,6 +1,6 @@
 import { Layout, ProjectList, Error, Button } from "@components";
 import type { ProjectProps } from "../api/projects";
-import type { SkillSet } from "../api/data";
+import type { SkillSet } from "./";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 interface SkillPageProps {
