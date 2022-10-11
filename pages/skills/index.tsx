@@ -1,7 +1,17 @@
 import { Layout, Skills } from "@components";
 import { Slide } from "react-awesome-reveal";
 import type { GetServerSideProps } from "next";
-import type { SkillSet } from "../api/data";
+
+interface SkillProps {
+  name: string;
+  slug: string;
+  hasPage: boolean;
+}
+
+export interface SkillSet {
+  title: string;
+  skills: Array<SkillProps>;
+}
 
 interface SkillPageProps {
   skillSets: Array<SkillSet>;

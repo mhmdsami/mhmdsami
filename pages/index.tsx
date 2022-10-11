@@ -1,6 +1,7 @@
 import { Landing } from "@components";
 import type { GetServerSideProps } from "next";
-import type { SkillSet } from "./api/data";
+import type { Data } from "./api/data";
+import type { SkillSet } from "./skills"
 import type { ProjectProps } from "./api/projects";
 
 interface HomeProps {
@@ -33,7 +34,7 @@ const Home = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`${process.env.API_BASE_URL}/api/data`);
-  const data = await res.json();
+  const data: Data = await res.json();
 
   const { name, greetings, tags, skillSets, featuredProjects } = data;
 
