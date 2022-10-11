@@ -5,6 +5,7 @@ import {
   TechStack,
 } from "@components";
 import { Fade } from "react-awesome-reveal";
+import type { Data } from "./api/data";
 import type { GetServerSideProps } from "next";
 
 export interface InspirationProps {
@@ -51,7 +52,7 @@ const attributions = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`${process.env.API_BASE_URL}/api/data`);
-  const data = await res.json();
+  const data: Data = await res.json();
 
   const { inspirations, assets, techStack } = data;
 

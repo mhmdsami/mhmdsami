@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { SkillSet } from "../pages/api/data";
+import type { SkillSet } from "../pages/skills";
 
 interface SkillsProps {
   skillSets: Array<SkillSet>;
