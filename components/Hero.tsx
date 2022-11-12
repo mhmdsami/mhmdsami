@@ -14,8 +14,8 @@ const Hero = ({ name, greeting, tag }: HeroProps) => {
           <div className="text-4xl lg:text-5xl">
             {greeting}!
             <span className="inline-block origin-bottom-right animate-wave select-none">
-            👋
-          </span>
+              &#128075;
+            </span>
             <br />
             I&apos;m <span className="font-emphasis text-red">{name}</span>
           </div>
