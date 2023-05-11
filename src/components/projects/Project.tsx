@@ -2,23 +2,16 @@ import { Tag } from "@/components/projects";
 import { Fade } from "react-awesome-reveal";
 import Image from "next/image";
 import Link from "next/link";
+import type { Project as ProjectType } from "@/shared/types";
 import type { ReactNode } from "react";
 
-interface ProjectComponentProps {
-  name: string;
-  project?: string;
+interface ProjectProps extends ProjectType {
   children?: ReactNode;
-  image?: string;
-  tags: Array<string>;
-  repo?: string;
-  deps?: string;
-  contributed?: boolean;
-  organizationUrl?: string;
 }
 
 const Project = ({
   name,
-  project,
+  slug,
   children,
   image,
   tags,
@@ -26,14 +19,14 @@ const Project = ({
   deps,
   contributed,
   organizationUrl,
-}: ProjectComponentProps) => {
+}: ProjectProps) => {
   return (
     <Fade triggerOnce={true} className="hover:z-20">
       <div className="mb-7 mt-4 rounded-md bg-black p-5 md:rounded-xl">
         <div className="flex justify-between">
-          {project ? (
+          {slug ? (
             <div className="text-lg font-bold">
-              <Link href={`/projects/${project}`}>{name}</Link>
+              <Link href={`/projects/${slug}`}>{name}</Link>
             </div>
           ) : (
             <div className="text-lg font-bold">{name}</div>
@@ -83,9 +76,9 @@ const Project = ({
               </div>
             ))}
             {tags.length > 3 &&
-              (project ? (
+              (slug ? (
                 <Tag>
-                  <Link href={`/projects/${project}`}>{`+${
+                  <Link href={`/projects/${slug}`}>{`+${
                     tags.length - 3
                   }`}</Link>
                 </Tag>

@@ -1,11 +1,11 @@
 import { Button, Error, Layout } from "@/components/shared";
-import { Tag } from "../../components/projects";
+import { Tag } from "@/components/projects";
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/shared/types";
-import type { GetServerSideProps, GetServerSidePropsContext } from "next";
+import type { GetStaticProps, GetStaticPropsContext } from "next";
 
-const project = ({ name, project, desc, repo, deps, tags, image }: Project) => {
+const slug = ({ name, slug, desc, repo, deps, tags, image }: Project) => {
   return (
     <div>
       {name ? (
@@ -79,10 +79,10 @@ const project = ({ name, project, desc, repo, deps, tags, image }: Project) => {
         </Layout>
       ) : (
         <Error
-          pageName={project}
+          pageName={name}
           errorCode="404"
           error="Project Not Found"
-          accessedUrl={project}
+          accessedUrl={slug}
           redirectTo="/projects"
           buttonContent="explore other projects"
         />
@@ -91,16 +91,30 @@ const project = ({ name, project, desc, repo, deps, tags, image }: Project) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
+export const getStaticPaths = async () => {
+  const res = await fetch(`${process.env.API_BASE_URL}/projects`);
+  const projects = await res.json();
+
+  const paths = projects.map((project: Project) => ({ params: { slug: project.slug } }));
+
+  return {
+    paths,
+    fallback: false,
+  }
+};
+
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
 ): Promise<{ props: Project }> => {
-  const project = context.query?.project as string;
+  const project = context.params!.slug as string;
   const res = await fetch(`${process.env.API_BASE_URL}/projects/${project}`);
   const projectDetails = await res.json();
 
+  console.log(project);
+
   return {
-    props: { ...projectDetails, project },
+    props: { ...projectDetails },
   };
 };
 
-export default project;
+export default slug;

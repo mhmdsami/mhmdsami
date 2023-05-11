@@ -30,7 +30,7 @@ const Footer = () => {
       </ul>
       <div className="flex flex-col items-center gap-0.5">
         <div className="font-bold hover:underline">
-          <Link href="/src/pages/attributions">attributions</Link>
+          <Link href="/attributions">attributions</Link>
         </div>
         <div>
           crafted with{" "}

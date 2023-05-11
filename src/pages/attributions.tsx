@@ -11,7 +11,7 @@ import type {
   AssetAttribution as AssetAttributionType,
   TechStack as TechStackType,
 } from "@/shared/types";
-import type { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
 
 interface AttributionsProps {
   inspirations: Array<InspirationType>;
@@ -37,7 +37,7 @@ const attributions = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (): Promise<{
+export const getStaticProps: GetStaticProps = async (): Promise<{
   props: AttributionsProps;
 }> => {
   const res = await fetch(`${process.env.API_BASE_URL}/data`);

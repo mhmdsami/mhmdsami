@@ -2,7 +2,7 @@ import { Layout, ProjectList } from "@/components/shared";
 import { projectsPageRoutes } from "@/shared/routes";
 import React from "react";
 import type { Project } from "@/shared/types";
-import type { GetServerSideProps, GetServerSidePropsContext } from "next";
+import type { GetStaticProps } from "next";
 
 interface ProjectsPageProps {
   projects: Array<Project>;
@@ -18,9 +18,7 @@ const projects = ({ projects }: ProjectsPageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
-) => {
+export const getStaticProps: GetStaticProps = async (): Promise<{ props: ProjectsPageProps}> => {
   const res = await fetch(`${process.env.API_BASE_URL}/projects`);
   const projects = await res.json();
 

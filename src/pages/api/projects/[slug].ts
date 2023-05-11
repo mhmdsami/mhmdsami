@@ -10,10 +10,10 @@ const projectHandler = async (
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) => {
-  const { project } = req.query;
+  const { slug } = req.query;
   const db = await database();
   const data: Data = JSON.parse(
-    JSON.stringify(await db.collection("projects").findOne({ project }))
+    JSON.stringify(await db.collection("projects").findOne({ slug }))
   );
 
   res.status(200).json(data);

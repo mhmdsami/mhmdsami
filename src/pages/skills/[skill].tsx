@@ -61,7 +61,7 @@ const skill = ({ projects, skill, skillSets }: SkillPageProps) => {
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
-) => {
+): Promise<{ props: SkillPageProps }> => {
   const skill =
     typeof context.query.skill === "string" ? context.query.skill : " ";
 

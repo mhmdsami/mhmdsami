@@ -7,7 +7,7 @@ export interface Project {
   desc: string;
   contributed?: boolean;
   organizationUrl?: string;
-  project: string;
+  slug: string;
 }
 
 interface Skill {

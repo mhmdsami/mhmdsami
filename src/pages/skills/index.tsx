@@ -1,8 +1,8 @@
 import { Layout } from "@/components/shared";
 import { Skills } from "@/components/skills";
 import { Slide } from "react-awesome-reveal";
-import type { SkillSet } from "@/shared/types";
-import type { GetServerSideProps } from "next";
+import type { Data, SkillSet } from "@/shared/types";
+import type { GetStaticProps } from "next";
 
 interface SkillPageProps {
   skillSets: Array<SkillSet>;
@@ -18,9 +18,9 @@ const skills = ({ skillSets }: SkillPageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async (): Promise<{ props: SkillPageProps }> => {
   const res = await fetch(`${process.env.API_BASE_URL}/data`);
-  const data = await res.json();
+  const data: Data = await res.json();
 
   const { skillSets } = data;
 
