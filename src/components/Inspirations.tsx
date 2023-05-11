@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { InspirationProps } from "../pages/attributions";
+import type { InspirationProps } from "@/pages/attributions";
 
 interface InspirationsComponentProps {
   inspirations: Array<InspirationProps>;

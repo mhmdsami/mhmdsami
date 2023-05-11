@@ -1,8 +1,8 @@
-import { Layout, Hero, Skills, FeaturedProjects } from "@components";
-import { homePageRoutes } from "@constants";
+import { Layout, Hero, Skills, FeaturedProjects } from "@/components";
+import { homePageRoutes } from "@/constants";
 import { Slide } from "react-awesome-reveal";
-import type { SkillSet } from "../pages/skills";
-import type { ProjectProps } from "../pages/api/projects";
+import type { SkillSet } from "@/pages/skills";
+import type { ProjectProps } from "@/pages/api/projects";
 
 interface LandingProps {
   name: string;

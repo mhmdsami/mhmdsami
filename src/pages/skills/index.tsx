@@ -1,4 +1,4 @@
-import { Layout, Skills } from "@components";
+import { Layout, Skills } from "@/components";
 import { Slide } from "react-awesome-reveal";
 import type { GetServerSideProps } from "next";
 

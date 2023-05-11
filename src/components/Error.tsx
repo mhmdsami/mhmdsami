@@ -1,4 +1,4 @@
-import { Layout, Button } from "@components";
+import { Layout, Button } from "@/components";
 import Tilt from "react-tilt";
 
 interface ErrorProps {

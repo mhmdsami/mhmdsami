@@ -1,4 +1,4 @@
-import { Navbar, Footer } from "@components";
+import { Navbar, Footer } from "@/components";
 import React from "react";
 import Head from "next/head";
 import type { NavbarRoute } from "./Navbar";

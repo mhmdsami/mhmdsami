@@ -3,7 +3,7 @@ import {
   Inspirations,
   AssetAttributions,
   TechStack,
-} from "@components";
+} from "@/components";
 import { Fade } from "react-awesome-reveal";
 import type { Data } from "./api/data";
 import type { GetServerSideProps } from "next";

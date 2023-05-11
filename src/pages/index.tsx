@@ -1,4 +1,4 @@
-import { Landing } from "@components";
+import { Landing } from "@/components";
 import type { GetServerSideProps } from "next";
 import type { Data } from "./api/data";
 import type { SkillSet } from "./skills"

@@ -1,5 +1,5 @@
-import { Layout, ProjectList } from "@components";
-import { projectsPageRoutes } from "@constants";
+import { Layout, ProjectList } from "@/components";
+import { projectsPageRoutes } from "@/constants";
 import React from "react";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 import type { ProjectProps } from "../api/projects";

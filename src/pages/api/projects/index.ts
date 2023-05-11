@@ -1,4 +1,4 @@
-import database from "@utils/database";
+import database from "@/utils/database";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export interface ProjectProps {

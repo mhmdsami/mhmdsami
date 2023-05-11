@@ -1,5 +1,5 @@
-import { Project } from "@components";
-import type { ProjectProps } from "../pages/api/projects";
+import { Project } from "@/components";
+import type { ProjectProps } from "@/pages/api/projects";
 
 interface ProjectListProps {
   projects: Array<ProjectProps>;

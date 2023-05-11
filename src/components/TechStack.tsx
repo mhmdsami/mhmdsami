@@ -1,4 +1,4 @@
-import type { TechStackProps } from "../pages/attributions";
+import type { TechStackProps } from "@/pages/attributions";
 
 interface TechStackComponentProps {
   techStack: Array<TechStackProps>;

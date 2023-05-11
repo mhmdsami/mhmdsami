@@ -1,4 +1,4 @@
-import type { AssetAttributionProps } from "../pages/attributions";
+import type { AssetAttributionProps } from "@/pages/attributions";
 
 interface AssetAttributionComponentProps {
   assets: Array<AssetAttributionProps>;

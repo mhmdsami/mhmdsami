@@ -1,5 +1,5 @@
-import { Layout } from "@components";
-import { blogPageRoutes } from "@constants";
+import { Layout } from "@/components";
+import { blogPageRoutes } from "@/constants";
 import type { NextPage } from "next";
 
 const blog: NextPage = () => {
