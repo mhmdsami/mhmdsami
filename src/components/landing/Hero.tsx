@@ -9,7 +9,7 @@ interface HeroProps {
 const Hero = ({ name, greeting, tag }: HeroProps) => {
   return (
     <div className="content-padding flex min-h-[85vh] flex-col bg-gradient-to-b from-black-dark to-black">
-      <main className="my-4 sm:my-28 flex flex-col justify-between md:flex-row">
+      <main className="my-4 flex flex-col justify-between sm:my-28 md:flex-row">
         <div>
           <div className="text-4xl lg:text-5xl">
             {greeting}!
@@ -19,13 +19,17 @@ const Hero = ({ name, greeting, tag }: HeroProps) => {
             <br />
             I&apos;m <span className="font-emphasis text-red">{name}</span>
           </div>
-          <div className="flex select-none items-end text-md text-gray xl:text-xl">
+          <div className="text-md flex select-none items-end text-gray xl:text-xl">
             {tag}
           </div>
         </div>
-        <p className="mt-5 md:m-0 text-lg lg:text-xl md:w-1/2">
-          A sophomore CSE undergrad who loves to <span className="font-bold">craft web experiences</span>.
-          Always ready to take up challenges to <span className="font-bold">make the internet a little better than before.</span>
+        <p className="mt-5 text-lg md:m-0 md:w-1/2 lg:text-xl">
+          A sophomore CSE undergrad who loves to{" "}
+          <span className="font-bold">craft web experiences</span>. Always ready
+          to take up challenges to{" "}
+          <span className="font-bold">
+            make the internet a little better than before.
+          </span>
         </p>
       </main>
       <div className="flex animate-bounce cursor-pointer select-none place-content-center pt-20 text-red">

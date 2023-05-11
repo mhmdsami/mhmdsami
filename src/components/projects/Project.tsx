@@ -29,7 +29,7 @@ const Project = ({
 }: ProjectComponentProps) => {
   return (
     <Fade triggerOnce={true} className="hover:z-20">
-      <div className="mt-4 mb-7 rounded-md bg-black p-5 md:rounded-xl">
+      <div className="mb-7 mt-4 rounded-md bg-black p-5 md:rounded-xl">
         <div className="flex justify-between">
           {project ? (
             <div className="text-lg font-bold">
