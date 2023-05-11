@@ -40,7 +40,7 @@ const attributions = ({
 export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: AttributionsProps;
 }> => {
-  const res = await fetch(`${process.env.API_BASE_URL}/api/data`);
+  const res = await fetch(`${process.env.API_BASE_URL}/data`);
   const data: Data = await res.json();
 
   const { inspirations, assets, techStack } = data;

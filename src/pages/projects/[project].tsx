@@ -95,9 +95,7 @@ export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ): Promise<{ props: Project }> => {
   const project = context.query?.project as string;
-  const res = await fetch(
-    `${process.env.API_BASE_URL}/api/projects/${project}`
-  );
+  const res = await fetch(`${process.env.API_BASE_URL}/projects/${project}`);
   const projectDetails = await res.json();
 
   return {

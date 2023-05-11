@@ -65,7 +65,7 @@ export const getServerSideProps: GetServerSideProps = async (
   const skill =
     typeof context.query.skill === "string" ? context.query.skill : " ";
 
-  let res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
+  let res = await fetch(`${process.env.API_BASE_URL}/projects`);
   let data = await res.json();
 
   const projects: Array<Project> = data.filter(({ tags }: Project) =>

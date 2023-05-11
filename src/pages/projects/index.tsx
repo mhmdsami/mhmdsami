@@ -21,7 +21,7 @@ const projects = ({ projects }: ProjectsPageProps) => {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
+  const res = await fetch(`${process.env.API_BASE_URL}/projects`);
   const projects = await res.json();
 
   return {

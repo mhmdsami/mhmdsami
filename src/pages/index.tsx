@@ -31,7 +31,7 @@ const Home = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`${process.env.API_BASE_URL}/api/data`);
+  const res = await fetch(`${process.env.API_BASE_URL}/data`);
   const data: Data = await res.json();
 
   const { name, greetings, tags, skillSets, featuredProjects } = data;
