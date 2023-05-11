@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { SkillSet } from "@/pages/skills";
+import type { SkillSet } from "@/shared/types";
 
 interface SkillsProps {
   skillSets: Array<SkillSet>;

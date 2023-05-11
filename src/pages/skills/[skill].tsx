@@ -1,10 +1,9 @@
 import { Layout, ProjectList, Error, Button } from "@/components/shared";
-import type { ProjectProps } from "../api/projects";
-import type { SkillSet } from "./";
+import type { SkillSet, Project } from "@/shared/types";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 interface SkillPageProps {
-  projects: Array<ProjectProps>;
+  projects: Array<Project>;
   skill: string;
   skillSets: Array<SkillSet>;
 }
@@ -69,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async (
   let res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
   let data = await res.json();
 
-  const projects: Array<ProjectProps> = data.filter(({ tags }: ProjectProps) =>
+  const projects: Array<Project> = data.filter(({ tags }: Project) =>
     tags.includes(skill)
   );
 

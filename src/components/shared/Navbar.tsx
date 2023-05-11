@@ -1,29 +1,20 @@
 import { Button } from "@/components/shared";
-import { defaultRoutes } from "@/constants";
+import { defaultRoutes } from "@/shared/routes";
 import { Link as ScrollLink } from "react-scroll";
 import { useState } from "react";
 import Link from "next/link";
+import type { Route } from "@/shared/types";
 
-export interface NavbarRoute {
-  page: string;
-  href: string;
-  isSamePage?: boolean;
-}
-
-interface NavbarProps {
-  routes?: Array<NavbarRoute>;
-}
-
-const Navbar = ({ routes }: NavbarProps) => {
+const Navbar = ({ routes }: { routes?: Array<Route> }) => {
   const [isNavToggled, setNavToggled] = useState<boolean>(false);
 
   const toggleNav = () => setNavToggled(!isNavToggled);
 
-  const NavbarElements = ({ routes }: NavbarProps) => {
+  const NavbarElements = ({ routes }: { routes?: Array<Route> }) => {
     routes = routes ?? defaultRoutes;
     return (
       <>
-        {routes.map(({ page, href, isSamePage }: NavbarRoute, index) => (
+        {routes.map(({ page, href, isSamePage }: Route, index) => (
           <li
             key={index}
             className="transition-all duration-300 hover:scale-110"

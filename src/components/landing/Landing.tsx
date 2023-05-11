@@ -1,17 +1,16 @@
 import { Layout } from "@/components/shared";
 import { Hero, FeaturedProjects } from "@/components/landing";
 import { Skills } from "@/components/skills";
-import { homePageRoutes } from "@/constants";
+import { homePageRoutes } from "@/shared/routes";
 import { Slide } from "react-awesome-reveal";
-import type { SkillSet } from "@/pages/skills";
-import type { ProjectProps } from "@/pages/api/projects";
+import type { SkillSet, Project } from "@/shared/types";
 
 interface LandingProps {
   name: string;
   greeting: string;
   tag: string;
   skillSets: Array<SkillSet>;
-  featuredProjects: Array<ProjectProps>;
+  featuredProjects: Array<Project>;
 }
 
 const Landing = ({

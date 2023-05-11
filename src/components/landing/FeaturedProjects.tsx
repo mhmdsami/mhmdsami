@@ -1,11 +1,7 @@
 import { ProjectList } from "@/components/shared";
-import type { ProjectProps } from "@/pages/api/projects";
+import type { Project } from "@/shared/types";
 
-interface FeaturedProjectsProps {
-  projects: Array<ProjectProps>;
-}
-
-const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
+const FeaturedProjects = ({ projects }: { projects: Array<Project> }) => {
   return (
     <div id="projects" className="content-padding mb-10 mt-[5vh]">
       <div className="text-base font-bold uppercase text-red md:text-xl">

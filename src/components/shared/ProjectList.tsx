@@ -1,14 +1,14 @@
-import { Project } from "../projects";
-import type { ProjectProps } from "@/pages/api/projects";
+import { Project } from "@/components/projects";
+import type { Project as ProjectType } from "@/shared/types";
 
 interface ProjectListProps {
-  projects: Array<ProjectProps>;
+  projects: Array<ProjectType>;
 }
 
 const ProjectList = ({ projects }: ProjectListProps) => {
   return (
     <>
-      {projects.map((project: ProjectProps, index: number) => (
+      {projects.map((project: ProjectType, index: number) => (
         <Project key={index} {...project}>
           {project.desc}
         </Project>

@@ -1,5 +1,5 @@
 import { Layout } from "@/components/shared";
-import { blogPageRoutes } from "@/constants";
+import { blogPageRoutes } from "@/shared/routes";
 import type { NextPage } from "next";
 
 const blog: NextPage = () => {

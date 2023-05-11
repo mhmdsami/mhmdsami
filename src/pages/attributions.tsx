@@ -5,38 +5,25 @@ import {
 } from "@/components/attributions";
 import { Layout } from "@/components/shared";
 import { Fade } from "react-awesome-reveal";
-import type { Data } from "./api/data";
+import type {
+  Data,
+  Inspiration as InspirationType,
+  AssetAttribution as AssetAttributionType,
+  TechStack as TechStackType,
+} from "@/shared/types";
 import type { GetServerSideProps } from "next";
 
-export interface InspirationProps {
-  name: string;
-  github: string;
-  portfolio: string;
-}
-
-export interface AssetAttributionProps {
-  name: string;
-  assetUrl: string;
-  contributorName: string;
-  contributorUrl: string;
-}
-
-export interface TechStackProps {
-  name: string;
-  url: string;
-}
-
-interface AttributionPageProps {
-  inspirations: Array<InspirationProps>;
-  assets: Array<AssetAttributionProps>;
-  techStack: Array<TechStackProps>;
+interface AttributionsProps {
+  inspirations: Array<InspirationType>;
+  assets: Array<AssetAttributionType>;
+  techStack: Array<TechStackType>;
 }
 
 const attributions = ({
   inspirations,
   assets,
   techStack,
-}: AttributionPageProps) => {
+}: AttributionsProps) => {
   return (
     <Layout pageName="Attributions">
       <Fade triggerOnce={true}>
@@ -50,7 +37,9 @@ const attributions = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (): Promise<{
+  props: AttributionsProps;
+}> => {
   const res = await fetch(`${process.env.API_BASE_URL}/api/data`);
   const data: Data = await res.json();
 

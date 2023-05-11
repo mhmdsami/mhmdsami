@@ -1,10 +1,10 @@
-import type { AssetAttributionProps } from "@/pages/attributions";
+import type { AssetAttribution as AssetAttributionType } from "@/shared/types";
 
-interface AssetAttributionComponentProps {
-  assets: Array<AssetAttributionProps>;
-}
-
-const AssetAttributions = ({ assets }: AssetAttributionComponentProps) => {
+const AssetAttributions = ({
+  assets,
+}: {
+  assets: Array<AssetAttributionType>;
+}) => {
   return (
     <>
       <h1 className="text-base font-bold uppercase text-red md:text-xl">
@@ -17,7 +17,7 @@ const AssetAttributions = ({ assets }: AssetAttributionComponentProps) => {
             assetUrl,
             contributorName,
             contributorUrl,
-          }: AssetAttributionProps,
+          }: AssetAttributionType,
           index: number
         ) => (
           <div key={index} className="text-base md:text-lg">

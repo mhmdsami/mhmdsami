@@ -1,11 +1,11 @@
 import { Navbar, Footer } from "@/components/shared";
 import React from "react";
 import Head from "next/head";
-import type { NavbarRoute } from "./Navbar";
+import type { Route } from "@/shared/types";
 
 interface LayoutProps {
   pageName?: string;
-  routes?: Array<NavbarRoute>;
+  routes?: Array<Route>;
   children: React.ReactNode;
 }
 

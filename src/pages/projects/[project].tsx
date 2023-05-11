@@ -2,18 +2,10 @@ import { Button, Error, Layout } from "@/components/shared";
 import { Tag } from "../../components/projects";
 import Image from "next/image";
 import Link from "next/link";
-import type { ProjectProps } from "../api/projects";
+import type { Project } from "@/shared/types";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-const project = ({
-  name,
-  project,
-  desc,
-  repo,
-  deps,
-  tags,
-  image,
-}: ProjectProps) => {
+const project = ({ name, project, desc, repo, deps, tags, image }: Project) => {
   return (
     <div>
       {name ? (
@@ -101,8 +93,8 @@ const project = ({
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
-) => {
-  const { project } = context.query;
+): Promise<{ props: Project }> => {
+  const project = context.query?.project as string;
   const res = await fetch(
     `${process.env.API_BASE_URL}/api/projects/${project}`
   );

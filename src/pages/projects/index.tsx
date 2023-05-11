@@ -1,11 +1,11 @@
 import { Layout, ProjectList } from "@/components/shared";
-import { projectsPageRoutes } from "@/constants";
+import { projectsPageRoutes } from "@/shared/routes";
 import React from "react";
+import type { Project } from "@/shared/types";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
-import type { ProjectProps } from "../api/projects";
 
 interface ProjectsPageProps {
-  projects: Array<ProjectProps>;
+  projects: Array<Project>;
 }
 
 const projects = ({ projects }: ProjectsPageProps) => {

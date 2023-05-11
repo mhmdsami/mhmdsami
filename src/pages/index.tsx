@@ -1,15 +1,13 @@
 import { Landing } from "@/components/landing";
+import type { Data, SkillSet, Project } from "@/shared/types";
 import type { GetServerSideProps } from "next";
-import type { Data } from "./api/data";
-import type { SkillSet } from "./skills";
-import type { ProjectProps } from "./api/projects";
 
 interface HomeProps {
   name: string;
   greeting: string;
   tag: string;
   skillSets: Array<SkillSet>;
-  featuredProjects: Array<ProjectProps>;
+  featuredProjects: Array<Project>;
 }
 
 const Home = ({

@@ -1,20 +1,9 @@
-import database from "@/utils/database";
+import database from "@/shared/utils/database";
+import type { Project } from "@/shared/types";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export interface ProjectProps {
-  name: string;
-  image?: string;
-  repo?: string;
-  deps?: string;
-  tags: Array<string>;
-  desc: string;
-  contributed?: boolean;
-  organizationUrl?: string;
-  project: string;
-}
-
 interface Data {
-  data: Array<ProjectProps>;
+  data: Array<Project>;
 }
 
 const projectsHandler = async (

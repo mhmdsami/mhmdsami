@@ -1,11 +1,11 @@
 import Image from "next/image";
-import type { InspirationProps } from "@/pages/attributions";
+import type { Inspiration as InspirationType } from "@/shared/types";
 
-interface InspirationsComponentProps {
-  inspirations: Array<InspirationProps>;
-}
-
-const Inspirations = ({ inspirations }: InspirationsComponentProps) => {
+const Inspirations = ({
+  inspirations,
+}: {
+  inspirations: Array<InspirationType>;
+}) => {
   return (
     <>
       <h1 className="text-base font-bold uppercase text-red md:text-xl">
@@ -13,7 +13,7 @@ const Inspirations = ({ inspirations }: InspirationsComponentProps) => {
       </h1>
       <div className="flex flex-col gap-5">
         {inspirations.map(
-          ({ name, github, portfolio }: InspirationProps, index: number) => (
+          ({ name, github, portfolio }: InspirationType, index: number) => (
             <div
               key={index}
               className="flex flex-row justify-between gap-5 md:w-[50vw] md:gap-0 lg:w-[40vw]"

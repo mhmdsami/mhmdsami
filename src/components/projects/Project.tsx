@@ -1,13 +1,13 @@
 import { Tag } from "@/components/projects";
 import { Fade } from "react-awesome-reveal";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 interface ProjectComponentProps {
   name: string;
   project?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   image?: string;
   tags: Array<string>;
   repo?: string;

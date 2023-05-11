@@ -1,9 +1,9 @@
-import database from "@/utils/database";
+import database from "@/shared/utils/database";
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { ProjectProps } from "./";
+import type { Project } from "@/shared/types";
 
 interface Data {
-  data: ProjectProps;
+  data: Project;
 }
 
 const projectHandler = async (
