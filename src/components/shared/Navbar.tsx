@@ -1,4 +1,4 @@
-import { Button } from "@/components";
+import { Button } from "@/components/shared";
 import { defaultRoutes } from "@/constants";
 import { Link as ScrollLink } from "react-scroll";
 import { useState } from "react";

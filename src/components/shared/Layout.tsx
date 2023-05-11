@@ -1,4 +1,4 @@
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer } from "@/components/shared";
 import React from "react";
 import Head from "next/head";
 import type { NavbarRoute } from "./Navbar";
@@ -10,10 +10,11 @@ interface LayoutProps {
 }
 
 const Layout = ({ pageName, children, routes }: LayoutProps) => {
+  const title = `Mohamed Sami ${pageName && `| ${pageName}`}`;
   return (
     <div className="grid min-h-screen">
       <Head>
-        <title>Mohamed Sami{pageName && ` | ${pageName}`}</title>
+        <title>{title}</title>
       </Head>
       <Navbar routes={routes} />
       <main>{children}</main>

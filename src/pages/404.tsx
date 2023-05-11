@@ -1,4 +1,4 @@
-import { Error } from "@/components";
+import { Error } from "@/components/shared";
 
 const custom404 = () => {
   return (

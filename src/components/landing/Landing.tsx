@@ -1,4 +1,6 @@
-import { Layout, Hero, Skills, FeaturedProjects } from "@/components";
+import { Layout } from "@/components/shared";
+import { Hero, FeaturedProjects } from "@/components/landing";
+import { Skills } from "@/components/skills";
 import { homePageRoutes } from "@/constants";
 import { Slide } from "react-awesome-reveal";
 import type { SkillSet } from "@/pages/skills";

@@ -1,4 +1,4 @@
-import { Layout, ProjectList, Error, Button } from "@/components";
+import { Layout, ProjectList, Error, Button } from "@/components/shared";
 import type { ProjectProps } from "../api/projects";
 import type { SkillSet } from "./";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";

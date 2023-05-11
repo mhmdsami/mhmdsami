@@ -1,4 +1,5 @@
-import { Button, Error, Layout, Tag } from "@/components";
+import { Button, Error, Layout } from "@/components/shared"
+import { Tag } from "../../components/projects";
 import Image from "next/image";
 import Link from "next/link";
 import type { ProjectProps } from "../api/projects";

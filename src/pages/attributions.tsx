@@ -1,9 +1,9 @@
 import {
-  Layout,
   Inspirations,
   AssetAttributions,
   TechStack,
-} from "@/components";
+} from "@/components/attributions";
+import { Layout } from "@/components/shared";
 import { Fade } from "react-awesome-reveal";
 import type { Data } from "./api/data";
 import type { GetServerSideProps } from "next";

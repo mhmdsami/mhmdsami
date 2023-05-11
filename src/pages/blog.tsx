@@ -1,4 +1,4 @@
-import { Layout } from "@/components";
+import { Layout } from "@/components/shared";
 import { blogPageRoutes } from "@/constants";
 import type { NextPage } from "next";
 
