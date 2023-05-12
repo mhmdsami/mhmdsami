@@ -1,6 +1,5 @@
 import { Layout, ProjectList } from "@/components/shared";
 import { projectsPageRoutes } from "@/shared/routes";
-import React from "react";
 import type { Project } from "@/shared/types";
 import type { GetStaticProps } from "next";
 

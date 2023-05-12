@@ -1,5 +1,5 @@
 import { Layout, ProjectList, Error, Button } from "@/components/shared";
-import type { SkillSet, Project, Data, Skill } from "@/shared/types";
+import type { SkillSet, Project, Skill } from "@/shared/types";
 import type {
   GetServerSideProps,
   GetServerSidePropsContext,

@@ -1,7 +1,7 @@
 import { Layout } from "@/components/shared";
 import { Skills } from "@/components/skills";
 import { Slide } from "react-awesome-reveal";
-import type { Data, SkillSet } from "@/shared/types";
+import type { SkillSet } from "@/shared/types";
 import type { GetStaticProps } from "next";
 
 interface SkillPageProps {

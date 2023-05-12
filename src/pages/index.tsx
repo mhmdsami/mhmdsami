@@ -1,5 +1,5 @@
 import { Landing } from "@/components/landing";
-import type { Data, SkillSet, Project } from "@/shared/types";
+import type { Config, SkillSet, Project } from "@/shared/types";
 import type { GetServerSideProps } from "next";
 
 interface HomeProps {
@@ -31,19 +31,19 @@ const Home = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`${process.env.API_BASE_URL}/data`);
-  const data: Data = await res.json();
-
-  const { name, greetings, tags, featuredProjects } = data;
+  const configRes = await fetch(`${process.env.API_BASE_URL}/config`);
+  const config: Config = await configRes.json();
 
   const skillSetsRes = await fetch(`${process.env.API_BASE_URL}/skills`);
   const skillSets: Array<SkillSet> = await skillSetsRes.json();
+
+  const { greetings, tags } = config;
 
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
   const tag = tags[Math.floor(Math.random() * tags.length)];
 
   return {
-    props: { name, greeting, tag, skillSets, featuredProjects },
+    props: { ...config, greeting, tag, skillSets },
   };
 };
 

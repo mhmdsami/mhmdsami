@@ -40,7 +40,7 @@ export interface TechStack {
   url: string;
 }
 
-export interface Data {
+export interface Config {
   name: string;
   greetings: Array<string>;
   tags: Array<string>;

@@ -6,7 +6,7 @@ import {
 import { Layout } from "@/components/shared";
 import { Fade } from "react-awesome-reveal";
 import type {
-  Data,
+  Config,
   Inspiration as InspirationType,
   AssetAttribution as AssetAttributionType,
   TechStack as TechStackType,
@@ -40,8 +40,8 @@ const attributions = ({
 export const getStaticProps: GetStaticProps = async (): Promise<{
   props: AttributionsProps;
 }> => {
-  const res = await fetch(`${process.env.API_BASE_URL}/data`);
-  const data: Data = await res.json();
+  const res = await fetch(`${process.env.API_BASE_URL}/config`);
+  const data: Config = await res.json();
 
   const { inspirations, assets, techStack } = data;
 
