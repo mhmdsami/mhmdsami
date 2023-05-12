@@ -19,18 +19,21 @@ const Skills = ({ skillSets, backgroundColor }: SkillsProps) => {
               {title}
             </div>
             <div className="flex flex-wrap gap-2">
-              {skills.map(({ name, slug, hasPage }, ind) => (
-                <div
-                  key={ind}
-                  className="rounded-lg bg-red px-2 font-bold text-black-dark transition-all duration-300 hover:-translate-y-1"
-                >
-                  {hasPage ? (
-                    <Link href={`/skills/${slug}`}>{name}</Link>
-                  ) : (
-                    name
-                  )}
-                </div>
-              ))}
+              {skills.map(
+                ({ name, slug, makePage, showSkill }, ind) =>
+                  showSkill && (
+                    <div
+                      key={ind}
+                      className="rounded-lg bg-red px-2 font-bold text-black-dark transition-all duration-300 hover:-translate-y-1"
+                    >
+                      {makePage ? (
+                        <Link href={`/skills/${slug}`}>{name}</Link>
+                      ) : (
+                        name
+                      )}
+                    </div>
+                  )
+              )}
             </div>
           </div>
         ))}

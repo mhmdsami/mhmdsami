@@ -18,11 +18,11 @@ const skills = ({ skillSets }: SkillPageProps) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<{ props: SkillPageProps }> => {
-  const res = await fetch(`${process.env.API_BASE_URL}/data`);
-  const data: Data = await res.json();
-
-  const { skillSets } = data;
+export const getStaticProps: GetStaticProps = async (): Promise<{
+  props: SkillPageProps;
+}> => {
+  const res = await fetch(`${process.env.API_BASE_URL}/skills`);
+  const skillSets: Array<SkillSet> = await res.json();
 
   return {
     props: { skillSets },

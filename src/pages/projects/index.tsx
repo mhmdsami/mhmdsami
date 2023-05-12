@@ -18,7 +18,9 @@ const projects = ({ projects }: ProjectsPageProps) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<{ props: ProjectsPageProps}> => {
+export const getStaticProps: GetStaticProps = async (): Promise<{
+  props: ProjectsPageProps;
+}> => {
   const res = await fetch(`${process.env.API_BASE_URL}/projects`);
   const projects = await res.json();
 

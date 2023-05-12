@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Project } from "@/shared/types";
 import type { GetStaticProps, GetStaticPropsContext } from "next";
 
-const slug = ({ name, slug, desc, repo, deps, tags, image }: Project) => {
+const project = ({ name, slug, desc, repo, deps, tags, image }: Project) => {
   return (
     <div>
       {name ? (
@@ -95,26 +95,26 @@ export const getStaticPaths = async () => {
   const res = await fetch(`${process.env.API_BASE_URL}/projects`);
   const projects = await res.json();
 
-  const paths = projects.map((project: Project) => ({ params: { slug: project.slug } }));
+  const paths = projects.map((project: Project) => ({
+    params: { slug: project.slug },
+  }));
 
   return {
     paths,
     fallback: false,
-  }
+  };
 };
 
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ): Promise<{ props: Project }> => {
-  const project = context.params!.slug as string;
-  const res = await fetch(`${process.env.API_BASE_URL}/projects/${project}`);
+  const slug = context.params!.slug as string;
+  const res = await fetch(`${process.env.API_BASE_URL}/projects/${slug}`);
   const projectDetails = await res.json();
-
-  console.log(project);
 
   return {
     props: { ...projectDetails },
   };
 };
 
-export default slug;
+export default project;

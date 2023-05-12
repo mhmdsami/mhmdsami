@@ -34,7 +34,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`${process.env.API_BASE_URL}/data`);
   const data: Data = await res.json();
 
-  const { name, greetings, tags, skillSets, featuredProjects } = data;
+  const { name, greetings, tags, featuredProjects } = data;
+
+  const skillSetsRes = await fetch(`${process.env.API_BASE_URL}/skills`);
+  const skillSets: Array<SkillSet> = await skillSetsRes.json();
 
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
   const tag = tags[Math.floor(Math.random() * tags.length)];

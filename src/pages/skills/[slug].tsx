@@ -1,6 +1,10 @@
 import { Layout, ProjectList, Error, Button } from "@/components/shared";
-import type { SkillSet, Project } from "@/shared/types";
-import type { GetServerSideProps, GetServerSidePropsContext } from "next";
+import type { SkillSet, Project, Data, Skill } from "@/shared/types";
+import type {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetStaticPropsContext,
+} from "next";
 
 interface SkillPageProps {
   projects: Array<Project>;
@@ -59,23 +63,40 @@ const skill = ({ projects, skill, skillSets }: SkillPageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
-): Promise<{ props: SkillPageProps }> => {
-  const skill =
-    typeof context.query.skill === "string" ? context.query.skill : " ";
+export const getStaticPaths = async () => {
+  const res = await fetch(`${process.env.API_BASE_URL}/skills`);
+  const skillSets: Array<SkillSet> = await res.json();
 
-  let res = await fetch(`${process.env.API_BASE_URL}/projects`);
-  let data = await res.json();
+  const paths = skillSets
+    .map(({ skills }: SkillSet) =>
+      skills
+        .filter(({ makePage }: Skill) => makePage)
+        .map(({ slug }: Skill) => ({
+          params: { slug },
+        }))
+    )
+    .flat();
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetServerSideProps = async (
+  context: GetStaticPropsContext
+) => {
+  const res = await fetch(`${process.env.API_BASE_URL}/projects`);
+  const data = await res.json();
+
+  const skill = context.params!.slug as string;
 
   const projects: Array<Project> = data.filter(({ tags }: Project) =>
     tags.includes(skill)
   );
 
-  res = await fetch(`${process.env.API_BASE_URL}/api/data`);
-  data = await res.json();
-
-  const { skillSets } = data;
+  const skillSetsRes = await fetch(`${process.env.API_BASE_URL}/skills`);
+  const skillSets = await skillSetsRes.json();
 
   return {
     props: { projects, skill, skillSets },

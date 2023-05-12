@@ -13,7 +13,8 @@ export interface Project {
 interface Skill {
   name: string;
   slug: string;
-  hasPage: boolean;
+  showSkill: boolean;
+  makePage: boolean;
 }
 
 export interface SkillSet {
@@ -43,7 +44,6 @@ export interface Data {
   name: string;
   greetings: Array<string>;
   tags: Array<string>;
-  skillSets: Array<SkillSet>;
   featuredProjects: Array<Project>;
   inspirations: Array<Inspiration>;
   assets: Array<AssetAttribution>;
