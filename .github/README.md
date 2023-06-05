@@ -18,7 +18,7 @@ My primary tech stack is **Next.js**, **TailwindCSS**, **TypeScript** for fronte
 - [**ScoreBoard**](https://github.com/sm-sami/ScoreBoard) <br /> A place to keep track of your scores. Built with Svelte.
 
 ### Open Source Contributions
-- [**KZILLA.XYZ**](https://github.com/srm-kzill/kzilla.xyz) <br /> A stupid simple URL shortener. Built with Svelte, MongoDB, Node.js, and TypeScript.
+- [**KZILLA.XYZ**](https://github.com/srm-kzilla/kzilla.xyz) <br /> A stupid simple URL shortener. Built with Svelte, MongoDB, Node.js, and TypeScript.
 - **MOZOFEST '23** <br /> Website for MOZOFEST 2023, the annual flagship event of [@srm-kzilla](https://github.com/srm-kzilla). Built with Next.js, TailwindCSS, and TypeScript.
 
 Have a look into my other [**projects**](https://mhmdsami.xyz/projects).
