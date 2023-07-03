@@ -24,7 +24,7 @@ const Hero = ({ name, greeting, tag }: HeroProps) => {
           </div>
         </div>
         <p className="mt-5 text-lg md:m-0 md:w-1/2 lg:text-xl">
-          A sophomore CSE undergrad who loves to{" "}
+          A pre-final year CSE undergrad who loves to{" "}
           <span className="font-bold">craft web experiences</span>. Always ready
           to take up challenges to{" "}
           <span className="font-bold">

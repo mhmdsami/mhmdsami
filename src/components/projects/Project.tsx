@@ -45,7 +45,7 @@ const Project = ({
                 ? image && (
                     <a href={deps}>
                       <Image
-                        src={`/projects/${image}`}
+                        src={image}
                         width={2880}
                         height={1410}
                         alt={name}
@@ -55,7 +55,7 @@ const Project = ({
                   )
                 : image && (
                     <Image
-                      src={`/projects/${image}`}
+                      src={image}
                       width={2880}
                       height={1410}
                       alt={name}
