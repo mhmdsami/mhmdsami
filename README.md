@@ -14,9 +14,9 @@ My primary tech stack is **Next.js**, **TailwindCSS**, **TypeScript** for fronte
 
 ### My Projects
 - [**Guess the Place Bot**](https://github.com/sm-sami/mlu-bot) <br /> A discord bot for organizing Guess the Place and more. Built with discord.js and TypeScript.
-- [**subscriptions-api**](https://github.com/mhmdsami/subscriptions-api) <br /> A REST API for managing subscriptions. Built with Node.js, Express, PostgreSQL and drizzle-orm.
+- [**subscriptions-api**](https://github.com/sm-sami/subscriptions-api) <br /> A REST API for managing subscriptions. Built with Express, PostgreSQL, drizzle-orm, AWS SES, react-email and zod.
+- [**s3-client**](https://github.com/sm-sami/s3-client) <br /> Client to upload images to AWS S3. Built with Next.js, TailwindCSS, TypeScript AWS SDK and more.
 - [**Absentee**](https://github.com/sm-sami/Absentee) <br /> A command line tool to clean the attendance data. Built with Python.
-- [**ScoreBoard**](https://github.com/sm-sami/ScoreBoard) <br /> A place to keep track of your scores. Built with Svelte.
 
 ### Other Projects
 - **MOZOFEST '23** <br /> Website for MOZOFEST 2023, the annual flagship event of [@srm-kzilla](https://github.com/srm-kzilla). Built with Next.js, TailwindCSS, and TypeScript.
