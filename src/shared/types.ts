@@ -10,7 +10,7 @@ export interface Project {
   slug: string;
 }
 
-interface Skill {
+export interface Skill {
   name: string;
   slug: string;
   showSkill: boolean;

@@ -30,7 +30,7 @@ const project = ({ name, slug, desc, repo, deps, tags, image }: Project) => {
                 (deps ? (
                   <Link href={deps}>
                     <Image
-                      src={`/projects/${image}`}
+                      src={image}
                       alt={name}
                       width={2880}
                       height={1410}
@@ -39,7 +39,7 @@ const project = ({ name, slug, desc, repo, deps, tags, image }: Project) => {
                   </Link>
                 ) : (
                   <Image
-                    src={`/projects/${image}`}
+                    src={image}
                     alt={name}
                     width={2880}
                     height={1410}

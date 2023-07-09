@@ -2,7 +2,6 @@ import { Layout, ProjectList, Error, Button } from "@/components/shared";
 import type { SkillSet, Project, Skill } from "@/shared/types";
 import type {
   GetServerSideProps,
-  GetServerSidePropsContext,
   GetStaticPropsContext,
 } from "next";
 
@@ -32,7 +31,7 @@ const skill = ({ projects, skill, skillSets }: SkillPageProps) => {
       {name ? (
         <Layout pageName={name}>
           {projects.length ? (
-            <div className="content-margin grid gap-x-7">
+            <div className="content-padding grid md:grid-cols-2 gap-x-7">
               <ProjectList projects={projects} />
             </div>
           ) : (

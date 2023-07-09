@@ -10,7 +10,7 @@ interface ProjectsPageProps {
 const projects = ({ projects }: ProjectsPageProps) => {
   return (
     <Layout pageName="Projects" routes={projectsPageRoutes}>
-      <div className="content-margin grid gap-x-7">
+      <div className="content-padding grid md:grid-cols-2 gap-x-7">
         <ProjectList projects={projects} />
       </div>
     </Layout>
