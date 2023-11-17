@@ -1,9 +1,6 @@
 import { Layout, ProjectList, Error, Button } from "@/components/shared";
 import type { SkillSet, Project, Skill } from "@/shared/types";
-import type {
-  GetServerSideProps,
-  GetStaticPropsContext,
-} from "next";
+import type { GetServerSideProps, GetStaticPropsContext } from "next";
 
 interface SkillPageProps {
   projects: Array<Project>;

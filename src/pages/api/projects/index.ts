@@ -12,7 +12,9 @@ const projectsHandler = async (
 ) => {
   const db = await database();
   const data: Data = JSON.parse(
-    JSON.stringify(await db.collection("projects").find({}).sort("index").toArray())
+    JSON.stringify(
+      await db.collection("projects").find({}).sort("index").toArray()
+    )
   );
 
   res.status(200).json(data);
