@@ -9,7 +9,7 @@ interface ButtonProps {
 const Button = ({ children, href, download }: ButtonProps) => {
   return (
     <a
-      className="rounded-xl bg-red px-4 py-1 font-bold text-black transition-all duration-300 hover:scale-110"
+      className="rounded-lg bg-red px-4 py-1 font-bold text-black transition-all duration-300 hover:scale-110"
       href={href}
       download={download}
     >

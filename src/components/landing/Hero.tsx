@@ -8,7 +8,7 @@ interface HeroProps {
 
 const Hero = ({ name, greeting, tag }: HeroProps) => {
   return (
-    <div className="content-padding flex min-h-[85vh] flex-col bg-gradient-to-b from-black-dark to-black">
+    <div className="content-padding flex min-h-screen flex-col bg-gradient-to-b from-black-dark to-black">
       <main className="my-4 flex flex-col justify-between sm:my-28 md:flex-row">
         <div>
           <div className="text-4xl lg:text-5xl">
