@@ -9,7 +9,7 @@
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json}"
   },
   "dependencies": {
-    "mongodb": "5.4.0",
+    "mongodb": "6.1.0",
     "next": "13.4.1",
     "react": "18.2.0",
     "react-awesome-reveal": "^3.8.1",
