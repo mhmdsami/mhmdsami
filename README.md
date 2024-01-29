@@ -3,12 +3,12 @@ a pre-final year CSE undergrad who loves to **craft web experiences**. Always re
 
 I usually try new things and break here and make at [**@sm-sami**](https://github.com/sm-sami). I do all things web, but I mostly spend time building user interfaces.
 
-My primary tech stack is **Remix**, **TailwindCSS**, **TypeScript** for frontend and **Node.js**, **Express** and **MongoDB/PostgreSQL** and *yet again* **TypeScript** for backend. I also dabble with **Arduino** here and there! I am currently learning Rust and Remix.
+My primary tech stack is **Remix**, **TailwindCSS**, **TypeScript** for frontend and **Node.js**, **Express** and **MongoDB/PostgreSQL** and *yet again* **TypeScript** for backend. I also dabble with **Rust** and **Arduino** here and there!
 
 ### My Tech Stack
 - **Programming Languages**: Python, JavaScript, TypeScript and Rust
 - **Frontend**: HTML, CSS, React.js, Next.js, Remix and TailwindCSS
-- **Backend**: Node.js, Express, MongoDB, PostgreSQL, Prisma, drizzle-orm and Firebase
+- **Backend**: Node.js, Express, MongoDB, PostgreSQL, Prisma and drizzle-orm
 - **Tools**: Git, Postman 
 - **Cloud**: Vercel, AWS (EC2, SES and S3), GCP (Compute Engine, Cloud Storage)
 - **UI/UX**: Figma, Adobe XD, and Affinity Designer
@@ -20,7 +20,7 @@ My primary tech stack is **Remix**, **TailwindCSS**, **TypeScript** for frontend
 - [**Absentee**](https://github.com/sm-sami/Absentee) <br /> A command line tool to clean the attendance data. Built with Python.
 
 ### Open Source Contributions
-- [**Fury**](https://github.com/srm-kzilla/fury) <br /> nspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!. Led and contributed to the fontend of the project. Built with Remix, Next.js, TailwindCSS, SCSS, and TypeScript.
+- [**Fury**](https://github.com/srm-kzilla/fury) <br /> Inspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!. Led and contributed to the fontend of the project. Built with Remix, Next.js, TailwindCSS, SCSS, and TypeScript.
 - [**KZILLA.XYZ**](https://github.com/srm-kzilla/kzilla.xyz) <br /> A stupid simple URL shortener. Contributed to v2, helped include custom code support and redesign. Built with Svelte, MongoDB, Node.js, and TypeScript.
 - [**yesbot-ts**](https://github.com/Yes-Theory-Fam/yesbot-ts) <br /> A discord bot for the Yes Theory Fam. Contributed by fixing bugs & refactoring few commands to slash command. Built with discord.js and TypeScript.
 
@@ -28,7 +28,7 @@ My primary tech stack is **Remix**, **TailwindCSS**, **TypeScript** for frontend
 - **MOZOFEST '23** <br /> Website for MOZOFEST 2023, the annual flagship event of [@srm-kzilla](https://github.com/srm-kzilla). Built with Next.js, TailwindCSS, and TypeScript.
 - **TravelMate** <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend.Built with React.js, Node.js, TailwindCSS and shadcn/ui.
 
-Have a look into my other [**projects**](https://mhmdsami.xyz/projects).
+Have a look into my other [**projects**](https://mhmdsami.me/projects).
 
 ### Connect with Me
 [LinkedIn](https://www.linkedin.com/in/sm-sami/) • [Instagram](https://www.instagram.com/sm_sami.ts/) • [Twitter](https://twitter.com/siamasdev)
