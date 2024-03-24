@@ -15,13 +15,13 @@ My primary tech stack is **Remix**, **TailwindCSS**, **TypeScript** for frontend
 
 ### My Projects
 - [**Guess the Place Bot**](https://github.com/sm-sami/mlu-bot) <br /> A discord bot for organizing Guess the Place and more. Built with discord.js and TypeScript.
-- [**subscriptions-api**](https://github.com/sm-sami/subscriptions-api) <br /> A REST API for managing subscriptions. Built with Express, PostgreSQL, drizzle-orm, AWS SES, react-email and zod.
-- [**s3-client**](https://github.com/sm-sami/s3-client) <br /> Client to upload images to AWS S3. Built with Next.js, TailwindCSS, TypeScript AWS SDK and more.
-- [**Absentee**](https://github.com/sm-sami/Absentee) <br /> A command line tool to clean the attendance data. Built with Python.
+- [**Subscriptions API**](https://github.com/sm-sami/subscriptions-api) <br /> A REST API for managing subscriptions. Built with Express, PostgreSQL, drizzle-orm, AWS SES, react-email and zod.
+- [**S3 Client**](https://github.com/sm-sami/s3-client) <br /> Client to upload images to AWS S3. Built with Next.js, TailwindCSS, TypeScript AWS SDK and more.
+- [**Email Manager Client**](https://github.com/GDSCSRM/email-manager-client) <br /> Manage emails with an easy-to-use client. Bulk add new emails from a CSV file. Built with Remix, shadcn/ui, TailwindCSS, Prisma, MongoDB and TypeScript.
 
 ### Open Source Contributions
 - [**Fury**](https://github.com/srm-kzilla/fury) <br /> Inspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!. Led and contributed to the fontend of the project. Built with Remix, Next.js, TailwindCSS, SCSS, and TypeScript.
-- [**KZILLA.XYZ**](https://github.com/srm-kzilla/kzilla.xyz) <br /> A stupid simple URL shortener. Contributed to v2, helped include custom code support and redesign. Built with Svelte, MongoDB, Node.js, and TypeScript.
+- [**kzilla.xyz**](https://github.com/srm-kzilla/kzilla.xyz) <br /> A stupid simple URL shortener. Contributed to v2, helped include custom code support and redesign. Built with Svelte, MongoDB, Node.js, and TypeScript.
 - [**yesbot-ts**](https://github.com/Yes-Theory-Fam/yesbot-ts) <br /> A discord bot for the Yes Theory Fam. Contributed by fixing bugs & refactoring few commands to slash command. Built with discord.js and TypeScript.
 
 ### Other Projects

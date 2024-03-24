@@ -37,7 +37,7 @@ const Navbar = ({ routes }: { routes?: Array<Route> }) => {
       <ul className="cursor-pointer flex items-center gap-3 md:gap-5">
         <NavbarElements routes={routes} />
       </ul>
-      <Button href="sm-sami.pdf" download="sm-sami.pdf">
+      <Button href="resume.pdf" download="sami-resume.pdf">
         resume
       </Button>
     </nav>
