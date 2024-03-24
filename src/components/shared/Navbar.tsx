@@ -33,10 +33,10 @@ const Navbar = ({ routes }: { routes?: Array<Route> }) => {
   };
 
   return (
-    <nav className="content-padding text-xl my-[10vh] flex justify-between gap-3">
-        <ul className="cursor-pointer flex items-center gap-3 md:gap-5">
-          <NavbarElements routes={routes} />
-        </ul>
+    <nav className="content-padding text-xl my-[10vh] flex justify-between items-center gap-3">
+      <ul className="cursor-pointer flex items-center gap-3 md:gap-5">
+        <NavbarElements routes={routes} />
+      </ul>
       <Button href="sm-sami.pdf" download="sm-sami.pdf">
         resume
       </Button>
