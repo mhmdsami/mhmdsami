@@ -8,8 +8,6 @@ import type { Route } from "@/shared/types";
 const Navbar = ({ routes }: { routes?: Array<Route> }) => {
   const [isNavToggled, setNavToggled] = useState<boolean>(false);
 
-  const toggleNav = () => setNavToggled(!isNavToggled);
-
   const NavbarElements = ({ routes }: { routes?: Array<Route> }) => {
     routes = routes ?? defaultRoutes;
     return (

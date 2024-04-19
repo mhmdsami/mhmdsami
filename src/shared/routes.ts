@@ -14,14 +14,10 @@ export const projectsPageRoutes = [
   { page: "github", href: "https://github.com/sm-sami" },
 ];
 
-export const blogPageRoutes = [
-  { page: "home", href: "/" },
-  { page: "projects", href: "/projects" },
-  { page: "github", href: "https://github.com/sm-sami" },
-];
-
 export const footerRoutes = [
   { page: "github", href: "https://github.com/sm-sami" },
   { page: "linkedin", href: "https://www.linkedin.com/in/sm-sami/" },
-  { page: "instagram", href: "https://www.instagram.com/sm_sami.ts/" },
+  { page: "instagram", href: "https://www.instagram.com/siamasdev/" },
+  { page: "twitter", href: "https://twitter.com/siamasdev" },
+  { page: "github", href: "https://github.com/mhmdsami" },
 ];

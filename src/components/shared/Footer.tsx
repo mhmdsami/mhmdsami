@@ -19,7 +19,7 @@ const Footer = () => {
           >
             <a href={href}>
               <Image
-                src={`/icons/light/${page}.svg`}
+                src={`/icons/${page}.svg`}
                 alt={page}
                 width={32}
                 height={32}
@@ -28,23 +28,18 @@ const Footer = () => {
           </li>
         ))}
       </ul>
-      <div className="flex flex-col items-center gap-0.5">
-        <div className="font-bold hover:underline">
-          <Link href="/attributions">attributions</Link>
-        </div>
-        <div>
-          crafted with{" "}
-          <a href="https://nextjs.org/" className="font-bold hover:underline">
-            Next.js
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://tailwindcss.com/"
-            className="font-bold hover:underline"
-          >
-            tailwindcss
-          </a>
-        </div>
+      <div>
+        crafted with{" "}
+        <a href="https://nextjs.org/" className="font-bold hover:underline">
+          Next.js
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://tailwindcss.com/"
+          className="font-bold hover:underline"
+        >
+          tailwindcss
+        </a>
       </div>
     </footer>
   );
