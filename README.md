@@ -1,5 +1,5 @@
 # Hello there, I am Sami!
-a pre-final year CSE undergrad who loves to **craft web experiences**. Always ready to take up challenges to **make the internet a little better than before**.
+a final year CSE undergrad who loves to **craft web experiences**. Always ready to take up challenges to **make the internet a little better than before**.
 
 I usually try new things and break here and make at [**@sm-sami**](https://github.com/sm-sami). I do all things web, but I mostly spend time building user interfaces.
 
@@ -26,11 +26,11 @@ My primary tech stack is **Remix**, **TailwindCSS**, **TypeScript** for frontend
 
 ### Other Projects
 - **MOZOFEST '23** <br /> Website for MOZOFEST 2023, the annual flagship event of [@srm-kzilla](https://github.com/srm-kzilla). Built with Next.js, TailwindCSS, and TypeScript.
-- **TravelMate** <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend.Built with React.js, Node.js, TailwindCSS and shadcn/ui.
+- [**TravelMate**](https://github.com/sm-sami/hackout-travelmate) <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend.Built with React.js, Node.js, TailwindCSS and shadcn/ui.
 
 Have a look into my other [**projects**](https://mhmdsami.me/projects).
 
 ### Connect with Me
-[LinkedIn](https://www.linkedin.com/in/sm-sami/) • [Instagram](https://www.instagram.com/sm_sami.ts/) • [Twitter](https://twitter.com/siamasdev)
+[LinkedIn](https://www.linkedin.com/in/sm-sami/) • [Instagram](https://www.instagram.com/siamasdev/) • [Twitter](https://twitter.com/siamasdev)
 
 Built with lots of <3 and Chai!
