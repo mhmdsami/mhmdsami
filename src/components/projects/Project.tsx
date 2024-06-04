@@ -93,7 +93,7 @@ const Project = ({
                 className="transition-all duration-300 hover:-translate-y-1"
               >
                 <Image
-                  src="/icons/light/github.svg"
+                  src="/icons/github.svg"
                   alt="github logo"
                   width={28}
                   height={28}
@@ -108,7 +108,7 @@ const Project = ({
                 className="transition-all duration-300 hover:-translate-y-1"
               >
                 <Image
-                  src="/icons/light/website.svg"
+                  src="/icons/website.svg"
                   alt="website"
                   width={28}
                   height={28}
