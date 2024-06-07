@@ -1,5 +1,4 @@
 import { Layout, Button } from "@/components/shared";
-import Tilt from "react-tilt";
 
 interface ErrorProps {
   pageName: string;
@@ -21,9 +20,7 @@ const Error = ({
   return (
     <Layout pageName={pageName}>
       <div className="grid place-items-center">
-        <Tilt>
           <div className="text-[10rem] font-bold text-red">{errorCode}</div>
-        </Tilt>
         <div className="mb-5 text-2xl">
           {error}&nbsp;
           {accessedUrl && (

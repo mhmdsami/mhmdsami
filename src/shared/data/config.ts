@@ -111,10 +111,6 @@ const config: Config = {
       name: "React Scroll",
       url: "https://www.npmjs.com/package/react-scroll",
     },
-    {
-      name: "React Tilt",
-      url: "https://www.npmjs.com/package/react-tilt",
-    },
   ],
 };
 
