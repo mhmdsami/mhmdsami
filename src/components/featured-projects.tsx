@@ -1,9 +1,9 @@
-import { ProjectList } from "@/components/shared";
+import ProjectList from "@/components/project-list";
 import type { Project } from "@/shared/types";
 
 const FeaturedProjects = ({ projects }: { projects: Array<Project> }) => {
   return (
-    <div id="projects" className="content-padding mb-10 mt-[5vh]">
+    <div className="mb-10 mt-[5vh] px-8 md:px-14 lg:px-20 xl:px-52">
       <div className="text-base font-bold uppercase text-red md:text-xl">
         Featured Projects
       </div>

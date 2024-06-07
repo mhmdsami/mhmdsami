@@ -1,6 +1,8 @@
-import { Error } from "@/components/shared";
+"use client";
 
-const custom404 = () => {
+import Error from "@/components/error";
+
+export default function NotFound() {
   return (
     <Error
       pageName="Page Not Found"
@@ -10,6 +12,4 @@ const custom404 = () => {
       buttonContent="take me back home"
     />
   );
-};
-
-export default custom404;
+}

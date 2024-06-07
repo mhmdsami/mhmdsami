@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type { SkillSet } from "@/shared/types";
+import Link from "next/link";
 
 interface SkillsProps {
   skillSets: Array<SkillSet>;
@@ -8,7 +8,10 @@ interface SkillsProps {
 
 const Skills = ({ skillSets, backgroundColor }: SkillsProps) => {
   return (
-    <div id="skills" className={`content-padding py-[5vh] ${backgroundColor}`}>
+    <div
+      id="skills"
+      className={`px-8 py-[5vh] md:px-14 lg:px-20 xl:px-52 ${backgroundColor}`}
+    >
       <div className="text-base font-bold uppercase text-red md:text-xl">
         Skills
       </div>
@@ -32,7 +35,7 @@ const Skills = ({ skillSets, backgroundColor }: SkillsProps) => {
                         name
                       )}
                     </div>
-                  )
+                  ),
               )}
             </div>
           </div>

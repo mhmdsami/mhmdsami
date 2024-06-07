@@ -1,6 +1,4 @@
-import { SkillSet } from "@/shared/types";
-
-const skillSets: Array<SkillSet> = [
+const skillSets = [
   {
     title: "Languages",
     skills: [

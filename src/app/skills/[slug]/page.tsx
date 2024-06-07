@@ -1,24 +1,12 @@
-import { Layout, ProjectList, Error, Button } from "@/components/shared";
+"use client";
+
+import ProjectList from "@/components/project-list";
+import Error from "@/components/error";
+import Button from "@/components/button";
 import skillSets from "@/shared/data/skillsets";
 import allProjects from "@/shared/data/projects";
-import { useRouter } from "next/router";
 
-const Skill = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-
-  if (!slug || Array.isArray(slug)) {
-    return (
-      <Error
-        pageName="Skill Not Found"
-        errorCode="404"
-        error="Skill Not Found"
-        redirectTo="/skills"
-        buttonContent="Show me your skills"
-      />
-    );
-  }
-
+export default function Skill({ params: { slug } }: { params: { slug: string } }){
   const isValidSkill = (skill: string): string | undefined => {
     let name;
     skillSets.forEach((skillSet) =>
@@ -49,13 +37,13 @@ const Skill = () => {
   const projects = allProjects.filter((project) => project.tags.includes(slug));
 
   return (
-    <Layout pageName={name}>
+    <>
       {projects.length ? (
-        <div className="content-padding grid md:grid-cols-2 gap-x-7">
+        <div className="px-8 md:px-14 lg:px-20 xl:px-52 grid md:grid-cols-2 gap-x-7">
           <ProjectList projects={projects} />
         </div>
       ) : (
-        <div className="content-padding flex flex-col items-center gap-4">
+        <div className="px-8 md:px-14 lg:px-20 xl:px-52 flex flex-col items-center gap-4">
           <div className="text-3xl font-bold">
             Unfortunately,
             <br />I don&apos;t have any open source projects for&nbsp;
@@ -67,8 +55,6 @@ const Skill = () => {
           <Button href="/skills">show me your skills</Button>
         </div>
       )}
-    </Layout>
+    </>
   );
 };
-
-export default Skill;

@@ -1,6 +1,4 @@
-import { Project } from "@/shared/types";
-
-const projects: Array<Project> = [
+const projects  = [
   {
     name: "Fury",
     tags: [

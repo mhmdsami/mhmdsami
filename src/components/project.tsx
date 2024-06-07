@@ -1,9 +1,9 @@
-import { Tag } from "@/components/projects";
-import { Fade } from "react-awesome-reveal";
+import Tag from "@/components/tag";
+import type { Project as ProjectType } from "@/shared/types";
 import Image from "next/image";
 import Link from "next/link";
-import type { Project as ProjectType } from "@/shared/types";
 import type { ReactNode } from "react";
+import { Fade } from "react-awesome-reveal";
 
 interface ProjectProps extends ProjectType {
   children?: ReactNode;
@@ -40,7 +40,7 @@ const Project = ({
         {children && (
           <div className="flex flex-col gap-3">
             {children}
-            <div className="z-10 duration-300 hover:scale-150">
+            <div>
               {deps
                 ? image && (
                     <a href={deps}>
