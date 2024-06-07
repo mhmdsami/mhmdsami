@@ -1,50 +1,23 @@
 import { Landing } from "@/components/landing";
-import type { Config, SkillSet, Project } from "@/shared/types";
-import type { GetServerSideProps } from "next";
+import skillSets from "@/shared/data/skillsets";
+import config from "@/shared/data/config";
+import { useEffect, useState } from "react";
 
-interface HomeProps {
-  name: string;
-  greeting: string;
-  tag: string;
-  skillSets: Array<SkillSet>;
-  featuredProjects: Array<Project>;
-}
+const Home = () => {
+  const { greetings, tags, ...rest } = config;
+  const [tag, setTag] = useState("");
+  const [greeting, setGreeting] = useState("");
 
-const Home = ({
-  name,
-  greeting,
-  tag,
-  skillSets,
-  featuredProjects,
-}: HomeProps) => {
+  useEffect(() => {
+    setGreeting(greetings[Math.floor(Math.random() * greetings.length)]);
+    setTag(tags[Math.floor(Math.random() * tags.length)]);
+  }, [greetings, tags]);
+
   return (
     <div className="flex flex-col">
-      <Landing
-        name={name}
-        greeting={greeting}
-        tag={tag}
-        skillSets={skillSets}
-        featuredProjects={featuredProjects}
-      />
+      <Landing greeting={greeting} tag={tag} skillSets={skillSets} {...rest} />
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const configRes = await fetch(`${process.env.API_BASE_URL}/config`);
-  const config: Config = await configRes.json();
-
-  const skillSetsRes = await fetch(`${process.env.API_BASE_URL}/skills`);
-  const skillSets: Array<SkillSet> = await skillSetsRes.json();
-
-  const { greetings, tags } = config;
-
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-  const tag = tags[Math.floor(Math.random() * tags.length)];
-
-  return {
-    props: { ...config, greeting, tag, skillSets },
-  };
 };
 
 export default Home;

@@ -1,14 +1,24 @@
 import { Layout, ProjectList, Error, Button } from "@/components/shared";
-import type { SkillSet, Project, Skill } from "@/shared/types";
-import type { GetServerSideProps, GetStaticPropsContext } from "next";
+import skillSets from "@/shared/data/skillsets";
+import allProjects from "@/shared/data/projects";
+import { useRouter } from "next/router";
 
-interface SkillPageProps {
-  projects: Array<Project>;
-  skill: string;
-  skillSets: Array<SkillSet>;
-}
+const Skill = () => {
+  const router = useRouter();
+  const { slug } = router.query;
 
-const skill = ({ projects, skill, skillSets }: SkillPageProps) => {
+  if (!slug || Array.isArray(slug)) {
+    return (
+      <Error
+        pageName="Skill Not Found"
+        errorCode="404"
+        error="Skill Not Found"
+        redirectTo="/skills"
+        buttonContent="Show me your skills"
+      />
+    );
+  }
+
   const isValidSkill = (skill: string): string | undefined => {
     let name;
     skillSets.forEach((skillSet) =>
@@ -21,82 +31,44 @@ const skill = ({ projects, skill, skillSets }: SkillPageProps) => {
     return name;
   };
 
-  const name = isValidSkill(skill);
+  const name = isValidSkill(slug);
+
+  if (!name) {
+    return (
+      <Error
+        pageName="Skill Not Found"
+        errorCode="404"
+        error="Skill Not Found"
+        accessedUrl={slug}
+        redirectTo="/skills"
+        buttonContent="Show me your skills"
+      />
+    );
+  }
+
+  const projects = allProjects.filter((project) => project.tags.includes(slug));
 
   return (
-    <>
-      {name ? (
-        <Layout pageName={name}>
-          {projects.length ? (
-            <div className="content-padding grid md:grid-cols-2 gap-x-7">
-              <ProjectList projects={projects} />
-            </div>
-          ) : (
-            <div className="content-padding flex flex-col items-center gap-4">
-              <div className="text-3xl font-bold">
-                Unfortunately,
-                <br />I don&apos;t have any open source projects for&nbsp;
-                <span className="rounded-xl bg-red px-2 py-0.5 font-bold text-black-dark">
-                  {name}
-                </span>
-                &nbsp;at the moment
-              </div>
-              <Button href="/skills">show me your skills</Button>
-            </div>
-          )}
-        </Layout>
+    <Layout pageName={name}>
+      {projects.length ? (
+        <div className="content-padding grid md:grid-cols-2 gap-x-7">
+          <ProjectList projects={projects} />
+        </div>
       ) : (
-        <Error
-          pageName="Skill Not Found"
-          errorCode="404"
-          error="Skill Not Found"
-          accessedUrl={skill}
-          redirectTo="/skills"
-          buttonContent="Show me your skills"
-        />
+        <div className="content-padding flex flex-col items-center gap-4">
+          <div className="text-3xl font-bold">
+            Unfortunately,
+            <br />I don&apos;t have any open source projects for&nbsp;
+            <span className="rounded-xl bg-red px-2 py-0.5 font-bold text-black-dark">
+              {name}
+            </span>
+            &nbsp;at the moment
+          </div>
+          <Button href="/skills">show me your skills</Button>
+        </div>
       )}
-    </>
+    </Layout>
   );
 };
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${process.env.API_BASE_URL}/skills`);
-  const skillSets: Array<SkillSet> = await res.json();
-
-  const paths = skillSets
-    .map(({ skills }: SkillSet) =>
-      skills
-        .filter(({ makePage }: Skill) => makePage)
-        .map(({ slug }: Skill) => ({
-          params: { slug },
-        }))
-    )
-    .flat();
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetServerSideProps = async (
-  context: GetStaticPropsContext
-) => {
-  const res = await fetch(`${process.env.API_BASE_URL}/projects`);
-  const data = await res.json();
-
-  const skill = context.params!.slug as string;
-
-  const projects: Array<Project> = data.filter(({ tags }: Project) =>
-    tags.includes(skill)
-  );
-
-  const skillSetsRes = await fetch(`${process.env.API_BASE_URL}/skills`);
-  const skillSets = await skillSetsRes.json();
-
-  return {
-    props: { projects, skill, skillSets },
-  };
-};
-
-export default skill;
+export default Skill;
