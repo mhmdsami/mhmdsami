@@ -1,4 +1,24 @@
+import mintairLandingImage from "@/assets/mintair-landing.png"
+import furyImage from "@/assets/fury.png"
+import eliphileImage from "@/assets/eliphile.png"
+import envStashImage from "@/assets/env-stash.png"
+import subscriptionsApiImage from "@/assets/subscriptions-api.png"
+import s3ClientImage from "@/assets/s3-client.png"
+import travelmateImage from "@/assets/travelmate.png"
+import mozofest23Image from "@/assets/mozofest-23.png"
+import kzillaXyzImage from "@/assets/kzilla-xyz.png"
+import dashternImage from "@/assets/dashtern.png"
+import mozofest22Image from "@/assets/mozofest-22.png"
+import mintairDashboardImage from "@/assets/mintair-dashboard.png"
+
 const projects  = [
+  {
+    name: "Mintair Landing",
+    tags: ["nextjs", "tailwindcss", "typescript", "framer-motion"],
+    desc: "Landing page for Mintair",
+    image: mintairLandingImage,
+    deps: "https://mintair.xyz/"
+  },
   {
     name: "Fury",
     tags: [
@@ -15,55 +35,7 @@ const projects  = [
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
     repo: "https://github.com/srm-kzilla/fury",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/fury.png",
-    slug: "fury",
-  },
-  {
-    name: "Eliphile",
-    tags: ["remix", "mongodb", "primsa", "zod", "tailwindcss", "typescript"],
-    desc: "Store, share and view beautiful images",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/eliphile.png",
-    slug: "eliphile",
-    repo: "https://github.com/mhmdsami/eliphile",
-    deps: "https://eliphile.vercel.app/",
-  },
-  {
-    name: "Env Stash",
-    tags: ["remix", "mongodb", "primsa", "tailwindcss", "typescript"],
-    desc: "Never lose your env again!",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/env-stash.png",
-    slug: "env-stash",
-    repo: "https://github.com/mhmdsami/env-stash",
-    deps: "https://env-stash.vercel.app/",
-  },
-  {
-    name: "Subscriptions API",
-    tags: [
-      "express",
-      "postgresql",
-      "drizzle",
-      "typescript",
-      "react-email",
-      "aws",
-      "zod",
-    ],
-    desc: "API to manage subscriptions.",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/subscriptions-api.png",
-    slug: "subscriptions-api",
-    repo: "https://github.com/sm-sami/subscriptions-api",
-  },
-  {
-    name: "S3 Client",
-    tags: ["nextjs", "tailwindcss", "typescript", "aws", "zod"],
-    desc: "Client to upload images to AWS S3.",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/s3-client.png",
-    slug: "s3-client",
-    repo: "https://github.com/sm-sami/s3-client",
+    image: furyImage,
   },
   {
     name: "TravelMate",
@@ -80,20 +52,61 @@ const projects  = [
     contributed: true,
     organizationUrl: "https://github.com/shawshankkumar/hackout-travelmate/",
     repo: "https://github.com/sm-sami/hackout-travelmate",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/travelmate.png",
-    slug: "travelmate",
+    image: travelmateImage,
+  },
+  {
+    name: "Mintair Dashboard",
+    tags: ["nextjs", "tailwindcss", "typescript", "framer-motion", "react-query", "zustand"],
+    desc: "Landing page for Mintair",
+    image: mintairDashboardImage,
+    deps: "https://mintair.xyz/"
+  },
+  {
+    name: "Eliphile",
+    tags: ["remix", "mongodb", "primsa", "zod", "tailwindcss", "typescript"],
+    desc: "Store, share and view beautiful images",
+    image: eliphileImage,
+    repo: "https://github.com/mhmdsami/eliphile",
+    deps: "https://eliphile.vercel.app/",
+  },
+  {
+    name: "Env Stash",
+    tags: ["remix", "mongodb", "primsa", "tailwindcss", "typescript"],
+    desc: "Never lose your env again!",
+    image: envStashImage,
+    repo: "https://github.com/mhmdsami/env-stash",
+    deps: "https://env-stash.vercel.app/",
+  },
+  {
+    name: "Subscriptions API",
+    tags: [
+      "express",
+      "postgresql",
+      "drizzle",
+      "typescript",
+      "react-email",
+      "aws",
+      "zod",
+    ],
+    desc: "API to manage subscriptions.",
+    image: subscriptionsApiImage,
+    repo: "https://github.com/sm-sami/subscriptions-api",
+  },
+  {
+    name: "S3 Client",
+    tags: ["nextjs", "tailwindcss", "typescript", "aws", "zod"],
+    desc: "Client to upload images to AWS S3.",
+    image: s3ClientImage,
+    repo: "https://github.com/sm-sami/s3-client",
   },
   {
     name: "MOZOFEST '23",
     tags: ["nextjs", "tailwindcss", "typescript", "css"],
     desc: "MOZOFEST '23 Landing Page & Dashboard.",
     deps: "https://mozofest.srmkzilla.net/",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/mozofest-23.png",
+    image: mozofest23Image,
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
-    slug: "mozofest-23",
   },
   {
     name: "kzilla.xyz",
@@ -103,45 +116,36 @@ const projects  = [
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
     repo: "https://github.com/srm-kzilla/kzilla.xyz",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/kzilla-xyz.png",
-    slug: "kzilla-xyz",
+    image: kzillaXyzImage,
   },
   {
     name: "Dashtern",
     tags: ["nextjs", "tailwindcss", "javascript", "react", "mongodb", "scss"],
     desc: "SIH Internal Hackathon 2022 from team Sleep 404",
     repo: "https://github.com/Sleep-404-team/SIH-2022",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/dashtern.png",
+    image: dashternImage,
     contributed: true,
     organizationUrl: "https://github.com/Sleep-404-team",
-    slug: "dashtern",
   },
   {
     name: "MOZOFEST '22",
     tags: ["nextjs", "tailwindcss", "typescript", "css"],
     desc: "MOZOFEST '22 Landing Page.",
-    deps: "https://mozofest.srmkzilla.net/",
-    image:
-      "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/mozofest-22.png",
+    image: mozofest22Image,
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
-    slug: "mozofest-22",
   },
   {
     name: "mlu-bot",
     repo: "https://github.com/sm-sami/mlu-bot",
     tags: ["typescript", "mongodb", "nodejs"],
     desc: "A discord bot for organizing Guess the Place.",
-    slug: "mlu-bot",
   },
   {
     name: "Absentee",
     tags: ["python"],
     desc: "A command line tool to clean the attendance data",
     repo: "https://github.com/sm-sami/absentee",
-    slug: "absentee",
   },
 ];
 

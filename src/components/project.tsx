@@ -3,7 +3,6 @@ import type { Project as ProjectType } from "@/shared/types";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Fade } from "react-awesome-reveal";
 
 interface ProjectProps extends ProjectType {
   children?: ReactNode;
@@ -11,7 +10,6 @@ interface ProjectProps extends ProjectType {
 
 const Project = ({
   name,
-  slug,
   children,
   image,
   tags,
@@ -21,104 +19,82 @@ const Project = ({
   organizationUrl,
 }: ProjectProps) => {
   return (
-    <Fade triggerOnce={true} className="hover:z-20">
-      <div className="mb-7 mt-4 rounded-md bg-black p-5 md:rounded-xl">
-        <div className="flex justify-between">
-          {slug ? (
-            <div className="text-lg font-bold">
-              <Link href={`/projects/${slug}`}>{name}</Link>
-            </div>
-          ) : (
-            <div className="text-lg font-bold">{name}</div>
-          )}
-          {contributed && (
-            <Tag>
-              <a href={organizationUrl}>contributed</a>
-            </Tag>
-          )}
-        </div>
-        {children && (
-          <div className="flex flex-col gap-3">
-            {children}
-            <div>
-              {deps
-                ? image && (
-                    <a href={deps}>
-                      <Image
-                        src={image}
-                        width={2880}
-                        height={1410}
-                        alt={name}
-                        className="rounded-sm md:rounded-md"
-                      />
-                    </a>
-                  )
-                : image && (
+    <div className="mb-7 mt-4 flex flex-col rounded-md bg-black p-5 md:rounded-xl">
+      <div className="flex justify-between">
+        <div className="text-lg font-bold">{name}</div>
+        {contributed && (
+          <Tag>
+            <a href={organizationUrl}>contributed</a>
+          </Tag>
+        )}
+      </div>
+      {children && (
+        <div className="flex grow flex-col gap-3">
+          {children}
+          <div>
+            {deps
+              ? image && (
+                  <a href={deps}>
                     <Image
                       src={image}
-                      width={2880}
-                      height={1410}
                       alt={name}
                       className="rounded-sm md:rounded-md"
                     />
-                  )}
-            </div>
-          </div>
-        )}
-        <div className="flex items-center justify-between">
-          <div className="mt-5 flex w-2/3 flex-wrap gap-2 md:w-full">
-            <div className="font-medium">built with </div>
-            {tags.slice(0, 3).map((tag, index) => (
-              <div key={index}>
-                <Tag>
-                  <Link href={`/skills/${tag}`}>{tag}</Link>
-                </Tag>
-              </div>
-            ))}
-            {tags.length > 3 &&
-              (slug ? (
-                <Tag>
-                  <Link href={`/projects/${slug}`}>{`+${
-                    tags.length - 3
-                  }`}</Link>
-                </Tag>
-              ) : (
-                <Tag>+{tags.length - 3}</Tag>
-              ))}
-          </div>
-          <div className="mt-5 flex gap-2">
-            {repo && (
-              <a
-                href={repo}
-                className="transition-all duration-300 hover:-translate-y-1"
-              >
-                <Image
-                  src="/icons/github.svg"
-                  alt="github logo"
-                  width={28}
-                  height={28}
-                />
-              </a>
-            )}
-            {deps && (
-              <a
-                href={deps}
-                target="_blank"
-                rel="noreferrer"
-                className="transition-all duration-300 hover:-translate-y-1"
-              >
-                <Image
-                  src="/icons/website.svg"
-                  alt="website"
-                  width={28}
-                  height={28}
-                />
-              </a>
-            )}
+                  </a>
+                )
+              : image && (
+                  <Image
+                    src={image}
+                    alt={name}
+                    className="grow rounded-sm md:rounded-md"
+                  />
+                )}
           </div>
         </div>
+      )}
+      <div className="mt-5 flex items-end justify-between gap-3">
+        <div className="flex w-2/3 flex-col gap-2 md:w-full">
+          <div className="font-medium">built with </div>
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag, index) => (
+              <Tag key={index}>
+                <Link href={`/skills/${tag}`}>{tag}</Link>
+              </Tag>
+            ))}
+          </div>
+        </div>
+        <div className="flex gap-2">
+          {repo && (
+            <a
+              href={repo}
+              className="transition-all duration-300 hover:-translate-y-1"
+            >
+              <Image
+                src="/icons/github.svg"
+                alt="github logo"
+                width={28}
+                height={28}
+              />
+            </a>
+          )}
+          {deps && (
+            <a
+              href={deps}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-all duration-300 hover:-translate-y-1"
+            >
+              <Image
+                src="/icons/website.svg"
+                alt="website"
+                width={28}
+                height={28}
+              />
+            </a>
+          )}
+        </div>
       </div>
-    </Fade>
+    </div>
   );
 };
 

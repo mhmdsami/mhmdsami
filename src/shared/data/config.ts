@@ -1,3 +1,6 @@
+import mintairLandingImage from "@/assets/mintair-landing.png";
+import furyImage from "@/assets/fury.png";
+
 const config = {
   name: "Mohamed Sami",
   greetings: [
@@ -19,22 +22,29 @@ const config = {
   ],
   featuredProjects: [
     {
-      slug: "subscriptions-api",
-      name: "Subscriptions API",
-      image:
-        "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/subscriptions-api.png",
-      repo: "https://github.com/sm-sami/subscriptions-api",
-      tags: ["express", "postgresql", "drizzle", "typescript", "aws", "zod"],
-      desc: "API to manage subscriptions.",
+      name: "Mintair Landing",
+      tags: ["nextjs", "tailwindcss", "typescript", "framer-motion"],
+      desc: "Landing page for Mintair",
+      image: mintairLandingImage,
+      deps: "https://mintair.xyz/"
     },
     {
-      slug: "mozofest-23",
-      name: "MOZOFEST '23",
-      image:
-        "https://sm-sami-portfolio.s3.ap-south-1.amazonaws.com/project/mozofest-23.png",
-      tags: ["nextjs", "tailwindcss", "typescript"],
-      desc: "MOZOFEST '23 Landing Page & Dashboard.",
-      deps: "https://mozofest.srmkzilla.net",
+      name: "Fury",
+      tags: [
+        "remix",
+        "nextjs",
+        "mongodb",
+        "typescript",
+        "tailwindcss",
+        "scss",
+        "nodejs",
+        "go",
+      ],
+      desc: "Inspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!",
+      contributed: true,
+      organizationUrl: "https://github.com/srm-kzilla",
+      repo: "https://github.com/srm-kzilla/fury",
+      image: furyImage,
     },
   ],
 };

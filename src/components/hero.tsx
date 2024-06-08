@@ -1,17 +1,15 @@
-"use client";
-
 import config from "@/shared/data/config";
-import { useEffect, useState } from "react";
 
-export default function Hero() {
+function getHeroInfo() {
   const { name, greetings, tags } = config;
-  const [tag, setTag] = useState("");
-  const [greeting, setGreeting] = useState("");
+  const tag = tags[Math.floor(Math.random() * tags.length)];
+  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
-  useEffect(() => {
-    setGreeting(greetings[Math.floor(Math.random() * greetings.length)]);
-    setTag(tags[Math.floor(Math.random() * tags.length)]);
-  }, [greetings, tags]);
+  return { name, tag, greeting };
+}
+
+export default async function Hero() {
+  const { name, greeting, tag } = getHeroInfo();
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-black-dark to-black px-8 md:px-14 lg:px-20 xl:px-52">
@@ -39,13 +37,7 @@ export default function Hero() {
         </p>
       </main>
       <div className="flex animate-bounce cursor-pointer select-none place-content-center pt-20 text-red">
-        <div
-          onClick={() => {
-            document.querySelector("#skills")?.scrollIntoView({
-              behavior: "smooth",
-            });
-          }}
-        >
+        <a href="/#skills">
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -60,7 +52,7 @@ export default function Hero() {
               d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
             ></path>
           </svg>
-        </div>
+        </a>
       </div>
     </div>
   );

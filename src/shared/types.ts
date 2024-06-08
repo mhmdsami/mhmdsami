@@ -1,13 +1,14 @@
+import { StaticImageData } from "next/image";
+
 export interface Project {
   name: string;
-  image?: string;
+  image?: StaticImageData;
   repo?: string;
   deps?: string;
   tags: Array<string>;
   desc: string;
   contributed?: boolean;
   organizationUrl?: string;
-  slug: string;
 }
 
 export interface Skill {
