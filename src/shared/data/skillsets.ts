@@ -1,171 +1,43 @@
+import SKILLS from "@/shared/data/skills";
+
 const skillSets = [
   {
     title: "Languages",
     skills: [
-      {
-        name: "JavaScript",
-        slug: "javascript",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "TypeScript",
-        slug: "typescript",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "Python",
-        slug: "python",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "C",
-        slug: "c",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "C++",
-        slug: "cpp",
-        showSkill: true,
-        makePage: true,
-      },
+      SKILLS.JAVASCRIPT,
+      SKILLS.TYPESCRIPT,
+      SKILLS.PYTHON,
+      SKILLS.RUST,
+      SKILLS.C,
+      SKILLS.CPP,
     ],
   },
   {
     title: "Frontend",
     skills: [
-      {
-        name: "HTML",
-        slug: "html",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "CSS",
-        slug: "css",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "React",
-        slug: "react",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "Nextjs",
-        slug: "nextjs",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "Remix",
-        slug: "remix",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "Svelte",
-        slug: "svelte",
-        showSkill: false,
-        makePage: true,
-      },
-      {
-        name: "TailwindCSS",
-        slug: "tailwindcss",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "SCSS",
-        slug: "scss",
-        showSkill: false,
-        makePage: true,
-      },
+      SKILLS.HTML,
+      SKILLS.CSS,
+      SKILLS.REACT,
+      SKILLS.NEXTJS,
+      SKILLS.REMIX,
+      SKILLS.TAILWINDCSS,
     ],
   },
   {
     title: "Backend",
-    skills: [
-      {
-        name: "Nodejs",
-        slug: "nodejs",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "Express",
-        slug: "express",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "Drizzle ORM",
-        slug: "drizzle",
-        showSkill: false,
-        makePage: true,
-      },
-    ],
+    skills: [SKILLS.NODEJS, SKILLS.EXPRESS, SKILLS.DRIZZLE, SKILLS.PRISMA],
   },
   {
     title: "Database",
-    skills: [
-      {
-        name: "MongoDB",
-        slug: "mongodb",
-        showSkill: true,
-        makePage: true,
-      },
-      {
-        name: "PostgreSQL",
-        slug: "postgresql",
-        showSkill: true,
-        makePage: true,
-      },
-    ],
+    skills: [SKILLS.MONGODB, SKILLS.POSTGRESQL],
   },
   {
     title: "UI/UX",
-    skills: [
-      {
-        name: "Figma",
-        slug: "figma",
-        showSkill: true,
-        makePage: false,
-      },
-      {
-        name: "Adobe XD",
-        slug: "adobexd",
-        showSkill: true,
-        makePage: false,
-      },
-    ],
+    skills: [SKILLS.FIGMA, SKILLS.ADOBEXD],
   },
   {
     title: "Tools",
-    skills: [
-      {
-        name: "Git",
-        slug: "git",
-        showSkill: true,
-        makePage: false,
-      },
-      {
-        name: "Postman",
-        slug: "postman",
-        showSkill: true,
-        makePage: false,
-      },
-      {
-        name: "Vercel",
-        slug: "vercel",
-        showSkill: true,
-        makePage: false,
-      },
-    ],
+    skills: [SKILLS.GIT, SKILLS.POSTMAN, SKILLS.VERCEL],
   },
 ];
 

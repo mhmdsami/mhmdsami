@@ -20,7 +20,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <Button href="resume.pdf" download="sami-resume.pdf">
+      <Button href="resume.pdf" download="resume">
         resume
       </Button>
     </nav>

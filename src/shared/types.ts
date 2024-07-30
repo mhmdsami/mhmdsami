@@ -5,7 +5,7 @@ export interface Project {
   image?: StaticImageData;
   repo?: string;
   deps?: string;
-  tags: Array<string>;
+  skills: Array<Skill>;
   desc: string;
   contributed?: boolean;
   organizationUrl?: string;
@@ -13,9 +13,7 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  slug: string;
-  showSkill: boolean;
-  makePage: boolean;
+  slug?: string;
 }
 
 export interface SkillSet {

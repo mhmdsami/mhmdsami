@@ -1,5 +1,6 @@
 import mintairLandingImage from "@/assets/mintair-landing.png";
 import furyImage from "@/assets/fury.png";
+import SKILLS from "@/shared/data/skills";
 
 const config = {
   name: "Mohamed Sami",
@@ -23,22 +24,27 @@ const config = {
   featuredProjects: [
     {
       name: "Mintair Landing",
-      tags: ["nextjs", "tailwindcss", "typescript", "framer-motion"],
+      skills: [
+        SKILLS.NEXTJS,
+        SKILLS.TAILWINDCSS,
+        SKILLS.TYPESCRIPT,
+        SKILLS.FRAMER_MOTION,
+      ],
       desc: "Landing page for Mintair",
       image: mintairLandingImage,
-      deps: "https://mintair.xyz/"
+      deps: "https://mintair.xyz/",
     },
     {
       name: "Fury",
-      tags: [
-        "remix",
-        "nextjs",
-        "mongodb",
-        "typescript",
-        "tailwindcss",
-        "scss",
-        "nodejs",
-        "go",
+      skills: [
+        SKILLS.REMIX,
+        SKILLS.NEXTJS,
+        SKILLS.TAILWINDCSS,
+        SKILLS.SCSS,
+        SKILLS.MONGODB,
+        SKILLS.NODEJS,
+        SKILLS.GO,
+        SKILLS.TYPESCRIPT,
       ],
       desc: "Inspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!",
       contributed: true,

@@ -12,7 +12,7 @@ const Project = ({
   name,
   children,
   image,
-  tags,
+  skills,
   repo,
   deps,
   contributed,
@@ -56,9 +56,18 @@ const Project = ({
         <div className="flex w-2/3 flex-col gap-2 md:w-full">
           <div className="font-medium">built with </div>
           <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
+            {skills.map(({ name, slug }, index) => (
               <Tag key={index}>
-                <Link href={`/skills/${tag}`}>{tag}</Link>
+                {slug ? (
+                  <Link
+                    className="text-sm font-semibold"
+                    href={`/skills/${slug}`}
+                  >
+                    {name}
+                  </Link>
+                ) : (
+                  name
+                )}
               </Tag>
             ))}
           </div>

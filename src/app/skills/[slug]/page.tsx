@@ -1,27 +1,21 @@
 "use client";
 
-import ProjectList from "@/components/project-list";
-import Error from "@/components/error";
 import Button from "@/components/button";
-import skillSets from "@/shared/data/skillsets";
+import Error from "@/components/error";
+import ProjectList from "@/components/project-list";
 import allProjects from "@/shared/data/projects";
+import skills from "@/shared/data/skills";
 
-export default function Skill({ params: { slug } }: { params: { slug: string } }){
-  const isValidSkill = (skill: string): string | undefined => {
-    let name;
-    skillSets.forEach((skillSet) =>
-      skillSet.skills.forEach((_skill) => {
-        if (_skill.slug === skill) {
-          name = _skill.name;
-        }
-      })
-    );
-    return name;
-  };
+export default function Skill({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
+  const [, skill] = Object.entries(skills).find(
+    ([, { slug: s }]) => s === slug,
+  ) ?? [];
 
-  const name = isValidSkill(slug);
-
-  if (!name) {
+  if (!skill) {
     return (
       <Error
         pageName="Skill Not Found"
@@ -34,21 +28,23 @@ export default function Skill({ params: { slug } }: { params: { slug: string } }
     );
   }
 
-  const projects = allProjects.filter((project) => project.tags.includes(slug));
+  const projects = allProjects.filter((project) =>
+    project.skills.includes(skill),
+  );
 
   return (
     <>
       {projects.length ? (
-        <div className="px-8 md:px-14 lg:px-20 xl:px-52 grid md:grid-cols-2 gap-x-7">
+        <div className="grid gap-x-7 px-8 md:grid-cols-2 md:px-14 lg:px-20 xl:px-52">
           <ProjectList projects={projects} />
         </div>
       ) : (
-        <div className="px-8 md:px-14 lg:px-20 xl:px-52 flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 px-8 md:px-14 lg:px-20 xl:px-52">
           <div className="text-3xl font-bold">
             Unfortunately,
             <br />I don&apos;t have any open source projects for&nbsp;
             <span className="rounded-xl bg-red px-2 py-0.5 font-bold text-black-dark">
-              {name}
+              {skill.name}
             </span>
             &nbsp;at the moment
           </div>
@@ -57,4 +53,4 @@ export default function Skill({ params: { slug } }: { params: { slug: string } }
       )}
     </>
   );
-};
+}
