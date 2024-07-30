@@ -66,7 +66,9 @@ const Project = ({
                     {name}
                   </Link>
                 ) : (
-                  name
+                  <span className="text-sm font-semibold">
+                    {name}
+                  </span>
                 )}
               </Tag>
             ))}

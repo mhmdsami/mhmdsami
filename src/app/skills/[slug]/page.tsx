@@ -1,5 +1,3 @@
-"use client";
-
 import Button from "@/components/button";
 import Error from "@/components/error";
 import ProjectList from "@/components/project-list";

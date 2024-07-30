@@ -1,5 +1,3 @@
-"use client";
-
 import ProjectList from "@/components/project-list";
 import projects from "@/shared/data/projects";
 
