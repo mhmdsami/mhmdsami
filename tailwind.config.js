@@ -1,12 +1,10 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
-        body: ["DM Sans", "sans-serif"],
-        emphasis: ["Caveat", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        emphasis: ["var(--font-emphasis)", "sans-serif"],
       },
       colors: {
         black: "#252423",

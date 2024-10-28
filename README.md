@@ -1,13 +1,15 @@
 # Hello there, I am Sami!
 a final year CSE undergrad who loves to **craft web experiences**. I do all things web, but I mostly spend time building user interfaces. I usually try new things and break here and make at [**@sm-sami**](https://github.com/sm-sami).
 
-Currently building and maintaining the [mintair.xyz](https://mintair.xyz) dashboard [**@mintair-xyz**](https://github.com/mintair-xyz)
+SDE Intern [@HyperVerge](https://hyperverge.co) building [HyperStart CLM](https://hyperstart.com/)  
+Frontend Developer [@mintair-xyz](https://github.com/mintair-xyz) building and maintaining [Mintair](https://mintair.xyz)  
+Developer [@trench-ag](https://github.com/trench-ag) cooking up [Trench](https://trench.ag)
 
-My primary tech stack at the moment is **Remix**, **TailwindCSS**, **MongoDB/PostgreSQL** and **TypeScript**. I also dabble with **Rust** and **Arduino** here and there!
+My primary tech stack at the moment is **Remix**, **TailwindCSS**, **Hono**, **PostgreSQL** with **Drizzle ORM** and **TypeScript**. Try out my [2023 Tech Stack](https://github.com/mhmdsami/shadcn-prisma-stack)
 
 ### My Tech Stack
 - **Programming Languages**: Python, JavaScript, TypeScript and Rust
-- **Frontend**: HTML, CSS, React.js, Next.js, Remix, TailwindCSS and Framer Motion
+- **Frontend**: HTML, CSS, React.js, React Native, Next.js, Remix, Expo, TailwindCSS and Framer Motion
 - **Backend**: Node.js, Express, Elysia, Hono, MongoDB, PostgreSQL, Prisma and drizzle-orm
 - **Tools**: Git, Postman, Vercel 
 - **Cloud**: AWS (EC2, SES and S3), GCP (Compute Engine, Cloud Storage)
@@ -27,7 +29,6 @@ My primary tech stack at the moment is **Remix**, **TailwindCSS**, **MongoDB/Pos
 ### Other Projects
 - [**TravelMate**](https://github.com/sm-sami/hackout-travelmate) <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend.Built with React.js, Node.js, TailwindCSS and shadcn/ui.
 - [**Tirunelveli Economic Chamber**](https://tirunelvelieconomicchamber.com/) <br /> Website and dashboard for Tirunelveli Economic Chamber. Built with Remix, TailwindCSS, shadcn/ui, MongoDB, Prisma, TypeScript and AWS.
-- **MOZOFEST '23** <br /> Website for MOZOFEST 2023, the annual flagship event of [@srm-kzilla](https://github.com/srm-kzilla). Built with Next.js, TailwindCSS, and TypeScript.
 
 Have a look into my other [**projects**](https://mhmdsami.me/projects).
 

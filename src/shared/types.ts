@@ -4,9 +4,9 @@ export interface Project {
   name: string;
   image?: StaticImageData;
   repo?: string;
-  deps?: string;
+  deployment?: string;
   skills: Array<Skill>;
-  desc: string;
+  description: string;
   contributed?: boolean;
   organizationUrl?: string;
 }

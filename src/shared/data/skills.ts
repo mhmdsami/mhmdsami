@@ -1,5 +1,3 @@
-import {Skill} from "@/shared/types";
-
 const SKILLS = {
   JAVASCRIPT: {
     name: "JavaScript",
@@ -75,9 +73,11 @@ const SKILLS = {
   },
   REACT_EMAIL: {
     name: "React Email",
+    slug: undefined,
   },
   ZOD: {
     name: "Zod",
+    slug: undefined,
   },
   NODEJS: {
     name: "Node.js",
@@ -89,6 +89,7 @@ const SKILLS = {
   },
   FASTIFY: {
     name: "Fastify",
+    slug: undefined,
   },
   PRISMA: {
     name: "Prisma",
@@ -108,22 +109,36 @@ const SKILLS = {
   },
   AWS: {
     name: "AWS",
+    slug: undefined,
   },
   FIGMA: {
     name: "Figma",
+    slug: undefined,
   },
   ADOBEXD: {
     name: "Adobe XD",
+    slug: undefined,
   },
   GIT: {
     name: "Git",
+    slug: undefined,
   },
   POSTMAN: {
     name: "Postman",
+    slug: undefined,
   },
   VERCEL: {
     name: "Vercel",
+    slug: undefined,
   },
-};
+  EXPO: {
+    name: "Expo",
+    slug: "expo",
+  },
+  HONO: {
+    name: "hono",
+    slug: "hono",
+  },
+} as const;
 
-export default SKILLS as Record<string, Skill>;
+export default SKILLS;

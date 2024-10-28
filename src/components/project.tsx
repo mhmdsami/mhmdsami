@@ -14,7 +14,7 @@ const Project = ({
   image,
   skills,
   repo,
-  deps,
+  deployment,
   contributed,
   organizationUrl,
 }: ProjectProps) => {
@@ -32,9 +32,9 @@ const Project = ({
         <div className="flex grow flex-col gap-3">
           {children}
           <div>
-            {deps
+            {deployment
               ? image && (
-                  <a href={deps}>
+                  <a href={deployment}>
                     <Image
                       src={image}
                       alt={name}
@@ -66,9 +66,7 @@ const Project = ({
                     {name}
                   </Link>
                 ) : (
-                  <span className="text-sm font-semibold">
-                    {name}
-                  </span>
+                  <span className="text-sm font-semibold">{name}</span>
                 )}
               </Tag>
             ))}
@@ -88,9 +86,9 @@ const Project = ({
               />
             </a>
           )}
-          {deps && (
+          {deployment && (
             <a
-              href={deps}
+              href={deployment}
               target="_blank"
               rel="noreferrer"
               className="transition-all duration-300 hover:-translate-y-1"

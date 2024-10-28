@@ -8,7 +8,7 @@ interface ProjectListProps {
 const ProjectList = ({ projects }: ProjectListProps) => {
   return projects.map((project: ProjectType, index: number) => (
     <Project key={index} {...project}>
-      {project.desc}
+      {project.description}
     </Project>
   ));
 };

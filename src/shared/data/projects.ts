@@ -1,30 +1,117 @@
-import dashternImage from "@/assets/dashtern.png";
-import eliphileImage from "@/assets/eliphile.png";
-import envStashImage from "@/assets/env-stash.png";
-import furyImage from "@/assets/fury.png";
-import kzillaXyzImage from "@/assets/kzilla-xyz.png";
-import mintairDashboardImage from "@/assets/mintair-dashboard.png";
-import mintairLandingImage from "@/assets/mintair-landing.png";
-import mozofest22Image from "@/assets/mozofest-22.png";
-import mozofest23Image from "@/assets/mozofest-23.png";
-import s3ClientImage from "@/assets/s3-client.png";
-import subscriptionsApiImage from "@/assets/subscriptions-api.png";
-import travelmateImage from "@/assets/travelmate.png";
+import eliphile from "@/assets/eliphile.png";
+import envstash from "@/assets/env-stash.png";
+import fury from "@/assets/fury.png";
+import kzillaXyz from "@/assets/kzilla-xyz.png";
+import linx from "@/assets/linx.png";
+import lockout from "@/assets/lockout.png";
+import mintairLanding from "@/assets/mintair-landing.png";
+import mintair from "@/assets/mintair.png";
+import mozofest22 from "@/assets/mozofest-22.png";
+import mozofest23 from "@/assets/mozofest-23.png";
+import s3Client from "@/assets/s3-client.png";
+import subscriptionsApi from "@/assets/subscriptions-api.png";
+import tec from "@/assets/tec.png";
+import travelmate from "@/assets/travelmate.png";
 import SKILLS from "@/shared/data/skills";
 import { Project } from "@/shared/types";
 
 const projects = [
   {
-    name: "Mintair Landing",
+    name: "Mintair",
     skills: [
       SKILLS.NEXTJS,
       SKILLS.TAILWINDCSS,
       SKILLS.TYPESCRIPT,
       SKILLS.FRAMER_MOTION,
     ],
-    desc: "Landing page for Mintair",
-    image: mintairLandingImage,
-    deps: "https://mintair.xyz/",
+    description: "Landing page for Mintair",
+    image: mintairLanding,
+    deployment: "https://mintair.xyz/",
+  },
+  {
+    name: "TravelMate",
+    skills: [
+      SKILLS.NEXTJS,
+      SKILLS.TAILWINDCSS,
+      SKILLS.ZUSTAND,
+      SKILLS.FASTIFY,
+      SKILLS.MONGODB,
+      SKILLS.NODEJS,
+      SKILLS.TYPESCRIPT,
+    ],
+    description:
+      "A hackathon winning project at Hackout 2023 by Headout. Won the Travel Track",
+    contributed: true,
+    organizationUrl: "https://github.com/shawshankkumar/hackout-travelmate/",
+    repo: "https://github.com/sm-sami/hackout-travelmate",
+    image: travelmate,
+  },
+  {
+    name: "Mintair Dashboard",
+    skills: [
+      SKILLS.NEXTJS,
+      SKILLS.TAILWINDCSS,
+      SKILLS.FRAMER_MOTION,
+      SKILLS.ZUSTAND,
+      SKILLS.REACT_QUERY,
+      SKILLS.TYPESCRIPT,
+    ],
+    description: "Dashboard for Mintair",
+    image: mintair,
+    deployment: "https://mintair.xyz/dashboard",
+  },
+  {
+    name: "Lockout",
+    skills: [
+      SKILLS.EXPO,
+      SKILLS.REACT,
+      SKILLS.TYPESCRIPT,
+      SKILLS.PYTHON,
+      SKILLS.HONO,
+      SKILLS.DRIZZLE,
+      SKILLS.POSTGRESQL,
+      SKILLS.ZOD,
+      SKILLS.REACT_QUERY,
+    ],
+    image: lockout,
+    description: "Locker management made simpler",
+    repo: "https://github.com/sm-sami/lockout",
+  },
+  {
+    name: "Eliphile",
+    skills: [
+      SKILLS.REMIX,
+      SKILLS.MONGODB,
+      SKILLS.PRISMA,
+      SKILLS.ZOD,
+      SKILLS.TAILWINDCSS,
+      SKILLS.TYPESCRIPT,
+    ],
+    description: "Store, share and view beautiful images",
+    image: eliphile,
+    repo: "https://github.com/mhmdsami/eliphile",
+    deployment: "https://eliphile.vercel.app/",
+  },
+  {
+    name: "Env Stash",
+    skills: [
+      SKILLS.REMIX,
+      SKILLS.TAILWINDCSS,
+      SKILLS.PRISMA,
+      SKILLS.MONGODB,
+      SKILLS.TYPESCRIPT,
+    ],
+    description: "Never lose your env again!",
+    image: envstash,
+    repo: "https://github.com/mhmdsami/env-stash",
+    deployment: "https://env-stash.vercel.app/",
+  },
+  {
+    name: "Linx",
+    description: "App to manage links collection under a domain, Client for links API",
+    skills: [SKILLS.EXPO, SKILLS.REACT, SKILLS.TYPESCRIPT, SKILLS.REACT_QUERY],
+    image: linx,
+    repo: "https://github.com/mhmdsami/linx",
   },
   {
     name: "Fury",
@@ -38,71 +125,24 @@ const projects = [
       SKILLS.GO,
       SKILLS.TYPESCRIPT,
     ],
-    desc: "Inspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!",
+    description:
+      "Inspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!",
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
     repo: "https://github.com/srm-kzilla/fury",
-    image: furyImage,
+    image: fury,
   },
   {
-    name: "TravelMate",
-    skills: [
-      SKILLS.NEXTJS,
-      SKILLS.TAILWINDCSS,
-      SKILLS.ZUSTAND,
-      SKILLS.FASTIFY,
-      SKILLS.MONGODB,
-      SKILLS.NODEJS,
-      SKILLS.TYPESCRIPT,
-    ],
-    desc: "A hackathon winning project at Hackout 2023 by Headout. Won the Travel Track",
-    contributed: true,
-    organizationUrl: "https://github.com/shawshankkumar/hackout-travelmate/",
-    repo: "https://github.com/sm-sami/hackout-travelmate",
-    image: travelmateImage,
-  },
-  {
-    name: "Mintair Dashboard",
-    skills: [
-      SKILLS.NEXTJS,
-      SKILLS.TAILWINDCSS,
-      SKILLS.FRAMER_MOTION,
-      SKILLS.ZUSTAND,
-      SKILLS.REACT_QUERY,
-      SKILLS.TYPESCRIPT,
-    ],
-    desc: "Landing page for Mintair",
-    image: mintairDashboardImage,
-    deps: "https://mintair.xyz/",
-  },
-  {
-    name: "Eliphile",
-    skills: [
-      SKILLS.REMIX,
-      SKILLS.MONGODB,
-      SKILLS.PRISMA,
-      SKILLS.ZOD,
-      SKILLS.TAILWINDCSS,
-      SKILLS.TYPESCRIPT,
-    ],
-    desc: "Store, share and view beautiful images",
-    image: eliphileImage,
-    repo: "https://github.com/mhmdsami/eliphile",
-    deps: "https://eliphile.vercel.app/",
-  },
-  {
-    name: "Env Stash",
+    name: "Tirunelveli Economic Chamber",
+    description: "The official website of Tirunelveli Economic Chamber",
     skills: [
       SKILLS.REMIX,
       SKILLS.TAILWINDCSS,
-      SKILLS.PRISMA,
       SKILLS.MONGODB,
-      SKILLS.TYPESCRIPT,
+      SKILLS.REACT_EMAIL,
     ],
-    desc: "Never lose your env again!",
-    image: envStashImage,
-    repo: "https://github.com/mhmdsami/env-stash",
-    deps: "https://env-stash.vercel.app/",
+    image: tec,
+    deployment: "https://tirunelvelieconomicchamber.com/",
   },
   {
     name: "Subscriptions API",
@@ -115,8 +155,8 @@ const projects = [
       SKILLS.AWS,
       SKILLS.TYPESCRIPT,
     ],
-    desc: "API to manage subscriptions.",
-    image: subscriptionsApiImage,
+    description: "API to manage subscriptions.",
+    image: subscriptionsApi,
     repo: "https://github.com/sm-sami/subscriptions-api",
   },
   {
@@ -128,16 +168,16 @@ const projects = [
       SKILLS.ZOD,
       SKILLS.TYPESCRIPT,
     ],
-    desc: "Client to upload images to AWS S3.",
-    image: s3ClientImage,
+    description: "Client to upload images to AWS S3.",
+    image: s3Client,
     repo: "https://github.com/sm-sami/s3-client",
   },
   {
     name: "MOZOFEST '23",
     skills: [SKILLS.NEXTJS, SKILLS.TAILWINDCSS, SKILLS.TYPESCRIPT],
-    desc: "MOZOFEST '23 Landing Page & Dashboard.",
-    deps: "https://mozofest.srmkzilla.net/",
-    image: mozofest23Image,
+    description: "MOZOFEST '23 Landing Page & Dashboard.",
+    deployment: "https://mozofest.srmkzilla.net/",
+    image: mozofest23,
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
   },
@@ -150,34 +190,18 @@ const projects = [
       SKILLS.MONGODB,
       SKILLS.TYPESCRIPT,
     ],
-    desc: "Shorten the URL. Broaden the reach.",
-    deps: "https://kzilla.xyz",
+    description: "Shorten the URL. Broaden the reach.",
+    deployment: "https://kzilla.xyz",
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
     repo: "https://github.com/srm-kzilla/kzilla.xyz",
-    image: kzillaXyzImage,
-  },
-  {
-    name: "Dashtern",
-    skills: [
-      SKILLS.NEXTJS,
-      SKILLS.REACT,
-      SKILLS.TAILWINDCSS,
-      SKILLS.SCSS,
-      SKILLS.MONGODB,
-      SKILLS.JAVASCRIPT,
-    ],
-    desc: "SIH Internal Hackathon 2022 from team Sleep 404",
-    repo: "https://github.com/Sleep-404-team/SIH-2022",
-    image: dashternImage,
-    contributed: true,
-    organizationUrl: "https://github.com/Sleep-404-team",
+    image: kzillaXyz,
   },
   {
     name: "MOZOFEST '22",
     skills: [SKILLS.NEXTJS, SKILLS.TAILWINDCSS, SKILLS.TYPESCRIPT],
-    desc: "MOZOFEST '22 Landing Page.",
-    image: mozofest22Image,
+    description: "MOZOFEST '22 Landing Page.",
+    image: mozofest22,
     contributed: true,
     organizationUrl: "https://github.com/srm-kzilla",
   },
@@ -185,12 +209,12 @@ const projects = [
     name: "mlu-bot",
     repo: "https://github.com/sm-sami/mlu-bot",
     skills: [SKILLS.NODEJS, SKILLS.MONGODB, SKILLS.TYPESCRIPT],
-    desc: "A discord bot for organizing Guess the Place.",
+    description: "A discord bot for organizing Guess the Place.",
   },
   {
     name: "Absentee",
     skills: [SKILLS.PYTHON],
-    desc: "A command line tool to clean the attendance data",
+    description: "A command line tool to clean the attendance data",
     repo: "https://github.com/sm-sami/absentee",
   },
 ];
