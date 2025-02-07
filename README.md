@@ -1,9 +1,7 @@
 # Hello there, I am Sami!
 a final year CSE undergrad who loves to **craft web experiences**. I do all things web, but I mostly spend time building user interfaces. I usually try new things and break here and make at [**@sm-sami**](https://github.com/sm-sami).
 
-SDE Intern [@HyperVerge](https://hyperverge.co) building [HyperStart CLM](https://hyperstart.com/)  
-Frontend Developer [@mintair-xyz](https://github.com/mintair-xyz) building and maintaining [Mintair](https://mintair.xyz)  
-Developer [@trench-ag](https://github.com/trench-ag) cooking up [Trench](https://trench.ag)
+SDE Intern [@HyperVerge](https://hyperverge.co) building [HyperStart CLM](https://hyperstart.com/)
 
 My primary tech stack at the moment is **Remix**, **TailwindCSS**, **Hono**, **PostgreSQL** with **Drizzle ORM** and **TypeScript**. Try out my [2023 Tech Stack](https://github.com/mhmdsami/shadcn-prisma-stack)
 
