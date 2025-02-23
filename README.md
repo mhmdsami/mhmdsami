@@ -28,9 +28,9 @@ My primary tech stack at the moment is **Remix**, **TailwindCSS**, **Hono**, **P
 - [**TravelMate**](https://github.com/sm-sami/hackout-travelmate) <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend.Built with React.js, Node.js, TailwindCSS and shadcn/ui.
 - [**Tirunelveli Economic Chamber**](https://tirunelvelieconomicchamber.com/) <br /> Website and dashboard for Tirunelveli Economic Chamber. Built with Remix, TailwindCSS, shadcn/ui, MongoDB, Prisma, TypeScript and AWS.
 
-Have a look into my other [**projects**](https://mhmdsami.me/projects).
+Have a look into my other [**projects**](https://mohamedsami.vercel.app/projects).
 
 ### Connect with Me
-[LinkedIn](https://www.linkedin.com/in/sm-sami/) • [Instagram](https://www.instagram.com/siamasdev/) • [Twitter](https://twitter.com/siamasdev)
+[LinkedIn](https://www.linkedin.com/in/sm-sami) • [Instagram](https://www.instagram.com/siamasdev) • [Twitter](https://twitter.com/siamasdev)
 
 Built with lots of <3 and Chai!
