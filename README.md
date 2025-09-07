@@ -1,9 +1,5 @@
 # Hello there, I am Sami!
-a CSE undergrad who loves to **craft web experiences**. I do all things web, but I mostly spend time building user interfaces. I usually try new things and break here and make at [**@sm-sami**](https://github.com/sm-sami).
-
-SWE Intern [@headout](https://headout.com)
-
-My primary tech stack at the moment is **Remix**, **TailwindCSS**, **Hono**, **PostgreSQL** with **Drizzle ORM** and **TypeScript**. Try out my [2023 Tech Stack](https://github.com/mhmdsami/shadcn-prisma-stack)
+a CSE undergrad who loves to **craft web experiences**. I do all things web, but I mostly spend time building user interfaces. I usually try new things and break here and make at [**@sm-sami**](https://github.com/sm-sami). Currently working at [**Headout**](https://headout.com) as a Software Engineer building & maintaing solutions to manage 300+ domains (microbrands) for organic growth.
 
 ### My Tech Stack
 - **Programming Languages**: Python, JavaScript, TypeScript and Rust
@@ -32,5 +28,3 @@ Have a look into my other [**projects**](https://mhmdsami.tech/projects).
 
 ### Connect with Me
 [LinkedIn](https://www.linkedin.com/in/sm-sami) • [Instagram](https://www.instagram.com/siamasdev) • [Twitter](https://twitter.com/siamasdev)
-
-Built with lots of <3 and Chai!
