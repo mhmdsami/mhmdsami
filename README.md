@@ -21,10 +21,8 @@ a CSE undergrad who loves to **craft web experiences**. I do all things web, but
 - [**yesbot-ts**](https://github.com/Yes-Theory-Fam/yesbot-ts) <br /> A discord bot for the Yes Theory Fam. Contributed by fixing bugs & refactoring few commands to slash command. Built with discord.js and TypeScript.
 
 ### Other Projects
-- [**TravelMate**](https://github.com/sm-sami/hackout-travelmate) <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend.Built with React.js, Node.js, TailwindCSS and shadcn/ui.
-- [**Tirunelveli Economic Chamber**](https://tirunelvelieconomicchamber.com/) <br /> Website and dashboard for Tirunelveli Economic Chamber. Built with Remix, TailwindCSS, shadcn/ui, MongoDB, Prisma, TypeScript and AWS.
-
-Have a look into my other [**projects**](https://mhmdsami.tech/projects).
+- [**TravelMate**](https://github.com/sm-sami/hackout-travelmate) <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend. Built with React.js, Node.js, TailwindCSS and shadcn/ui.
+- [**Mintair**](https://www.mintair.xyz/) <br /> Built the landing and dashboard for the services provided bt Mintair
 
 ### Connect with Me
 [LinkedIn](https://www.linkedin.com/in/sm-sami) • [Instagram](https://www.instagram.com/siamasdev) • [Twitter](https://twitter.com/siamasdev)
