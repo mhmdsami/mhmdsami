@@ -35,6 +35,8 @@ pnpm deploy      # build, then wrangler deploy
 
 `wrangler.jsonc` holds the Worker name, the `sam1.space` custom domain, and serves `out/` as static assets. `pnpm preview` runs the built assets locally through Wrangler.
 
+Pushes to `main` run `.github/workflows/deploy.yml`: the gate, then `pnpm deploy`. Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets to enable it; without them the job warns and skips the deploy.
+
 `pnpm og` renders the Open Graph card, the favicon, and the Apple touch icon from `og/`. Titles, descriptions, canonical URL, OG and Twitter tags, `robots.txt`, and `sitemap.xml` are generated at build.
 
 In development, `/dev/preview/{demo,worst,empty,one}` renders the page against fixture data for layout stress tests. `pnpm deploy` strips that output before uploading, so the preview routes never reach production.
