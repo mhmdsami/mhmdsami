@@ -1,0 +1,268 @@
+:root {
+  --ink: #1a1917;
+  --muted: #6b6862;
+  --line: #dcd9d3;
+  --accent: #d63a34;
+  --sans: ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f4f2ee;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 9pt;
+  line-height: 1.38;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 12mm 14mm;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Header */
+
+.header {
+  padding-bottom: 6pt;
+  border-bottom: 1.5pt solid var(--ink);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 23pt;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.role {
+  margin: 4pt 0 0;
+  color: var(--accent);
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 10pt;
+  margin: 6pt 0 0;
+  color: var(--muted);
+  font-size: 8pt;
+}
+
+.contact:first-of-type {
+  margin-top: 8pt;
+}
+
+.contact a {
+  border-bottom: 0.5pt solid var(--line);
+}
+
+/* Sections */
+
+section {
+  margin-top: 10.5pt;
+  break-inside: avoid;
+}
+
+h2 {
+  margin: 0 0 5pt;
+  padding-bottom: 2pt;
+  border-bottom: 0.5pt solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 7pt;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* Entries */
+
+.entry,
+.project {
+  margin-bottom: 7pt;
+  break-inside: avoid;
+}
+
+.entry:last-child,
+.project:last-child {
+  margin-bottom: 0;
+}
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8pt;
+}
+
+h3 {
+  margin: 0;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.org {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.sep {
+  color: var(--line);
+  font-weight: 400;
+}
+
+.period {
+  flex: none;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  white-space: nowrap;
+}
+
+ul {
+  margin: 2pt 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  position: relative;
+  padding-left: 9pt;
+}
+
+li::before {
+  position: absolute;
+  left: 0;
+  content: "—";
+  color: var(--line);
+}
+
+.entry > ul > li,
+.two-col li {
+  color: var(--muted);
+}
+
+.entry > ul > li::before,
+.two-col li::before {
+  color: var(--accent);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Projects */
+
+.project .entry-head {
+  justify-content: flex-start;
+  gap: 6pt;
+}
+
+.project > p {
+  margin: 2pt 0 0;
+  color: var(--muted);
+}
+
+.link {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 7pt;
+  font-weight: 400;
+  border-bottom: 0.5pt solid var(--line);
+}
+
+/* Skills */
+
+.skills {
+  display: grid;
+  grid-template-columns: 17mm 1fr;
+  gap: 2pt 6pt;
+  margin: 0;
+}
+
+.skills > div {
+  display: contents;
+}
+
+.skills dt {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 7.5pt;
+}
+
+.skills dd {
+  margin: 0;
+}
+
+.note {
+  margin: 2pt 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 7.5pt;
+}
+
+/* Two column tail */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 10mm;
+}
+
+.two-col ul {
+  margin-top: 0;
+}
+
+/* Print */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff;
+  }
+
+  .page {
+    width: auto;
+    min-height: auto;
+    padding: 11mm 13mm;
+  }
+}
+
+@media screen {
+  body {
+    padding: 8mm 0;
+  }
+
+  .page {
+    box-shadow: 0 1px 40px rgb(0 0 0 / 12%);
+  }
+}

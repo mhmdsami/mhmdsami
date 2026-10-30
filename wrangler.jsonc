@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mhmdsami",
+  "compatibility_date": "2026-10-30",
+  "routes": [{ "pattern": "sam1.space", "custom_domain": true }],
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}

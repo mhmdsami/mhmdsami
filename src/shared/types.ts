@@ -1,22 +1,68 @@
-import { StaticImageData } from "next/image";
+export interface Link {
+  label: string;
+  href?: string;
+}
 
-export interface Project {
+export interface WorkItem {
   name: string;
-  image?: StaticImageData;
+  year: string;
+  summary: string;
+  stack: Array<string>;
+  href?: string;
   repo?: string;
-  deployment?: string;
-  skills: Array<Skill>;
-  description: string;
-  contributed?: boolean;
-  organizationUrl?: string;
 }
 
-export interface Skill {
-  name: string;
-  slug?: string;
+export interface DetailPart {
+  text: string;
+  href?: string;
 }
 
-export interface SkillSet {
+export interface ExperienceItem {
+  role: string;
+  org: string;
+  orgUrl?: string;
+  period: string;
+  previous?: {
+    role: string;
+    period: string;
+  };
+  detail: string | Array<DetailPart>;
+}
+
+export interface EducationItem {
+  school: string;
+  degree: string;
+  period: string;
+  detail: string;
+}
+
+export interface StackGroup {
   title: string;
-  skills: Array<Skill>;
+  items: Array<string>;
+}
+
+export interface Profile {
+  name: string;
+  role: string;
+  cities: Array<string>;
+  country: string;
+  email: string;
+  intro: string;
+  links: Array<Link>;
+}
+
+export interface FavoriteStack {
+  items: Array<string>;
+  note: string;
+  link?: { label: string; href: string };
+}
+
+export interface SiteData {
+  profile: Profile;
+  work: Array<WorkItem>;
+  also: Array<Link>;
+  experience: Array<ExperienceItem>;
+  education: EducationItem;
+  stack: Array<StackGroup>;
+  favoriteStack?: FavoriteStack;
 }

@@ -2,52 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes wave {
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --background: #000000;
+    --surface-1: #0a0a0a;
+    --surface-2: #121212;
+    --surface-3: #1a1a1a;
+
+    --foreground: #f2f2ef;
+    --text-secondary: #a3a39e;
+    --text-tertiary: #6f6f6a;
+
+    --primary: oklch(0.735 0.068 155);
+    --primary-foreground: oklch(0.2252 0.0306 153.32);
+    --primary-hover: oklch(0.795 0.06 155);
+
+    --destructive: oklch(0.7002 0.1535 33.14);
+    --warning: oklch(0.8253 0.1145 84.89);
+
+    --border: rgb(255 255 255 / 9%);
+    --input: rgb(255 255 255 / 13%);
+    --ring: oklch(0.735 0.068 155 / 45%);
+    --radius: 0.5rem;
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+    scrollbar-gutter: stable;
+    scroll-padding-top: 4.5rem;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-base text-foreground;
+    text-rendering: optimizeLegibility;
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 30%, transparent);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid color-mix(in oklch, var(--primary) 60%, transparent);
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 18%);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(255 255 255 / 26%);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 220ms var(--ease-out) both;
+  }
+}
+
+/* Scroll-linked reveal. Content stays visible where view timelines are unsupported. */
+@supports (animation-timeline: view()) {
+  [data-reveal] {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+@keyframes reveal-in {
   from {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(12deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  40% {
-    transform: rotate(12deg);
-  }
-  60% {
-    transform: rotate(-4deg);
-  }
-  80% {
-    transform: rotate(6deg);
+    opacity: 0.45;
+    transform: translateY(8px);
   }
   to {
-    transform: rotate(0deg);
+    opacity: 1;
+    transform: none;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Hover motion only on devices that actually hover. */
+@media (hover: hover) and (pointer: fine) {
+  .row-hover:hover {
+    background-color: var(--surface-1);
+  }
+
+  .row-hover:hover .row-title {
+    color: var(--primary);
+  }
+
+  .row-hover:hover .row-arrow {
+    transform: translate(2px, -2px);
+  }
 }
 
-* {
-  @apply p-0 m-0 box-border;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-body {
-  @apply font-body bg-black-dark text-white;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-property: color, background-color, border-color, opacity !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-fade-up {
+    animation: fade-in 180ms ease both !important;
+  }
+
 }
 
-::-webkit-scrollbar {
-  @apply rounded-b-full;
-  @apply w-1.5;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply rounded-full;
-  @apply bg-red;
-}
-
-::selection {
-  @apply bg-red text-black-dark;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

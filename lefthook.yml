@@ -1,0 +1,7 @@
+# Hooks are installed by `pnpm install` (see the prepare script in package.json).
+pre-commit:
+  parallel: true
+  commands:
+    gate:
+      glob: "*.{ts,tsx,js,mjs,cjs,json,jsonc,css}"
+      run: pnpm gate

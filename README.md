@@ -1,28 +1,48 @@
-# Hello there, I am Sami!
-a CSE undergrad who loves to **craft web experiences**. I do all things web, but I mostly spend time building user interfaces. I usually try new things and break here and make at [**@sm-sami**](https://github.com/sm-sami). Currently working at [**Headout**](https://headout.com) as a Software Engineer building & maintaing solutions to manage 300+ domains (microbrands) for organic growth.
+# Mohamed Sami
 
-### My Tech Stack
-- **Programming Languages**: Python, JavaScript, TypeScript and Rust
-- **Frontend**: HTML, CSS, React.js, React Native, Next.js, Remix, Expo, TailwindCSS and Framer Motion
-- **Backend**: Node.js, Express, Elysia, Hono, MongoDB, PostgreSQL, Prisma and drizzle-orm
-- **Tools**: Git, Postman, Vercel 
-- **Cloud**: AWS (EC2, SES and S3), GCP (Compute Engine, Cloud Storage)
-- **UI/UX**: Figma, Adobe XD and Affinity Designer
+Software engineer at [Headout](https://headout.com). I maintain the platform that supports 400+ sites and build workflows that create new sites on demand.
 
-### My (Favorite) Projects
-- [**Subscriptions API**](https://github.com/sm-sami/subscriptions-api) <br /> A REST API for managing subscriptions. Built with Express, PostgreSQL, drizzle-orm, AWS SES, react-email and zod.
-- [**Email Manager Client**](https://github.com/GDSCSRM/email-manager-client) <br /> Manage emails with an easy-to-use client. Bulk add new emails from a CSV file. Built with Remix, shadcn/ui, TailwindCSS, Prisma, MongoDB and TypeScript.
-- [**Guess the Place Bot**](https://github.com/sm-sami/mlu-bot) <br /> A discord bot for organizing Guess the Place and more. Built with discord.js and TypeScript.
-- [**S3 Client**](https://github.com/sm-sami/s3-client) <br /> Client to upload images to AWS S3. Built with Next.js, TailwindCSS, TypeScript AWS SDK and more.
+Outside work I build tools to build tools to make other tools.
 
-### (Open Source) Contributions
-- [**Fury**](https://github.com/srm-kzilla/fury) <br /> Inspired by Nick Fury, whose primary job was to recruit avengers, spies and other cool people!. Led and contributed to the fontend of the project. Built with Remix, Next.js, TailwindCSS, SCSS, and TypeScript.
-- [**kzilla.xyz**](https://github.com/srm-kzilla/kzilla.xyz) <br /> A stupid simple URL shortener. Contributed to v2, helped include custom code support and redesign. Built with Svelte, MongoDB, Node.js, and TypeScript.
-- [**yesbot-ts**](https://github.com/Yes-Theory-Fam/yesbot-ts) <br /> A discord bot for the Yes Theory Fam. Contributed by fixing bugs & refactoring few commands to slash command. Built with discord.js and TypeScript.
+## Projects
 
-### Other Projects
-- [**TravelMate**](https://github.com/sm-sami/hackout-travelmate) <br /> A hackathon winning project at Hackout 2023 by Headout (Won the Travel Track). Contributed to the Frontend. Built with React.js, Node.js, TailwindCSS and shadcn/ui.
-- [**Mintair**](https://www.mintair.xyz/) <br /> Built the landing and dashboard for the services provided bt Mintair
+- **[ijra](https://github.com/mhmdsami/ijra)** — A request queue where an agent answers questions or opens a verified pull request. Access level decides which.
+- **[meter](https://github.com/mhmdsami/meter)** — Tracks AI usage and spend across every machine. The Rust collector scans each host; the Swift menu bar app and the dashboard read the summaries.
+- **[Slack Code Mode MCP](https://github.com/mhmdsami/slack-codemode-mcp)** — Two tools for Slack: `search` finds the API surface, `execute` runs agent-written JavaScript in a sandbox with no network and no token.
+- **[devctl](https://github.com/mhmdsami/devctl)** — Many agents, many stacks, one machine. Runs a feature's worktrees across every service on isolated ports.
+- **[lockout](https://github.com/mhmdsami/lockout)** — Locker booking and allocation for shared spaces, from a mobile app to an admin view.
 
-### Connect with Me
-[LinkedIn](https://www.linkedin.com/in/sm-sami) • [Instagram](https://www.instagram.com/siamasdev) • [Twitter](https://twitter.com/siamasdev)
+## Stack
+
+- **Languages**: TypeScript, Python, Rust, Go, Swift
+- **Frontend**: React, Next.js, Tailwind CSS, Base UI, React Native, Expo
+- **Backend**: Node.js, Bun, Hono
+- **Data**: PostgreSQL, SQLite, Drizzle ORM, Cloudflare D1
+- **Platform**: Cloudflare Workers, R2, AWS, Supabase, GitHub Actions
+
+Current favorite: Next.js, OpenNext, Cloudflare Workers, D1, Drizzle, Tailwind. `baseline` is the starter template built on this stack.
+
+## This site
+
+Next.js 16 (App Router) and Tailwind CSS, exported as static HTML and served from Cloudflare Workers at [sam1.space](https://sam1.space). One page, no analytics, and client JavaScript only for the local clock and the rotating greeting and location. Geist Mono carries everything, on black, with one green accent. Colour, spacing, and type live as tokens in `src/styles/globals.css`; Biome handles linting and formatting.
+
+```sh
+pnpm install     # also installs the git hooks
+pnpm dev
+pnpm gate        # biome, typecheck, build
+pnpm deploy      # build, then wrangler deploy
+```
+
+`wrangler.jsonc` holds the Worker name, the `sam1.space` custom domain, and serves `out/` as static assets. `pnpm preview` runs the built assets locally through Wrangler.
+
+`pnpm og` renders the Open Graph card, the favicon, and the Apple touch icon from `og/`. Titles, descriptions, canonical URL, OG and Twitter tags, `robots.txt`, and `sitemap.xml` are generated at build.
+
+In development, `/dev/preview/{demo,worst,empty,one}` renders the page against fixture data for layout stress tests. `pnpm deploy` strips that output before uploading, so the preview routes never reach production.
+
+The resume source lives in `resume/` as HTML and print CSS. The PDF currently deployed at `public/resume.pdf` is the previous resume, not the output of that source. `pnpm resume` regenerates the HTML version into `public/resume.pdf` and replaces it, so leave it alone unless you intend to switch back to the generated version.
+
+Lefthook runs `pnpm gate` on every commit, so a broken build never reaches a commit.
+
+## Elsewhere
+
+[GitHub](https://github.com/sm-sami) · [GitHub (secondary)](https://github.com/mhmdsami) · [LinkedIn](https://www.linkedin.com/in/sm-sami) · [X](https://x.com/siamasdev) · [siamasdev@gmail.com](mailto:siamasdev@gmail.com)
