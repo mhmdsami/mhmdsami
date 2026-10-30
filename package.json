@@ -9,7 +9,6 @@
     "lint": "biome check .",
     "format": "biome check --write .",
     "typecheck": "tsc --noEmit",
-    "resume": "node scripts/render-resume.mjs",
     "gate": "pnpm lint && pnpm typecheck && pnpm build",
     "prepare": "lefthook install",
     "og": "node scripts/render-og.mjs"
