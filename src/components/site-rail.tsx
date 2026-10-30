@@ -9,12 +9,12 @@ export default function SiteRail() {
   const { profile } = site;
 
   return (
-    <aside className="border-b py-6 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:border-b-0 lg:py-10">
+    <aside className="border-b py-4 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:border-b-0 lg:py-10">
       <Link href="/" className="text-sm font-medium tracking-tight">
         sam1.space
       </Link>
 
-      <div className="mt-4 flex flex-col gap-1 text-2xs text-tertiary lg:mt-6">
+      <div className="mt-4 hidden flex-col gap-1 text-2xs text-tertiary lg:mt-6 lg:flex">
         <span>{profile.role}</span>
         <a
           href="https://headout.com"
@@ -30,7 +30,7 @@ export default function SiteRail() {
 
       <RailNav />
 
-      <div className="mt-6 lg:mt-auto">
+      <div className="mt-6 hidden lg:mt-auto lg:block">
         <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="xs">
           resume
         </Button>
