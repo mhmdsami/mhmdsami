@@ -1,5 +1,4 @@
 import Greeting from "@/components/greeting";
-import { Button } from "@/components/ui/button";
 import type { Profile } from "@/shared/types";
 
 export default function Hero({ profile }: { profile: Profile }) {
@@ -12,12 +11,6 @@ export default function Hero({ profile }: { profile: Profile }) {
       </h1>
 
       <p className="animate-fade-up mt-6 text-sm leading-6 text-secondary [animation-delay:60ms]">{profile.intro}</p>
-
-      <div className="animate-fade-up mt-5 [animation-delay:120ms] lg:hidden">
-        <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="sm">
-          resume
-        </Button>
-      </div>
     </section>
   );
 }
