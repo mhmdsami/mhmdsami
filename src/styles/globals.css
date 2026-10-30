@@ -9,7 +9,6 @@
     --background: #000000;
     --surface-1: #0a0a0a;
     --surface-2: #121212;
-    --surface-3: #1a1a1a;
 
     --foreground: #f2f2ef;
     --text-secondary: #a3a39e;
@@ -19,13 +18,10 @@
     --primary-foreground: oklch(0.2252 0.0306 153.32);
     --primary-hover: oklch(0.795 0.06 155);
 
-    --destructive: oklch(0.7002 0.1535 33.14);
-    --warning: oklch(0.8253 0.1145 84.89);
 
     --border: rgb(255 255 255 / 9%);
     --input: rgb(255 255 255 / 13%);
     --ring: oklch(0.735 0.068 155 / 45%);
-    --radius: 0.5rem;
 
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

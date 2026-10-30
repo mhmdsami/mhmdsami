@@ -5,7 +5,6 @@ export interface Link {
 
 export interface WorkItem {
   name: string;
-  year: string;
   summary: string;
   stack: Array<string>;
   href?: string;

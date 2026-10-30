@@ -9,7 +9,6 @@ module.exports = {
         surface: {
           1: "var(--surface-1)",
           2: "var(--surface-2)",
-          3: "var(--surface-3)",
         },
         secondary: "var(--text-secondary)",
         tertiary: "var(--text-tertiary)",
@@ -18,8 +17,6 @@ module.exports = {
           foreground: "var(--primary-foreground)",
           hover: "var(--primary-hover)",
         },
-        destructive: "var(--destructive)",
-        warning: "var(--warning)",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
@@ -54,10 +51,6 @@ module.exports = {
       transitionTimingFunction: {
         out: "var(--ease-out)",
         "in-out": "var(--ease-in-out)",
-      },
-      boxShadow: {
-        card: "inset 0 1px 0 0 rgb(255 255 255 / 3%), 0 18px 50px -30px rgb(0 0 0 / 90%)",
-        overlay: "inset 0 1px 0 0 rgb(255 255 255 / 4%), 0 24px 60px -20px rgb(0 0 0 / 75%)",
       },
     },
   },
