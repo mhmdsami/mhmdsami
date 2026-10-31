@@ -35,6 +35,11 @@ export interface EducationItem {
   detail: string;
 }
 
+export interface AgentSkill {
+  name: string;
+  description: string;
+}
+
 export interface StackGroup {
   title: string;
   items: Array<string>;

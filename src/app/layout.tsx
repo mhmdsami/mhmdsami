@@ -1,3 +1,4 @@
+import CommandMenu from "@/components/command-menu";
 import SiteRail from "@/components/site-rail";
 import "@/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </div>
+        <CommandMenu />
       </body>
     </html>
   );

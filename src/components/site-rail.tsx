@@ -14,9 +14,11 @@ export default function SiteRail() {
         <Link href="/" className="text-sm font-medium tracking-tight">
           sam1.space
         </Link>
-        <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="sm">
-          resume
-        </Button>
+        <div className="lg:hidden">
+          <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="sm">
+            resume
+          </Button>
+        </div>
       </div>
 
       <div className="mt-4 hidden flex-col gap-1 text-2xs text-tertiary lg:mt-6 lg:flex">
@@ -34,6 +36,12 @@ export default function SiteRail() {
       </div>
 
       <RailNav />
+
+      <div className="mt-6 hidden lg:mt-auto lg:block">
+        <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="xs">
+          resume
+        </Button>
+      </div>
     </aside>
   );
 }

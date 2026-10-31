@@ -4,6 +4,7 @@ const items = [
   { id: "projects", label: "projects" },
   { id: "experience", label: "experience" },
   { id: "education", label: "education" },
+  { id: "ai-skills", label: "ai skills" },
   { id: "stack", label: "stack" },
 ];
 

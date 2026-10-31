@@ -1,10 +1,14 @@
+import Activity from "@/components/activity";
 import Contact from "@/components/contact";
 import Education from "@/components/education";
 import ExperienceList from "@/components/experience-list";
 import Hero from "@/components/hero";
 import Section from "@/components/section";
+import SkillsPreview from "@/components/skills-preview";
 import Stack from "@/components/stack";
+import { ArrowLink } from "@/components/ui/arrow-link";
 import WorkList from "@/components/work-list";
+import { agentSkills } from "@/shared/data/site";
 import type { SiteData } from "@/shared/types";
 
 export default function SitePage({ data }: { data: SiteData }) {
@@ -28,11 +32,23 @@ export default function SitePage({ data }: { data: SiteData }) {
         <Education education={data.education} />
       </Section>
 
-      {data.stack.length > 0 && (
-        <Section id="stack" title="Stack">
-          <Stack stack={data.stack} favorite={data.favoriteStack} />
-        </Section>
-      )}
+      <Section
+        id="ai-skills"
+        title="AI Skills"
+        aside={
+          <ArrowLink href="https://skills.sam1.space" className="text-sm text-tertiary">
+            all skills
+          </ArrowLink>
+        }
+      >
+        <SkillsPreview skills={agentSkills} />
+      </Section>
+
+      <Section id="stack" title="Stack">
+        <Stack stack={data.stack} favorite={data.favoriteStack} />
+      </Section>
+
+      <Activity />
 
       <Contact profile={data.profile} />
     </>

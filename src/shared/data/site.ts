@@ -1,5 +1,10 @@
 import type { SiteData } from "@/shared/types";
 
+export const agentSkills = [
+  { name: "planning-protocol", description: "Plan, execute, and report multi-phase work." },
+  { name: "voice", description: "Draft and edit in my voice for PRs, Slack, and docs." },
+];
+
 export const site: SiteData = {
   profile: {
     name: "Mohamed Sami",
@@ -49,12 +54,9 @@ export const site: SiteData = {
     },
   ],
   also: [
-    { label: "artifacts", href: "https://artifacts.sam1.space" },
-    { label: "skills", href: "https://skills.sam1.space" },
     { label: "fury", href: "https://github.com/srm-kzilla/fury" },
     { label: "kzilla.xyz", href: "https://github.com/srm-kzilla/kzilla.xyz" },
     { label: "travelmate", href: "https://github.com/sm-sami/hackout-travelmate" },
-    { label: "subscriptions api", href: "https://github.com/sm-sami/subscriptions-api" },
   ],
   experience: [
     {
