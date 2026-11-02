@@ -138,17 +138,5 @@
     scroll-behavior: auto !important;
   }
 
-  .animate-fade-up {
-    animation: fade-in 180ms ease both !important;
-  }
 
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

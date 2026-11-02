@@ -3,6 +3,7 @@ import LocalTime from "@/components/local-time";
 import RailNav from "@/components/rail-nav";
 import RotatingLocation from "@/components/rotating-location";
 import { Button } from "@/components/ui/button";
+import Wordmark from "@/components/wordmark";
 import { site } from "@/shared/data/site";
 
 export default function SiteRail() {
@@ -11,8 +12,8 @@ export default function SiteRail() {
   return (
     <aside className="border-b py-4 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:border-b-0 lg:py-10">
       <div className="flex items-center justify-between gap-3">
-        <Link href="/" className="text-sm font-medium tracking-tight">
-          sam1.space
+        <Link href="/" aria-label="Sami, home" className="text-sm font-medium tracking-tight">
+          <Wordmark />
         </Link>
         <div className="lg:hidden">
           <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="sm">

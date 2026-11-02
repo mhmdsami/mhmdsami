@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/components/ui/cn";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 export interface RotatingItem {
   text: string;
@@ -20,9 +21,16 @@ export default function RotatingText({
 }) {
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState<number | null>(null);
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
-    if (items.length < 2) return;
+    if (!reduced) return;
+    setIndex(0);
+    setLeaving(null);
+  }, [reduced]);
+
+  useEffect(() => {
+    if (reduced || items.length < 2) return;
 
     const timer = window.setInterval(() => {
       setIndex((current) => {
@@ -32,7 +40,7 @@ export default function RotatingText({
     }, interval);
 
     return () => window.clearInterval(timer);
-  }, [items.length, interval]);
+  }, [items.length, interval, reduced]);
 
   useEffect(() => {
     if (leaving === null) return;
