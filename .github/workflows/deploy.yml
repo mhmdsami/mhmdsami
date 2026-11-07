@@ -28,8 +28,6 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm gate
-
       - name: Deploy
         if: env.CLOUDFLARE_API_TOKEN != ''
         run: pnpm deploy
