@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DeskScene from "@/components/desk-scene";
 import LocalTime from "@/components/local-time";
 import RailNav from "@/components/rail-nav";
 import RotatingLocation from "@/components/rotating-location";
@@ -39,6 +40,7 @@ export default function SiteRail() {
       <RailNav />
 
       <div className="mt-6 hidden lg:mt-auto lg:block">
+        <DeskScene className="mb-6" />
         <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="xs">
           resume
         </Button>

@@ -69,7 +69,7 @@ export const site: SiteData = {
         period: "May 2025 – Aug 2025",
       },
       detail:
-        "Maintaining the platform that powers 400+ sites.\nBuilt workflows to automate creation of new sites on demand.",
+        "Maintaining the platform that powers 400+ sites. Built workflows to automate creation of new sites on demand.",
     },
     {
       role: "Software Developer Intern",

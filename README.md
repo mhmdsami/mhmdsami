@@ -1,4 +1,4 @@
-# Mohamed Sami
+![Mohamed Sami](assets/banner.gif)
 
 Software Engineer at [Headout](https://headout.com). I build and maintain the platform that supports 400+ sites. Elsewhere, I build tools to make other tools.
 
@@ -20,6 +20,6 @@ Software Engineer at [Headout](https://headout.com). I build and maintain the pl
 
 Current stack: Next.js, OpenNext, Cloudflare Workers, D1, Drizzle, Tailwind. [baseline](https://github.com/mhmdsami/baseline)
 
-## Elasewhere
+## Elsewhere
 
 [sam1.space](https://sam1.space) · [LinkedIn](https://www.linkedin.com/in/sm-sami) · [X](https://x.com/siamasdev) · [siamasdev@gmail.com](mailto:siamasdev@gmail.com)
