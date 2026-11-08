@@ -13,7 +13,7 @@ export const site: SiteData = {
     country: "India",
     email: "siamasdev@gmail.com",
     intro:
-      "I maintain the platform that supports 400+ sites at Headout. Elsewhere, I build tools to build tools to make other tools.",
+      "I build and maintain the platform that supports 400+ sites at Headout. Elsewhere, I build tools to make other tools.",
     links: [
       { label: "gh/sm-sami", href: "https://github.com/sm-sami" },
       { label: "linkedin", href: "https://www.linkedin.com/in/sm-sami" },
@@ -24,19 +24,19 @@ export const site: SiteData = {
   work: [
     {
       name: "ijra",
-      summary: "A request queue where an agent answers or opens a pull request.",
+      summary: "File a bug, get it fixed immediately.",
       stack: ["Next.js", "Cloudflare Workers", "D1", "Drizzle"],
       repo: "https://github.com/mhmdsami/ijra",
     },
     {
       name: "meter",
-      summary: "Tracks AI usage and spend across every machine.",
+      summary: "Tracks AI usage and spend across your machines.",
       stack: ["Swift", "Rust", "Next.js", "Cloudflare Workers", "D1"],
       repo: "https://github.com/mhmdsami/meter",
     },
     {
       name: "Slack Code Mode MCP",
-      summary: "Two tools for Slack: search the API, then run sandboxed code.",
+      summary: "No bloat MCP for slack: search the API, then run sandboxed code.",
       stack: ["TypeScript", "MCP SDK", "Slack Web API", "Zod"],
       repo: "https://github.com/mhmdsami/slack-codemode-mcp",
     },
@@ -48,7 +48,7 @@ export const site: SiteData = {
     },
     {
       name: "lockout",
-      summary: "Locker booking and allocation for shared spaces.",
+      summary: "Locker booking management for shared spaces.",
       stack: ["Expo", "React Native", "Hono", "Drizzle", "PostgreSQL"],
       repo: "https://github.com/mhmdsami/lockout",
     },
@@ -69,7 +69,7 @@ export const site: SiteData = {
         period: "May 2025 – Aug 2025",
       },
       detail:
-        "Maintain the platform that supports 400+ sites.\nBuild workflows to automate creation of new sites on demand.",
+        "Maintaining the platform that powers 400+ sites.\nBuilt workflows to automate creation of new sites on demand.",
     },
     {
       role: "Software Developer Intern",
@@ -87,14 +87,14 @@ export const site: SiteData = {
       org: "Mintair",
       orgUrl: "https://mintair.xyz",
       period: "May 2024 – Dec 2024",
-      detail: "Built the new landing page from scratch; led the dynamic dashboard.",
+      detail: "Built the new landing page from scratch then led the development of dynamic dashboard.",
     },
     {
       role: "Software Developer Intern",
       org: "Mable",
       orgUrl: "https://mablesoftware.com",
       period: "Aug 2023 – May 2024",
-      detail: "Built reusable data components, then moved the dashboard to Remix.",
+      detail: "Built reusable design system and data components, migrated the dashboard to Remix.",
     },
   ],
   education: {
