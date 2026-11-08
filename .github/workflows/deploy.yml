@@ -1,10 +1,20 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows: [ci]
-    types: [completed]
+  push:
     branches: [main]
+    paths:
+      - "src/**"
+      - "public/**"
+      - "assets/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "next.config.js"
+      - "postcss.config.js"
+      - "tailwind.config.js"
+      - "tsconfig.json"
+      - "wrangler.jsonc"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 concurrency:
@@ -12,8 +22,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  gate:
+    uses: ./.github/workflows/ci.yml
+
   deploy:
-    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
+    needs: gate
     runs-on: ubuntu-latest
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -21,8 +34,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - uses: pnpm/action-setup@v4
 
