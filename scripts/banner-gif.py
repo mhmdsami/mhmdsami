@@ -12,9 +12,9 @@ if not files:
 
 frames = []
 for file in files:
-    frames.append(Image.open(file).convert("RGB").resize((1100, 344), Image.LANCZOS))
+    frames.append(Image.open(file).convert("RGB").resize((1760, 550), Image.LANCZOS))
 
-palette = frames[0].quantize(colors=64, method=Image.MEDIANCUT)
+palette = frames[0].quantize(colors=128, method=Image.MEDIANCUT)
 frames = [image.quantize(palette=palette, dither=Image.NONE) for image in frames]
 
 out = root / "assets" / "banner.gif"

@@ -42,7 +42,7 @@ for (let index = 0; index < 24; index += 1) {
         "--hide-scrollbars",
         "--no-first-run",
         "--no-default-browser-check",
-        "--force-device-scale-factor=1",
+        "--force-device-scale-factor=2",
         "--allow-file-access-from-files",
         "--virtual-time-budget=800",
         `--user-data-dir=${profile}`,

@@ -1,4 +1,4 @@
-![Mohamed Sami](assets/banner.gif)
+![Mohamed Sami](assets/banner.gif?v=2)
 
 Software Engineer at [Headout](https://headout.com). I build and maintain the platform that supports 400+ sites. Elsewhere, I build tools to make other tools.
 
