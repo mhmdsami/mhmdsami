@@ -1,11 +1,7 @@
+import ActivityGrid from "@/components/activity-grid";
 import Section from "@/components/section";
 import { ArrowLink } from "@/components/ui/arrow-link";
 import { getCombinedContributions } from "@/lib/contributions";
-
-function opacity(count: number, max: number) {
-  if (count === 0) return 0.08;
-  return 0.2 + (count / max) ** 0.4 * 0.8;
-}
 
 export default async function Activity() {
   const stats = await getCombinedContributions();
@@ -24,27 +20,8 @@ export default async function Activity() {
         </ArrowLink>
       }
     >
-      <div className="grid auto-cols-fr grid-flow-col grid-rows-7 gap-[3px] sm:hidden">
-        {stats.days.slice(-182).map(({ date, count }) => (
-          <span
-            key={date}
-            title={`${date}: ${count} ${count === 1 ? "contribution" : "contributions"}`}
-            className="aspect-square w-full rounded-[2px] bg-primary"
-            style={{ opacity: opacity(count, max) }}
-          />
-        ))}
-      </div>
-
-      <div className="hidden auto-cols-fr grid-flow-col grid-rows-7 gap-[3px] sm:grid">
-        {stats.days.map(({ date, count }) => (
-          <span
-            key={date}
-            title={`${date}: ${count} ${count === 1 ? "contribution" : "contributions"}`}
-            className="aspect-square w-full rounded-[2px] bg-primary"
-            style={{ opacity: opacity(count, max) }}
-          />
-        ))}
-      </div>
+      <ActivityGrid days={stats.days.slice(-182)} max={max} className="grid sm:hidden" />
+      <ActivityGrid days={stats.days} max={max} className="hidden sm:grid" interactive />
     </Section>
   );
 }
