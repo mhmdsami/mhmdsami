@@ -2,6 +2,8 @@
 
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import AccentPicker from "@/components/accent-picker";
+import { toggleTheme } from "@/lib/theme";
 import { site } from "@/shared/data/site";
 
 interface Command {
@@ -60,6 +62,14 @@ export default function CommandMenu() {
         hint: "go",
         run: () => jump(id),
       })),
+      {
+        id: "theme",
+        label: "toggle theme",
+        hint: "◐",
+        run: () => {
+          window.requestAnimationFrame(() => toggleTheme({ x: window.innerWidth / 2, y: window.innerHeight / 2 }));
+        },
+      },
       ...site.work.flatMap((project) => {
         const href = project.repo ?? project.href;
         return href
@@ -199,7 +209,10 @@ export default function CommandMenu() {
     if (event.key === "Escape") {
       event.preventDefault();
       setOpenMenu(false);
+      return;
     }
+
+    if ((event.target as HTMLElement).closest("[data-accent-option]")) return;
 
     if (event.key === "ArrowDown") {
       event.preventDefault();
@@ -218,7 +231,7 @@ export default function CommandMenu() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/70 px-4 pt-[16vh] backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-[var(--scrim)] px-4 pt-[16vh] backdrop-blur-sm">
       <button
         type="button"
         aria-label="Close command menu"
@@ -230,7 +243,7 @@ export default function CommandMenu() {
         role="dialog"
         aria-modal="true"
         aria-label="Command menu"
-        className="relative z-10 w-full max-w-md overflow-hidden rounded-lg border bg-surface-1"
+        className="relative z-10 w-full max-w-md overflow-hidden rounded-lg border bg-surface-1 shadow-2xl"
         onKeyDown={onPanelKeyDown}
       >
         <input
@@ -245,6 +258,11 @@ export default function CommandMenu() {
           aria-label="Search commands"
           className="w-full border-b bg-transparent px-4 py-3 text-sm outline-none placeholder:text-tertiary"
         />
+
+        <div className="flex items-center justify-between gap-4 border-b px-4 py-2">
+          <span className="text-2xs text-tertiary">accent</span>
+          <AccentPicker />
+        </div>
 
         <div ref={listRef} className="max-h-72 overflow-y-auto py-2">
           {filtered.length === 0 ? (

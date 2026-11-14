@@ -1,20 +1,8 @@
-import type { CSSProperties } from "react";
 import { cn } from "@/components/ui/cn";
 
-interface DeskSceneProps {
-  className?: string;
-  line?: string;
-  lineOpacity?: number;
-}
-
-export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0.7 }: DeskSceneProps) {
+export default function DeskScene({ className }: { className?: string }) {
   return (
-    <svg
-      aria-hidden="true"
-      className={cn("desk-scene block w-full", className)}
-      viewBox="-307 -180 787 652"
-      style={{ "--desk-line": `color-mix(in srgb, ${line} ${lineOpacity * 100}%, transparent)` } as CSSProperties}
-    >
+    <svg aria-hidden="true" className={cn("desk-scene block w-full", className)} viewBox="-307 -180 787 652">
       <defs>
         <linearGradient id="desk-screen-tint" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="var(--desk-line)" stopOpacity="0.08" />
@@ -25,21 +13,21 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
         <g>
           <path
             d="M0 0 L450.3 260 L173.2 420 L-277.1 160 Z"
-            fill="#070707"
+            fill="var(--desk-5)"
             stroke="var(--desk-line)"
             strokeOpacity="0.6"
             strokeWidth="0.9"
           />
           <path
             d="M450.3 260 L173.2 420 L173.2 442 L450.3 282 Z"
-            fill="#050505"
+            fill="var(--desk-6)"
             stroke="var(--desk-line)"
             strokeOpacity="0.35"
             strokeWidth="0.75"
           />
           <path
             d="M-277.1 160 L173.2 420 L173.2 442 L-277.1 182 Z"
-            fill="#040404"
+            fill="var(--desk-7)"
             stroke="var(--desk-line)"
             strokeOpacity="0.35"
             strokeWidth="0.75"
@@ -49,21 +37,21 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
         <g>
           <path
             d="M84.9 149 L-19.1 209 L-19.1 221 L84.9 161 Z"
-            fill="#050505"
+            fill="var(--desk-6)"
             stroke="var(--desk-line)"
             strokeOpacity="0.35"
             strokeWidth="0.75"
           />
           <path
             d="M-183.6 114 L-19.1 209 L-19.1 221 L-183.6 126 Z"
-            fill="#040404"
+            fill="var(--desk-7)"
             stroke="var(--desk-line)"
             strokeOpacity="0.35"
             strokeWidth="0.75"
           />
           <path
             d="M-79.7 54 L84.9 149 L-19.1 209 L-183.6 114 Z"
-            fill="#0a0a0a"
+            fill="var(--desk-3)"
             stroke="var(--desk-line)"
             strokeOpacity="0.65"
             strokeWidth="0.85"
@@ -76,12 +64,12 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               width="190"
               height="120"
               rx="3"
-              fill="#070707"
+              fill="var(--desk-5)"
               stroke="var(--desk-line)"
               strokeOpacity="0.5"
               strokeWidth="0.75"
             />
-            <g fill="#0b0b0b" stroke="var(--desk-line)" strokeOpacity="0.2" strokeWidth="0.6">
+            <g fill="var(--desk-8)" stroke="var(--desk-line)" strokeOpacity="0.2" strokeWidth="0.6">
               <rect x="7" y="10" width="18" height="8" rx="1.5" />
               <rect x="29" y="10" width="18" height="8" rx="1.5" />
               <rect x="51" y="10" width="18" height="8" rx="1.5" />
@@ -113,7 +101,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               width="66"
               height="28"
               rx="2"
-              fill="#0a0a0a"
+              fill="var(--desk-3)"
               stroke="var(--desk-line)"
               strokeOpacity="0.4"
               strokeWidth="0.7"
@@ -122,14 +110,14 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
 
           <path
             d="M-69.3 -72 L95.3 23 L84.9 29 L-79.7 -66 Z"
-            fill="#0c0c0c"
+            fill="var(--desk-2)"
             stroke="var(--desk-line)"
             strokeOpacity="0.6"
             strokeWidth="0.85"
           />
           <path
             d="M95.3 23 L84.9 29 L84.9 149 L95.3 143 Z"
-            fill="#080808"
+            fill="var(--desk-4)"
             stroke="var(--desk-line)"
             strokeOpacity="0.4"
             strokeWidth="0.75"
@@ -142,7 +130,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               width="190"
               height="120"
               rx="6"
-              fill="#0a0a0a"
+              fill="var(--desk-3)"
               stroke="var(--desk-line)"
               strokeOpacity="0.72"
               strokeWidth="0.85"
@@ -153,7 +141,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               width="174"
               height="100"
               rx="3"
-              fill="#050505"
+              fill="var(--desk-6)"
               stroke="var(--desk-line)"
               strokeOpacity="0.3"
               strokeWidth="0.8"
@@ -170,21 +158,21 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
         <g transform="translate(40 0)">
           <path
             d="M212.2 157.5 L255.4 182.5 L229.5 197.5 L186.2 172.5 Z"
-            fill="#0a0a0a"
+            fill="var(--desk-3)"
             stroke="var(--desk-line)"
             strokeOpacity="0.6"
             strokeWidth="0.8"
           />
           <path
             d="M255.4 182.5 L229.5 197.5 L229.5 207.5 L255.4 192.5 Z"
-            fill="#050505"
+            fill="var(--desk-6)"
             stroke="var(--desk-line)"
             strokeOpacity="0.35"
             strokeWidth="0.7"
           />
           <path
             d="M186.2 172.5 L229.5 197.5 L229.5 207.5 L186.2 182.5 Z"
-            fill="#040404"
+            fill="var(--desk-7)"
             stroke="var(--desk-line)"
             strokeOpacity="0.35"
             strokeWidth="0.7"
@@ -192,21 +180,21 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
 
           <path
             d="M246.8 102.5 L229.5 112.5 L229.5 182.5 L246.8 172.5 Z"
-            fill="#080808"
+            fill="var(--desk-4)"
             stroke="var(--desk-line)"
             strokeOpacity="0.45"
             strokeWidth="0.75"
           />
           <path
             d="M229.5 112.5 L212.2 102.5 L212.2 172.5 L229.5 182.5 Z"
-            fill="#0a0a0a"
+            fill="var(--desk-3)"
             stroke="var(--desk-line)"
             strokeOpacity="0.45"
             strokeWidth="0.75"
           />
           <path
             d="M229.5 92.5 L246.8 102.5 L229.5 112.5 L212.2 102.5 Z"
-            fill="#0c0c0c"
+            fill="var(--desk-2)"
             stroke="var(--desk-line)"
             strokeOpacity="0.45"
             strokeWidth="0.75"
@@ -214,14 +202,14 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
 
           <path
             d="M121.2 -150 L355.1 -15 L337.7 -5 L103.9 -140 Z"
-            fill="#0c0c0c"
+            fill="var(--desk-2)"
             stroke="var(--desk-line)"
             strokeOpacity="0.65"
             strokeWidth="0.85"
           />
           <path
             d="M355.1 -15 L337.7 -5 L337.7 175 L355.1 165 Z"
-            fill="#080808"
+            fill="var(--desk-4)"
             stroke="var(--desk-line)"
             strokeOpacity="0.45"
             strokeWidth="0.75"
@@ -234,7 +222,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               width="270"
               height="180"
               rx="6"
-              fill="#0a0a0a"
+              fill="var(--desk-3)"
               stroke="var(--desk-line)"
               strokeOpacity="0.75"
               strokeWidth="0.9"
@@ -244,7 +232,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               y="14"
               width="242"
               height="142"
-              fill="#050505"
+              fill="var(--desk-6)"
               stroke="var(--desk-line)"
               strokeOpacity="0.3"
               strokeWidth="0.8"
@@ -258,7 +246,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               className="typing-line"
               x="40"
               y="96"
-              width="0"
+              width="140"
               height="5"
               rx="2.5"
               fill="var(--desk-line)"
@@ -272,21 +260,21 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
         <g transform="translate(50 0)">
           <path
             d="M-8.7 179 L181.9 289 L112.6 329 L-77.9 219 Z"
-            fill="#0a0a0a"
+            fill="var(--desk-3)"
             stroke="var(--desk-line)"
             strokeOpacity="0.6"
             strokeWidth="0.85"
           />
           <path
             d="M181.9 289 L112.6 329 L112.6 343 L181.9 303 Z"
-            fill="#050505"
+            fill="var(--desk-6)"
             stroke="var(--desk-line)"
             strokeOpacity="0.3"
             strokeWidth="0.7"
           />
           <path
             d="M-77.9 219 L112.6 329 L112.6 343 L-77.9 233 Z"
-            fill="#040404"
+            fill="var(--desk-7)"
             stroke="var(--desk-line)"
             strokeOpacity="0.3"
             strokeWidth="0.7"
@@ -299,12 +287,12 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
               width="212"
               height="72"
               rx="5"
-              fill="#070707"
+              fill="var(--desk-5)"
               stroke="var(--desk-line)"
               strokeOpacity="0.55"
               strokeWidth="0.75"
             />
-            <g fill="#0d0d0d" stroke="var(--desk-line)" strokeOpacity="0.28" strokeWidth="0.65">
+            <g fill="var(--desk-1)" stroke="var(--desk-line)" strokeOpacity="0.28" strokeWidth="0.65">
               <rect x="10" y="10" width="20" height="10" rx="1.5" />
               <rect x="35" y="10" width="20" height="10" rx="1.5" />
               <rect x="60" y="10" width="20" height="10" rx="1.5" />
@@ -336,18 +324,18 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
           </g>
         </g>
 
-        <g transform="translate(433 100)">
+        <g className="desk-mug" transform="translate(433 100)">
           <ellipse
             cx="-164.5"
             cy="185"
             rx="34.3"
             ry="19.8"
-            fill="#050505"
+            fill="var(--desk-6)"
             stroke="var(--desk-line)"
             strokeOpacity="0.35"
             strokeWidth="0.7"
           />
-          <path d="M-198.8 139 L-198.8 185 A34.3 19.8 0 0 0 -130.2 185 L-130.2 139 Z" fill="#0b0b0b" />
+          <path d="M-198.8 139 L-198.8 185 A34.3 19.8 0 0 0 -130.2 185 L-130.2 139 Z" fill="var(--desk-8)" />
           <path
             d="M-198.8 139 L-198.8 185 A34.3 19.8 0 0 0 -130.2 185 L-130.2 139"
             fill="none"
@@ -367,7 +355,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
             cy="139"
             rx="34.3"
             ry="19.8"
-            fill="#0c0c0c"
+            fill="var(--desk-2)"
             stroke="var(--desk-line)"
             strokeOpacity="0.6"
             strokeWidth="0.8"
@@ -377,7 +365,7 @@ export default function DeskScene({ className, line = "#9cc7a4", lineOpacity = 0
             cy="140"
             rx="28.4"
             ry="16.2"
-            fill="#0a0a0a"
+            fill="var(--desk-3)"
             stroke="var(--desk-line)"
             strokeOpacity="0.4"
             strokeWidth="0.7"

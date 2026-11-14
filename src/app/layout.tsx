@@ -2,7 +2,7 @@ import CommandMenu from "@/components/command-menu";
 import SiteRail from "@/components/site-rail";
 import "@/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sam1.space"),
@@ -51,13 +51,27 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport = {
-  themeColor: "#000000",
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f7f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
+
+const bootScript = `(function(){try{
+var root=document.documentElement;
+var theme=localStorage.getItem("theme");
+root.dataset.theme=theme==="light"||theme==="dark"?theme:matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
+var accent=localStorage.getItem("accent");
+root.dataset.accent=["sage","blue","rose","yellow","purple"].indexOf(accent)>-1?accent:"sage";
+}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={GeistMono.variable}>
+    <html lang="en" className={GeistMono.variable} suppressHydrationWarning>
+      <head>
+        <script>{bootScript}</script>
+      </head>
       <body>
         <a
           href="#main"

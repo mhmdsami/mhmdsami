@@ -1,8 +1,9 @@
 import Link from "next/link";
-import DeskScene from "@/components/desk-scene";
+import DeskAccent from "@/components/desk-accent";
 import LocalTime from "@/components/local-time";
 import RailNav from "@/components/rail-nav";
 import RotatingLocation from "@/components/rotating-location";
+import ThemeToggle from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import Wordmark from "@/components/wordmark";
 import { site } from "@/shared/data/site";
@@ -16,10 +17,11 @@ export default function SiteRail() {
         <Link href="/" aria-label="Sami, home" className="text-sm font-medium tracking-tight">
           <Wordmark />
         </Link>
-        <div className="lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="sm">
             resume
           </Button>
+          <ThemeToggle />
         </div>
       </div>
 
@@ -40,10 +42,13 @@ export default function SiteRail() {
       <RailNav />
 
       <div className="mt-6 hidden lg:mt-auto lg:block">
-        <DeskScene className="mb-6" />
-        <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="xs">
-          resume
-        </Button>
+        <DeskAccent className="mb-6" />
+        <div className="flex items-center justify-between">
+          <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="xs">
+            resume
+          </Button>
+          <ThemeToggle />
+        </div>
       </div>
     </aside>
   );
