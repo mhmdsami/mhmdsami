@@ -31,6 +31,15 @@ export const metadata: Metadata = {
         alt: "Mohamed Sami, software engineer at Headout",
       },
     ],
+    videos: [
+      {
+        url: "https://sam1.space/og.mp4",
+        secureUrl: "https://sam1.space/og.mp4",
+        type: "video/mp4",
+        width: 1760,
+        height: 550,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -63,7 +72,9 @@ var root=document.documentElement;
 var theme=localStorage.getItem("theme");
 root.dataset.theme=theme==="light"||theme==="dark"?theme:matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
 var accent=localStorage.getItem("accent");
-root.dataset.accent=["sage","blue","rose","yellow","purple"].indexOf(accent)>-1?accent:"sage";
+var aliases={blue:"tide",rose:"sakura",yellow:"honey",purple:"iris"};
+accent=aliases[accent]||accent;
+root.dataset.accent=["sage","tide","sakura","honey","iris"].indexOf(accent)>-1?accent:"sage";
 }catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -73,13 +84,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script>{bootScript}</script>
       </head>
       <body>
+        <div className="starfield" aria-hidden="true" />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-foreground focus:px-3 focus:py-2 focus:text-sm focus:text-background"
         >
           Skip to content
         </a>
-        <div className="mx-auto grid w-full max-w-5xl gap-8 px-5 sm:px-6 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16 lg:px-8">
+        <div className="relative z-10 mx-auto grid w-full max-w-5xl gap-8 px-5 sm:px-6 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16 lg:px-8">
           <SiteRail />
           <main id="main" className="min-w-0 pb-16 lg:max-w-[34rem] lg:py-10">
             {children}

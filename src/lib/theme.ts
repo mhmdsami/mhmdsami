@@ -2,10 +2,10 @@ export type Theme = "light" | "dark";
 
 export const accents = [
   { id: "sage", label: "Sage" },
-  { id: "blue", label: "Pastel blue" },
-  { id: "rose", label: "Rose" },
-  { id: "yellow", label: "Pastel yellow" },
-  { id: "purple", label: "Purple" },
+  { id: "tide", label: "Tide" },
+  { id: "sakura", label: "Sakura" },
+  { id: "honey", label: "Honey" },
+  { id: "iris", label: "Iris" },
 ] as const;
 
 export type Accent = (typeof accents)[number]["id"];

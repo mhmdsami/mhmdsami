@@ -70,30 +70,30 @@ export default function DeskScene({ className }: { className?: string }) {
               strokeWidth="0.75"
             />
             <g fill="var(--desk-8)" stroke="var(--desk-line)" strokeOpacity="0.2" strokeWidth="0.6">
-              <rect x="7" y="10" width="18" height="8" rx="1.5" />
-              <rect x="29" y="10" width="18" height="8" rx="1.5" />
-              <rect x="51" y="10" width="18" height="8" rx="1.5" />
-              <rect x="73" y="10" width="18" height="8" rx="1.5" />
-              <rect x="95" y="10" width="18" height="8" rx="1.5" />
-              <rect x="117" y="10" width="18" height="8" rx="1.5" />
-              <rect x="139" y="10" width="18" height="8" rx="1.5" />
-              <rect x="161" y="10" width="18" height="8" rx="1.5" />
-              <rect x="7" y="24" width="18" height="8" rx="1.5" />
-              <rect x="29" y="24" width="18" height="8" rx="1.5" />
-              <rect x="51" y="24" width="18" height="8" rx="1.5" />
-              <rect x="73" y="24" width="18" height="8" rx="1.5" />
-              <rect x="95" y="24" width="18" height="8" rx="1.5" />
-              <rect x="117" y="24" width="18" height="8" rx="1.5" />
-              <rect x="139" y="24" width="18" height="8" rx="1.5" />
-              <rect x="161" y="24" width="18" height="8" rx="1.5" />
-              <rect x="7" y="38" width="18" height="8" rx="1.5" />
-              <rect x="29" y="38" width="18" height="8" rx="1.5" />
-              <rect x="51" y="38" width="18" height="8" rx="1.5" />
-              <rect x="73" y="38" width="18" height="8" rx="1.5" />
-              <rect x="95" y="38" width="18" height="8" rx="1.5" />
-              <rect x="117" y="38" width="18" height="8" rx="1.5" />
-              <rect x="139" y="38" width="18" height="8" rx="1.5" />
-              <rect x="161" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={0} x="7" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={1} x="29" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={2} x="51" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={3} x="73" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={4} x="95" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={5} x="117" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={6} x="139" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={7} x="161" y="10" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={8} x="7" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={9} x="29" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={10} x="51" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={11} x="73" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={12} x="95" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={13} x="117" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={14} x="139" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={15} x="161" y="24" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={16} x="7" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={17} x="29" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={18} x="51" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={19} x="73" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={20} x="95" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={21} x="117" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={22} x="139" y="38" width="18" height="8" rx="1.5" />
+              <rect data-laptop-key={23} x="161" y="38" width="18" height="8" rx="1.5" />
             </g>
             <rect
               x="62"
@@ -215,7 +215,7 @@ export default function DeskScene({ className }: { className?: string }) {
             strokeWidth="0.75"
           />
 
-          <g transform="translate(103.9 -140) matrix(0.866 0.5 0 1 0 0)">
+          <g className="desk-screen" transform="translate(103.9 -140) matrix(0.866 0.5 0 1 0 0)">
             <rect
               x="0"
               y="0"
@@ -293,33 +293,33 @@ export default function DeskScene({ className }: { className?: string }) {
               strokeWidth="0.75"
             />
             <g fill="var(--desk-1)" stroke="var(--desk-line)" strokeOpacity="0.28" strokeWidth="0.65">
-              <rect x="10" y="10" width="20" height="10" rx="1.5" />
-              <rect x="35" y="10" width="20" height="10" rx="1.5" />
-              <rect x="60" y="10" width="20" height="10" rx="1.5" />
-              <rect x="85" y="10" width="20" height="10" rx="1.5" />
-              <rect x="110" y="10" width="20" height="10" rx="1.5" />
-              <rect x="135" y="10" width="20" height="10" rx="1.5" />
-              <rect x="160" y="10" width="20" height="10" rx="1.5" />
-              <rect x="185" y="10" width="20" height="10" rx="1.5" />
-              <rect x="10" y="26" width="20" height="10" rx="1.5" />
-              <rect x="35" y="26" width="20" height="10" rx="1.5" />
-              <rect x="60" y="26" width="20" height="10" rx="1.5" />
-              <rect x="85" y="26" width="20" height="10" rx="1.5" />
-              <rect x="110" y="26" width="20" height="10" rx="1.5" />
-              <rect x="135" y="26" width="20" height="10" rx="1.5" />
-              <rect x="160" y="26" width="20" height="10" rx="1.5" />
-              <rect x="185" y="26" width="20" height="10" rx="1.5" />
-              <rect x="10" y="42" width="20" height="10" rx="1.5" />
-              <rect x="35" y="42" width="20" height="10" rx="1.5" />
-              <rect x="60" y="42" width="20" height="10" rx="1.5" />
-              <rect x="85" y="42" width="20" height="10" rx="1.5" />
-              <rect x="110" y="42" width="20" height="10" rx="1.5" />
-              <rect x="135" y="42" width="20" height="10" rx="1.5" />
-              <rect x="160" y="42" width="20" height="10" rx="1.5" />
-              <rect x="185" y="42" width="20" height="10" rx="1.5" />
-              <rect x="10" y="58" width="30" height="10" rx="1.5" />
-              <rect x="45" y="58" width="110" height="10" rx="1.5" />
-              <rect x="160" y="58" width="45" height="10" rx="1.5" />
+              <rect data-desk-key={0} x="10" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={1} x="35" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={2} x="60" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={3} x="85" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={4} x="110" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={5} x="135" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={6} x="160" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={7} x="185" y="10" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={8} x="10" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={9} x="35" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={10} x="60" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={11} x="85" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={12} x="110" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={13} x="135" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={14} x="160" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={15} x="185" y="26" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={16} x="10" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={17} x="35" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={18} x="60" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={19} x="85" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={20} x="110" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={21} x="135" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={22} x="160" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={23} x="185" y="42" width="20" height="10" rx="1.5" />
+              <rect data-desk-key={24} x="10" y="58" width="30" height="10" rx="1.5" />
+              <rect data-desk-key={25} x="45" y="58" width="110" height="10" rx="1.5" />
+              <rect data-desk-key={26} x="160" y="58" width="45" height="10" rx="1.5" />
             </g>
           </g>
         </g>

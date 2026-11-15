@@ -28,7 +28,7 @@ if (!chrome) {
 const jobs = [
   { source: "og/og.html", target: "public/og.png", width: 1200, height: 630 },
   { source: "og/icon.html", target: "src/app/icon.png", width: 512, height: 512, transparent: true },
-  { source: "og/apple-icon.html", target: "src/app/apple-icon.png", width: 180, height: 180 },
+  { source: "og/apple-icon.html", target: "src/app/apple-icon.png", width: 512, height: 512 },
 ];
 
 for (const job of jobs) {

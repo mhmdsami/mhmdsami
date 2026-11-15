@@ -12,7 +12,8 @@
     "gate": "pnpm lint && pnpm typecheck",
     "prepare": "lefthook install",
     "og": "node scripts/render-og.mjs",
-    "banner": "node scripts/render-banner.mjs"
+    "banner": "node scripts/render-banner.mjs",
+    "og:video": "swift scripts/render-og-video.swift"
   },
   "dependencies": {
     "geist": "1.9.2",

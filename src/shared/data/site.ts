@@ -21,6 +21,15 @@ export const site: SiteData = {
       { label: "gh/mhmdsami", href: "https://github.com/mhmdsami" },
     ],
   },
+
+  terminal: {
+    role: "swe",
+    company: "headout",
+    companyUrl: "https://headout.com",
+    location: "blr, in",
+    current: "building devboy",
+  },
+
   work: [
     {
       name: "ijra",
@@ -111,7 +120,7 @@ export const site: SiteData = {
   stack: [
     {
       title: "Languages",
-      items: ["TypeScript", "Python", "Rust", "Go", "Swift"],
+      items: ["TypeScript", "Python", "Rust", "Swift"],
     },
     {
       title: "Frontend",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import DeskAccent from "@/components/desk-accent";
+import DeskOS from "@/components/desk-os";
 import LocalTime from "@/components/local-time";
 import RailNav from "@/components/rail-nav";
 import RotatingLocation from "@/components/rotating-location";
@@ -42,7 +42,7 @@ export default function SiteRail() {
       <RailNav />
 
       <div className="mt-6 hidden lg:mt-auto lg:block">
-        <DeskAccent className="mb-6" />
+        <DeskOS className="mb-6" />
         <div className="flex items-center justify-between">
           <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="xs">
             resume

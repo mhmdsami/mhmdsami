@@ -61,8 +61,17 @@ export interface FavoriteStack {
   link?: { label: string; href: string };
 }
 
+export interface TerminalInfo {
+  role: string;
+  company: string;
+  companyUrl: string;
+  location: string;
+  current: string;
+}
+
 export interface SiteData {
   profile: Profile;
+  terminal: TerminalInfo;
   work: Array<WorkItem>;
   also: Array<Link>;
   experience: Array<ExperienceItem>;
