@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "react";
+import { type FormEvent, type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import AsciiPortrait from "@/components/ascii-portrait";
 import { accents, applyAccent, applyTheme, currentAccent, currentTheme } from "@/lib/theme";
@@ -8,14 +8,13 @@ import { site } from "@/shared/data/site";
 
 type Line = { kind: "in" | "out" | "info"; text: string };
 
-const COMMANDS = ["accent", "clear", "contact", "exit", "info", "man", "theme", "whoami"];
+const COMMANDS = ["accent", "clear", "contact", "exit", "info", "man", "synth", "theme", "whoami"];
 
 const ARGUMENTS: Record<string, Array<string>> = {
   accent: accents.map(({ id }) => id),
+  synth: ["on", "off", "toggle"],
   theme: ["light", "dark"],
 };
-
-const ACCENT_CHOICES = accents.map(({ id }) => id).join("|");
 
 const MAN: Record<string, string> = {
   whoami: "print the current user",
@@ -23,6 +22,7 @@ const MAN: Record<string, string> = {
   theme: "set the theme",
   accent: "set the accent colour",
   contact: "email me",
+  synth: "play the activity drums",
   man: "show this manual",
   clear: "clear the output",
   exit: "close the terminal",
@@ -31,8 +31,8 @@ const MAN: Record<string, string> = {
 function manEntry(command: string) {
   const description = MAN[command];
   if (!description) return [`No manual entry for ${command}.`];
-  const synopsis =
-    command === "theme" ? "theme [light|dark]" : command === "accent" ? `accent [${ACCENT_CHOICES}]` : command;
+  const options = ARGUMENTS[command];
+  const synopsis = options ? `${command} [${options.join("|")}]` : command;
   return [
     `${command.toUpperCase()}(1)`,
     "",
@@ -56,14 +56,14 @@ const MAN_PAGE = [
   "COMMANDS",
   ...Object.entries(MAN).flatMap(([command, description]) => {
     const line = `       ${command.padEnd(12)}${description}`;
-    const choices =
-      command === "theme" ? "light | dark" : command === "accent" ? ACCENT_CHOICES.replaceAll("|", " | ") : null;
+    const choices = ARGUMENTS[command]?.join(" | ") ?? null;
     return choices ? [line, `       ${" ".repeat(12)}${choices}`] : [line];
   }),
   "",
   "EXAMPLES",
   "       accent sakura",
   "       theme dark",
+  "       synth",
   "       man accent",
 ];
 
@@ -201,6 +201,8 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
   const [value, setValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
+  const thumbRef = useRef<HTMLDivElement>(null);
+  const hideTimer = useRef<number | null>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -218,11 +220,39 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
     };
   }, [open]);
 
+  const updateThumb = useCallback(() => {
+    const output = outputRef.current;
+    const thumb = thumbRef.current;
+    if (!output || !thumb) return;
+    if (output.scrollHeight <= output.clientHeight + 1) {
+      thumb.style.opacity = "0";
+      return;
+    }
+    const ratio = output.clientHeight / output.scrollHeight;
+    const height = Math.max(20, ratio * output.clientHeight);
+    const maxTop = output.clientHeight - height;
+    const top = (output.scrollTop / Math.max(1, output.scrollHeight - output.clientHeight)) * maxTop;
+    thumb.style.height = `${height}px`;
+    thumb.style.transform = `translateY(${top}px)`;
+    thumb.style.opacity = "1";
+    if (hideTimer.current !== null) window.clearTimeout(hideTimer.current);
+    hideTimer.current = window.setTimeout(() => {
+      if (thumbRef.current) thumbRef.current.style.opacity = "0";
+    }, 650);
+  }, []);
+
   useEffect(() => {
     if (lines.length === 0) return;
     const output = outputRef.current;
     if (output) output.scrollTop = output.scrollHeight;
-  }, [lines]);
+    updateThumb();
+  }, [lines, updateThumb]);
+
+  useEffect(() => {
+    return () => {
+      if (hideTimer.current !== null) window.clearTimeout(hideTimer.current);
+    };
+  }, []);
 
   if (!open || typeof document === "undefined") return null;
 
@@ -264,15 +294,19 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
       const next =
         argument === "light" || argument === "dark" ? argument : currentTheme() === "light" ? "dark" : "light";
       applyTheme(next);
-      out.push(`theme → ${next}`);
+      setLines((prev) => [...prev, { kind: "in", text: raw }]);
+      return;
     } else if (command === "accent") {
-      const accent = accents.find(({ id }) => id === argument);
-      if (accent) {
-        applyAccent(accent.id);
-        out.push(`accent → ${accent.id}`);
-      } else {
-        out.push(`accent is ${currentAccent()}`, accents.map(({ id }) => id).join("  "));
-      }
+      const chosen = accents.find(({ id }) => id === argument);
+      const index = accents.findIndex(({ id }) => id === currentAccent());
+      applyAccent(chosen?.id ?? accents[(index + 1) % accents.length].id);
+      setLines((prev) => [...prev, { kind: "in", text: raw }]);
+      return;
+    } else if (command === "synth") {
+      const action = argument === "on" || argument === "off" ? argument : "toggle";
+      window.dispatchEvent(new CustomEvent("activity:synth", { detail: action }));
+      setLines((prev) => [...prev, { kind: "in", text: raw }]);
+      return;
     } else {
       out.push(`command not found: ${command}`, "try man");
     }
@@ -302,60 +336,68 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
         }}
         className="desk-terminal relative z-10 flex h-[22rem] w-full max-w-md flex-col overflow-hidden rounded-md border bg-surface-1 font-mono shadow-2xl"
       >
-        <div
-          ref={outputRef}
-          className="desk-terminal-output min-h-0 flex-1 overflow-y-auto px-4 py-3 font-mono text-xs leading-5"
-        >
-          <div role="log" aria-live="polite">
-            {lines.map((line, index) => (
-              <div key={`${index}-${line.text}`}>
-                {line.kind === "info" ? (
-                  <Info />
-                ) : (
-                  <p className="whitespace-pre-wrap">
-                    {line.kind === "in" ? (
-                      <>
-                        <span className="text-primary">sami@space</span>
-                        <span className="text-tertiary"> $ </span>
-                      </>
-                    ) : null}
-                    <span className={line.kind === "in" ? "text-foreground" : "text-secondary"}>{line.text}</span>
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <form onSubmit={submit} className="flex items-center">
-            <span className="shrink-0 text-primary">sami@space</span>
-            <span className="ml-1.5 shrink-0 text-primary">$</span>
-            <div className="relative ml-2 min-w-0 flex-1 overflow-hidden">
-              <input
-                ref={inputRef}
-                value={value}
-                onChange={(event) => setValue(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key !== "Tab") return;
-                  event.preventDefault();
-                  const next = complete(value);
-                  if (next !== value) setValue(next);
-                }}
-                aria-label="Terminal command"
-                autoComplete="off"
-                spellCheck={false}
-                className="terminal-input w-full bg-transparent font-mono text-xs text-foreground outline-none placeholder:text-tertiary"
-              />
-              {ghost ? (
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-y-0 left-0 flex items-center whitespace-pre font-mono text-xs text-tertiary"
-                >
-                  <span className="invisible">{value}</span>
-                  {ghost}
-                </span>
-              ) : null}
+        <div className="relative min-h-0 flex-1">
+          <div
+            ref={outputRef}
+            onScroll={updateThumb}
+            className="desk-terminal-output h-full overflow-y-auto px-4 py-3 font-mono text-xs leading-5"
+          >
+            <div role="log" aria-live="polite">
+              {lines.map((line, index) => (
+                <div key={`${index}-${line.text}`}>
+                  {line.kind === "info" ? (
+                    <Info />
+                  ) : (
+                    <p className="whitespace-pre-wrap">
+                      {line.kind === "in" ? (
+                        <>
+                          <span className="text-primary">sami@space</span>
+                          <span className="text-tertiary"> $ </span>
+                        </>
+                      ) : null}
+                      <span className={line.kind === "in" ? "text-foreground" : "text-secondary"}>{line.text}</span>
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
-          </form>
+
+            <form onSubmit={submit} className="flex items-center">
+              <span className="shrink-0 text-primary">sami@space</span>
+              <span className="ml-1.5 shrink-0 text-primary">$</span>
+              <div className="relative ml-2 min-w-0 flex-1 overflow-hidden">
+                <input
+                  ref={inputRef}
+                  value={value}
+                  onChange={(event) => setValue(event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key !== "Tab") return;
+                    event.preventDefault();
+                    const next = complete(value);
+                    if (next !== value) setValue(next);
+                  }}
+                  aria-label="Terminal command"
+                  autoComplete="off"
+                  spellCheck={false}
+                  className="terminal-input w-full bg-transparent font-mono text-xs text-foreground outline-none placeholder:text-tertiary"
+                />
+                {ghost ? (
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-y-0 left-0 flex items-center whitespace-pre font-mono text-xs text-tertiary"
+                  >
+                    <span className="invisible">{value}</span>
+                    {ghost}
+                  </span>
+                ) : null}
+              </div>
+            </form>
+          </div>
+          <div
+            ref={thumbRef}
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0.5 top-0 w-1 rounded-full bg-primary/45 opacity-0 transition-opacity duration-200"
+          />
         </div>
       </div>
     </div>,

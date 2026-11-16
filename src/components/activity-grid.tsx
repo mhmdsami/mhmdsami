@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { type RefObject, useEffect, useRef } from "react";
 import { cn } from "@/components/ui/cn";
 import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
@@ -14,6 +14,7 @@ interface ActivityGridProps {
   max: number;
   className?: string;
   interactive?: boolean;
+  playheadRef?: RefObject<HTMLDivElement | null>;
 }
 
 function cellColor(count: number, max: number) {
@@ -39,7 +40,7 @@ const SPEED_RADIUS = 28;
 const PULL = 14;
 const SCALE = 0.6;
 
-export default function ActivityGrid({ days, max, className, interactive = false }: ActivityGridProps) {
+export default function ActivityGrid({ days, max, className, interactive = false, playheadRef }: ActivityGridProps) {
   const grid = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
 
@@ -173,26 +174,38 @@ export default function ActivityGrid({ days, max, className, interactive = false
   }, [interactive, reduced]);
 
   return (
-    <div
-      ref={grid}
-      className={cn("auto-cols-fr grid-flow-col grid-rows-7 gap-[3px]", interactive && "cursor-pointer", className)}
-    >
-      {days.map(({ date, count }, index) => (
-        <span
-          key={date}
-          title={`${date}: ${count} ${count === 1 ? "contribution" : "contributions"}`}
-          data-cell
-          data-row={index % 7}
-          data-col={Math.floor(index / 7)}
-          className="aspect-square w-full"
+    <div className={cn("relative", className)}>
+      <div className="relative">
+        <div
+          ref={grid}
+          className={cn("grid auto-cols-fr grid-flow-col grid-rows-7 gap-[3px]", interactive && "cursor-pointer")}
         >
-          <span
+          {days.map(({ date, count }, index) => (
+            <span
+              key={date}
+              title={`${date}: ${count} ${count === 1 ? "contribution" : "contributions"}`}
+              data-cell
+              data-row={index % 7}
+              data-col={Math.floor(index / 7)}
+              className="aspect-square w-full"
+            >
+              <span
+                aria-hidden="true"
+                className="block h-full w-full rounded-[2px]"
+                style={{ background: cellColor(count, max) }}
+              />
+            </span>
+          ))}
+        </div>
+        {playheadRef ? (
+          <div
+            ref={playheadRef}
             aria-hidden="true"
-            className="block h-full w-full rounded-[2px]"
-            style={{ background: cellColor(count, max) }}
+            className="pointer-events-none absolute inset-y-0 w-px -translate-x-1/2 bg-primary opacity-0 transition-opacity duration-150"
+            style={{ left: "0%" }}
           />
-        </span>
-      ))}
+        ) : null}
+      </div>
     </div>
   );
 }
