@@ -2,15 +2,11 @@
 
 import { type RefObject, useEffect, useRef } from "react";
 import { cn } from "@/components/ui/cn";
+import type { ContributionDay } from "@/lib/contributions";
 import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
-export interface ActivityDay {
-  date: string;
-  count: number;
-}
-
 interface ActivityGridProps {
-  days: ActivityDay[];
+  days: ContributionDay[];
   max: number;
   className?: string;
   interactive?: boolean;

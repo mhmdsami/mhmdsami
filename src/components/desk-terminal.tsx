@@ -8,7 +8,7 @@ import { site } from "@/shared/data/site";
 
 type Line = { kind: "in" | "out" | "info"; text: string };
 
-const COMMANDS = ["accent", "clear", "contact", "exit", "info", "man", "synth", "theme", "whoami"];
+const COMMANDS = ["accent", "clear", "contact", "exit", "info", "labs", "man", "synth", "theme", "whoami"];
 
 const ARGUMENTS: Record<string, Array<string>> = {
   accent: accents.map(({ id }) => id),
@@ -22,6 +22,7 @@ const MAN: Record<string, string> = {
   theme: "set the theme",
   accent: "set the accent colour",
   contact: "email me",
+  labs: "open the labs",
   synth: "play the activity drums",
   man: "show this manual",
   clear: "clear the output",
@@ -64,6 +65,7 @@ const MAN_PAGE = [
   "       accent sakura",
   "       theme dark",
   "       synth",
+  "       labs torvalds",
   "       man accent",
 ];
 
@@ -301,6 +303,9 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
       const index = accents.findIndex(({ id }) => id === currentAccent());
       applyAccent(chosen?.id ?? accents[(index + 1) % accents.length].id);
       setLines((prev) => [...prev, { kind: "in", text: raw }]);
+      return;
+    } else if (command === "labs") {
+      window.location.assign(argument ? `/labs/synth?user=${encodeURIComponent(argument)}` : "/labs");
       return;
     } else if (command === "synth") {
       const action = argument === "on" || argument === "off" ? argument : "toggle";

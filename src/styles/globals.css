@@ -389,6 +389,24 @@
   }
 }
 
+.desk-laptop-screen {
+  transition: filter 150ms var(--ease-out);
+}
+
+.desk-laptop-button:focus-visible {
+  outline: none;
+}
+
+.desk-os:has(.desk-laptop-button:focus-visible) .desk-laptop-screen {
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--primary) 85%, transparent));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .desk-os:has(.desk-laptop-button:hover) .desk-laptop-screen {
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--primary) 65%, transparent));
+  }
+}
+
 .desk-terminal {
   transition:
     opacity 160ms var(--ease-out),

@@ -123,7 +123,7 @@ export default function DeskScene({ className }: { className?: string }) {
             strokeWidth="0.75"
           />
 
-          <g transform="translate(-79.7 -66) matrix(0.866 0.5 0 1 0 0)">
+          <g className="desk-laptop-screen" transform="translate(-79.7 -66) matrix(0.866 0.5 0 1 0 0)">
             <rect
               x="0"
               y="0"

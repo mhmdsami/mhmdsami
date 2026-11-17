@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import DeskScene from "@/components/desk-scene";
 import DeskTerminal from "@/components/desk-terminal";
@@ -95,6 +96,13 @@ export default function DeskOS({ className }: { className?: string }) {
         aria-label="Cycle accent colour"
         className="desk-mug-button absolute size-8 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full"
         style={{ left: "74%", top: "69%" }}
+      />
+      <Link
+        href="/labs"
+        title="Open the labs"
+        aria-label="Open the labs"
+        className="desk-laptop-button absolute cursor-pointer rounded-sm"
+        style={{ left: "28.9%", top: "17.5%", width: "20.9%", height: "33%" }}
       />
       <button
         type="button"
