@@ -1,4 +1,5 @@
 import CommandMenu from "@/components/command-menu";
+import PageScrollbar from "@/components/page-scrollbar";
 import SiteRail from "@/components/site-rail";
 import "@/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
@@ -98,6 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </div>
         <CommandMenu />
+        <PageScrollbar />
       </body>
     </html>
   );

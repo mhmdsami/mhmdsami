@@ -3,6 +3,7 @@
 import { type FormEvent, type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import AsciiPortrait from "@/components/ascii-portrait";
+import { lockScroll } from "@/lib/scroll-lock";
 import { accents, applyAccent, applyTheme, currentAccent, currentTheme } from "@/lib/theme";
 import { site } from "@/shared/data/site";
 
@@ -212,11 +213,10 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
     setLines([{ kind: "out", text: "type man · tab completes" }]);
     setValue("");
     previousFocus.current = document.activeElement as HTMLElement | null;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlock = lockScroll();
     const timer = window.setTimeout(() => inputRef.current?.focus(), 0);
     return () => {
-      document.body.style.overflow = previousOverflow;
+      unlock();
       window.clearTimeout(timer);
       previousFocus.current?.focus();
     };

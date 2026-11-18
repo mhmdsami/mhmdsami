@@ -139,8 +139,12 @@
 
   html {
     @apply bg-background antialiased;
-    scrollbar-gutter: stable;
     scroll-padding-top: 4.5rem;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   html,
@@ -407,10 +411,35 @@
   }
 }
 
+@keyframes terminal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+}
+
+@keyframes scrim-in {
+  from {
+    opacity: 0;
+  }
+}
+
 .desk-terminal {
+  animation: terminal-in 220ms var(--ease-out);
   transition:
     opacity 160ms var(--ease-out),
     transform 160ms var(--ease-out);
+}
+
+.desk-terminal-scrim {
+  animation: scrim-in 180ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desk-terminal,
+  .desk-terminal-scrim {
+    animation: none;
+  }
 }
 
 .shade-hash {

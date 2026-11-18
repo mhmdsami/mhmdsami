@@ -3,6 +3,7 @@
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import AccentPicker from "@/components/accent-picker";
+import { lockScroll } from "@/lib/scroll-lock";
 import { toggleTheme } from "@/lib/theme";
 import { site } from "@/shared/data/site";
 
@@ -186,12 +187,11 @@ export default function CommandMenu() {
     setStatus("");
     previousFocus.current = document.activeElement as HTMLElement | null;
     if (listRef.current) listRef.current.scrollTop = 0;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlock = lockScroll();
     const timer = window.setTimeout(() => inputRef.current?.focus(), 0);
 
     return () => {
-      document.body.style.overflow = previous;
+      unlock();
       window.clearTimeout(timer);
       previousFocus.current?.focus();
     };
