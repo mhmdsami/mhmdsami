@@ -10,7 +10,7 @@ import { useSynth } from "@/lib/use-synth";
 
 export default function ActivityClient({ days, max }: { days: ContributionDay[]; max: number }) {
   const playhead = useRef<HTMLDivElement>(null);
-  const { playing, toggle } = useSynth(days, max, playhead);
+  const { playing, toggle } = useSynth(days, max, [playhead]);
 
   return (
     <Section

@@ -5,7 +5,7 @@ import type { ContributionDay } from "@/lib/contributions";
 
 const STEP_SECONDS = 60 / 96 / 4;
 
-export function useSynth(days: ContributionDay[], max: number, playheadRef: RefObject<HTMLDivElement | null>) {
+export function useSynth(days: ContributionDay[], max: number, playheads: Array<RefObject<HTMLDivElement | null>>) {
   const audio = useRef<AudioContext | null>(null);
   const master = useRef<GainNode | null>(null);
   const noise = useRef<AudioBuffer | null>(null);
@@ -27,7 +27,7 @@ export function useSynth(days: ContributionDay[], max: number, playheadRef: RefO
       timer.current = null;
     }
     setPlaying(false);
-    if (playheadRef.current) playheadRef.current.style.opacity = "0";
+    for (const playhead of playheads) if (playhead.current) playhead.current.style.opacity = "0";
     void audio.current?.suspend();
   };
 
@@ -97,9 +97,8 @@ export function useSynth(days: ContributionDay[], max: number, playheadRef: RefO
 
   const playStep = (column: number, time: number) => {
     const { days: list, max: peak } = data.current;
-    if (playheadRef.current) {
-      playheadRef.current.style.left = `${((column + 0.5) / columns()) * 100}%`;
-    }
+    const left = `${((column + 0.5) / columns()) * 100}%`;
+    for (const playhead of playheads) if (playhead.current) playhead.current.style.left = left;
     for (let row = 0; row < 7; row += 1) {
       const day = list[column * 7 + row];
       if (!day || day.count === 0) continue;
@@ -139,7 +138,7 @@ export function useSynth(days: ContributionDay[], max: number, playheadRef: RefO
     step.current = 0;
     nextTime.current = audio.current.currentTime + 0.08;
     setPlaying(true);
-    if (playheadRef.current) playheadRef.current.style.opacity = "1";
+    for (const playhead of playheads) if (playhead.current) playhead.current.style.opacity = "1";
     schedule();
   };
 

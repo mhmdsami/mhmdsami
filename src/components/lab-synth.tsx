@@ -42,8 +42,9 @@ export default function LabSynth({ handle, stats }: { handle: string; stats: Sta
   const [error, setError] = useState<string | null>(null);
   const cache = useRef(new Map([[handle.toLowerCase(), stats]]));
   const request = useRef(0);
-  const playhead = useRef<HTMLDivElement>(null);
-  const { playing, toggle } = useSynth(current.days, current.max, playhead);
+  const desktopPlayhead = useRef<HTMLDivElement>(null);
+  const mobilePlayhead = useRef<HTMLDivElement>(null);
+  const { playing, toggle } = useSynth(current.days, current.max, [desktopPlayhead, mobilePlayhead]);
 
   const load = useCallback(async (login: string) => {
     const key = login.toLowerCase();
@@ -111,16 +112,15 @@ export default function LabSynth({ handle, stats }: { handle: string; stats: Sta
         <h1 className="text-2xl font-medium tracking-tight">Synth</h1>
         <div className="flex items-baseline gap-3 text-2xs text-tertiary">
           <Link href="/labs" className="transition-colors duration-150 hover:text-foreground">
-            lab
+            labs
           </Link>
           <Link href="/" className="transition-colors duration-150 hover:text-foreground">
             home
           </Link>
         </div>
       </div>
-      <p className="mt-3 max-w-md text-sm text-secondary">
-        A year of GitHub contributions as drums. Each column is a week, each lit cell a hit, and the count sets the
-        velocity. Type any handle to play another.
+      <p className="mt-3 max-w-md text-balance text-sm text-secondary">
+        Your year of GitHub contributions, played as drums.
       </p>
 
       <form onSubmit={submit} className="mt-8 font-mono text-xs">
@@ -155,22 +155,23 @@ export default function LabSynth({ handle, stats }: { handle: string; stats: Sta
         <p className="truncate font-mono text-xs text-secondary">
           {user} <span className="text-tertiary">· {total} contributions</span>
         </p>
-        <SynthButton
-          playing={playing}
-          onToggle={toggle}
-          label={`${user} contributions`}
-          className="hidden sm:inline-flex"
-        />
+        <SynthButton playing={playing} onToggle={toggle} label={`${user} contributions`} className="inline-flex" />
       </div>
 
       <div className={cn("mt-4 transition-opacity duration-150", pending && "opacity-40")}>
-        <ActivityGrid days={current.days.slice(-182)} max={current.max} className="block sm:hidden" />
+        <ActivityGrid
+          days={current.days.slice(-182)}
+          max={current.max}
+          className="block sm:hidden"
+          interactive
+          playheadRef={mobilePlayhead}
+        />
         <ActivityGrid
           days={current.days}
           max={current.max}
           className="hidden sm:block"
           interactive
-          playheadRef={playhead}
+          playheadRef={desktopPlayhead}
         />
       </div>
 
