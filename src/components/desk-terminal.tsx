@@ -316,6 +316,10 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
       link.click();
       out.push(email);
     } else if (command === "theme") {
+      if (argument && argument !== "light" && argument !== "dark") {
+        setLines((prev) => [...prev, { kind: "in", text: raw }]);
+        return;
+      }
       const next =
         argument === "light" || argument === "dark" ? argument : currentTheme() === "light" ? "dark" : "light";
       applyTheme(next);
@@ -323,6 +327,10 @@ export default function DeskTerminal({ open, onClose }: { open: boolean; onClose
       return;
     } else if (command === "accent") {
       const chosen = accents.find(({ id }) => id === argument);
+      if (argument && !chosen) {
+        setLines((prev) => [...prev, { kind: "in", text: raw }]);
+        return;
+      }
       const index = accents.findIndex(({ id }) => id === currentAccent());
       applyAccent(chosen?.id ?? accents[(index + 1) % accents.length].id);
       setLines((prev) => [...prev, { kind: "in", text: raw }]);
