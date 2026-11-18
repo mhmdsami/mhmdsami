@@ -65,7 +65,6 @@ export interface TerminalInfo {
   role: string;
   company: string;
   companyUrl: string;
-  location: string;
   current: string;
 }
 

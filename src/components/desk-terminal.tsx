@@ -4,7 +4,9 @@ import { type FormEvent, type ReactNode, useCallback, useEffect, useRef, useStat
 import { createPortal } from "react-dom";
 import AsciiPortrait from "@/components/ascii-portrait";
 import { lockScroll } from "@/lib/scroll-lock";
+import { activeStop } from "@/lib/site-state";
 import { accents, applyAccent, applyTheme, currentAccent, currentTheme } from "@/lib/theme";
+import { useSiteState } from "@/lib/use-site-state";
 import { site } from "@/shared/data/site";
 
 type Line = { kind: "in" | "out" | "info"; text: string };
@@ -147,9 +149,22 @@ function InfoLink({ href, children }: { href: string; children: ReactNode }) {
 }
 
 function Info() {
+  const state = useSiteState();
+  const stop = state ? activeStop(state.stops) : null;
+  const building = state?.building ?? null;
+  const reading = state?.reading ?? null;
   const githubs = site.profile.links.filter(({ label }) => label.startsWith("gh/"));
   const x = site.profile.links.find(({ label }) => label === "x");
   const xHandle = x?.href ? `@${x.href.replace(/\/$/, "").split("/").pop()}` : "x";
+  const current = building ? (
+    building.url ? (
+      <InfoLink href={building.url}>{building.name}</InfoLink>
+    ) : (
+      building.name
+    )
+  ) : (
+    site.terminal.current
+  );
   const rows: Array<{ label: string; value: ReactNode }> = [
     {
       label: "role",
@@ -159,8 +174,16 @@ function Info() {
         </>
       ),
     },
-    { label: "loc", value: site.terminal.location },
-    { label: "curr", value: site.terminal.current },
+    ...(stop ? [{ label: "loc", value: stop.city.toLowerCase() }] : []),
+    { label: "curr", value: current },
+    ...(reading
+      ? [
+          {
+            label: "read",
+            value: reading.url ? <InfoLink href={reading.url}>{reading.title}</InfoLink> : reading.title,
+          },
+        ]
+      : []),
     {
       label: "gh",
       value: githubs.map((link, index) => (

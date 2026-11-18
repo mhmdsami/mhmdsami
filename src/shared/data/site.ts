@@ -26,7 +26,6 @@ export const site: SiteData = {
     role: "swe",
     company: "headout",
     companyUrl: "https://headout.com",
-    location: "blr, in",
     current: "building devboy",
   },
 
