@@ -606,3 +606,90 @@
   }
 }
 
+
+.not-found-drift,
+.not-found-spin,
+.not-found-orbit,
+.not-found-trail,
+.not-found-beacon,
+.not-found-star {
+  transform-box: fill-box;
+}
+
+.not-found-drift {
+  transform-origin: center;
+  animation: satellite-drift 14s ease-in-out infinite alternate;
+}
+
+.not-found-spin {
+  transform-origin: center;
+  animation: satellite-spin 18s ease-in-out infinite alternate;
+}
+
+@keyframes satellite-spin {
+  from {
+    transform: rotate(-9deg);
+  }
+  to {
+    transform: rotate(9deg);
+  }
+}
+
+.not-found-orbit {
+  animation: orbit-march 7s linear infinite;
+}
+
+.not-found-trail {
+  animation: orbit-march 5s linear infinite reverse;
+}
+
+.not-found-beacon {
+  animation: beacon-pulse 2.6s ease-in-out infinite;
+}
+
+.not-found-star {
+  transform-origin: center;
+  animation: star-twinkle 3.4s ease-in-out infinite alternate;
+}
+
+@keyframes satellite-drift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-1.4deg);
+  }
+  to {
+    transform: translate3d(11px, -13px, 0) rotate(3.2deg);
+  }
+}
+
+@keyframes orbit-march {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+@keyframes beacon-pulse {
+  50% {
+    opacity: 0.12;
+  }
+}
+
+@keyframes star-twinkle {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-drift,
+  .not-found-spin,
+  .not-found-orbit,
+  .not-found-trail,
+  .not-found-beacon,
+  .not-found-star {
+    animation: none;
+  }
+
+}

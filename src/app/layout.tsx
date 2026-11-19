@@ -1,6 +1,5 @@
 import CommandMenu from "@/components/command-menu";
 import PageScrollbar from "@/components/page-scrollbar";
-import SiteRail from "@/components/site-rail";
 import "@/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
 import type { Metadata, Viewport } from "next";
@@ -92,12 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <div className="relative z-10 mx-auto grid w-full max-w-5xl gap-8 px-5 sm:px-6 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16 lg:px-8">
-          <SiteRail />
-          <main id="main" className="min-w-0 pb-16 lg:max-w-[34rem] lg:py-10">
-            {children}
-          </main>
-        </div>
+        {children}
         <CommandMenu />
         <PageScrollbar />
       </body>
