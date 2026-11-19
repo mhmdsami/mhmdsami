@@ -36,7 +36,7 @@ export function useSynth(days: ContributionDay[], max: number, playheads: Array<
     const output = master.current;
     const noiseBuffer = noise.current;
     if (!context || !output || !noiseBuffer) return;
-    const velocity = 0.4 + Math.min(1, count / peak) * 0.6;
+    const velocity = 0.6 + Math.min(1, count / peak) * 0.4;
 
     const hitGain = (value: number, decay: number) => {
       const gain = context.createGain();
@@ -128,8 +128,16 @@ export function useSynth(days: ContributionDay[], max: number, playheads: Array<
       const buffer = context.createBuffer(1, context.sampleRate * 0.4, context.sampleRate);
       const samples = buffer.getChannelData(0);
       for (let index = 0; index < samples.length; index += 1) samples[index] = Math.random() * 2 - 1;
-      output.gain.value = 0.24;
-      output.connect(context.destination);
+      const compressor = context.createDynamicsCompressor();
+      compressor.threshold.value = -16;
+      compressor.knee.value = 12;
+      compressor.ratio.value = 6;
+      compressor.attack.value = 0.003;
+      compressor.release.value = 0.25;
+
+      output.gain.value = 0.62;
+      output.connect(compressor);
+      compressor.connect(context.destination);
       audio.current = context;
       master.current = output;
       noise.current = buffer;
