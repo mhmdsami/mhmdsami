@@ -7,6 +7,21 @@ export const metadata: Metadata = {
   description: "Small experiments that don't belong on the home page.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/labs" },
+  openGraph: {
+    title: "Labs · Mohamed Sami",
+    description: "Small experiments that don't belong on the home page.",
+    url: "https://sam1.space/labs",
+    siteName: "Mohamed Sami",
+    locale: "en_IN",
+    type: "website",
+    images: [{ url: "/og-labs.png", width: 1200, height: 630, alt: "Labs — small experiments" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Labs · Mohamed Sami",
+    description: "Small experiments that don't belong on the home page.",
+    images: ["/og-labs.png"],
+  },
 };
 
 const experiments = [{ id: "synth", title: "synth", description: "a year of github as drums", Art: SynthArt }];
