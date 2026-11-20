@@ -52,12 +52,10 @@ function Row({ item, index }: { item: WorkItem; index: number }) {
 
 export default function WorkList({ work }: { work: Array<WorkItem> }) {
   return (
-    <>
-      <ul className="-my-4">
-        {work.map((item, index) => (
-          <Row key={`${item.name}-${index}`} item={item} index={index} />
-        ))}
-      </ul>
-    </>
+    <ul className="-my-4">
+      {work.map((item, index) => (
+        <Row key={`${item.name}-${index}`} item={item} index={index} />
+      ))}
+    </ul>
   );
 }
