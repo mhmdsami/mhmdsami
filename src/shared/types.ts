@@ -72,7 +72,6 @@ export interface SiteData {
   profile: Profile;
   terminal: TerminalInfo;
   work: Array<WorkItem>;
-  also: Array<Link>;
   experience: Array<ExperienceItem>;
   education: EducationItem;
   stack: Array<StackGroup>;

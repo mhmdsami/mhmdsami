@@ -1,4 +1,4 @@
-import type { Link as LinkType, WorkItem } from "@/shared/types";
+import type { WorkItem } from "@/shared/types";
 
 function Arrow() {
   return (
@@ -50,7 +50,7 @@ function Row({ item, index }: { item: WorkItem; index: number }) {
   );
 }
 
-export default function WorkList({ work, also }: { work: Array<WorkItem>; also: Array<LinkType> }) {
+export default function WorkList({ work }: { work: Array<WorkItem> }) {
   return (
     <>
       <ul className="-my-4">
@@ -58,26 +58,6 @@ export default function WorkList({ work, also }: { work: Array<WorkItem>; also: 
           <Row key={`${item.name}-${index}`} item={item} index={index} />
         ))}
       </ul>
-
-      {also.length > 0 && (
-        <div className="mt-10" data-reveal>
-          <h3 className="text-sm font-medium">Also</h3>
-          <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5 text-sm text-secondary sm:grid-cols-3">
-            {also.map(({ label, href }) => (
-              <li key={label} className="min-w-0">
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="break-words py-0.5 transition-colors duration-150 hover:text-primary"
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </>
   );
 }

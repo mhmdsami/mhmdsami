@@ -16,17 +16,31 @@ export default function SitePage({ data }: { data: SiteData }) {
     <>
       <Hero profile={data.profile} />
 
-      {data.work.length > 0 && (
-        <Section id="projects" title="Projects">
-          <WorkList work={data.work} also={data.also} />
-        </Section>
-      )}
-
       {data.experience.length > 0 && (
         <Section id="experience" title="Experience">
           <ExperienceList experience={data.experience} />
         </Section>
       )}
+
+      {data.work.length > 0 && (
+        <Section
+          id="projects"
+          title="Projects"
+          aside={
+            <ArrowLink href="https://github.com/mhmdsami?tab=repositories" className="text-sm text-tertiary">
+              all repos
+            </ArrowLink>
+          }
+        >
+          <WorkList work={data.work} />
+        </Section>
+      )}
+
+      <Activity />
+
+      <Section id="stack" title="Stack">
+        <Stack stack={data.stack} favorite={data.favoriteStack} />
+      </Section>
 
       <Section id="education" title="Education">
         <Education education={data.education} />
@@ -43,12 +57,6 @@ export default function SitePage({ data }: { data: SiteData }) {
       >
         <SkillsPreview skills={agentSkills} />
       </Section>
-
-      <Section id="stack" title="Stack">
-        <Stack stack={data.stack} favorite={data.favoriteStack} />
-      </Section>
-
-      <Activity />
 
       <Contact profile={data.profile} />
     </>

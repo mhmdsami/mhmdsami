@@ -61,11 +61,6 @@ export const site: SiteData = {
       repo: "https://github.com/mhmdsami/lockout",
     },
   ],
-  also: [
-    { label: "fury", href: "https://github.com/srm-kzilla/fury" },
-    { label: "kzilla.xyz", href: "https://github.com/srm-kzilla/kzilla.xyz" },
-    { label: "travelmate", href: "https://github.com/sm-sami/hackout-travelmate" },
-  ],
   experience: [
     {
       role: "Software Engineer",
