@@ -81,16 +81,23 @@ export function parseState(value: unknown): SiteState | null {
   return { stops, building, reading };
 }
 
-export async function fetchSiteState(): Promise<SiteState | null> {
+export async function fetchSiteState({ fresh = false }: { fresh?: boolean } = {}): Promise<SiteState | null> {
   if (!SOURCE) return null;
 
   try {
     const bucket = Math.floor(Date.now() / 60_000);
     const join = SOURCE.includes("?") ? "&" : "?";
-    const response = await fetch(`${SOURCE}${join}v=${bucket}`, { cache: "no-store" });
+    const response = await fetch(`${SOURCE}${join}v=${bucket}`, fresh ? { cache: "no-store" } : undefined);
     if (!response.ok) return null;
     return parseState(await response.json());
   } catch {
     return null;
   }
+}
+
+let request: Promise<SiteState | null> | null = null;
+
+export function getSiteState() {
+  request ??= fetchSiteState();
+  return request;
 }

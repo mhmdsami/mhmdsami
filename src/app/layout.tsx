@@ -1,8 +1,10 @@
 import CommandMenu from "@/components/command-menu";
 import PageScrollbar from "@/components/page-scrollbar";
+import { SiteStateProvider } from "@/components/site-state-provider";
 import "@/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
 import type { Metadata, Viewport } from "next";
+import { getSiteState } from "@/lib/site-state";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sam1.space"),
@@ -77,7 +79,9 @@ accent=aliases[accent]||accent;
 root.dataset.accent=["sage","tide","sakura","honey","iris"].indexOf(accent)>-1?accent:"sage";
 }catch(e){}})();`;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const state = await getSiteState();
+
   return (
     <html lang="en" className={GeistMono.variable} suppressHydrationWarning>
       <head>
@@ -91,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        {children}
+        <SiteStateProvider initial={state}>{children}</SiteStateProvider>
         <CommandMenu />
         <PageScrollbar />
       </body>

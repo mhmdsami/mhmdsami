@@ -2,9 +2,9 @@
 
 import { type FormEvent, type ReactNode, type RefObject, useCallback, useState } from "react";
 import AsciiPortrait from "@/components/ascii-portrait";
+import { useSiteState } from "@/components/site-state-provider";
 import { activeStop } from "@/lib/site-state";
 import { accents, applyAccent, applyTheme, currentAccent, currentTheme } from "@/lib/theme";
-import { useSiteState } from "@/lib/use-site-state";
 import { site } from "@/shared/data/site";
 
 export type Line = { kind: "in" | "out" | "info"; text: string };
