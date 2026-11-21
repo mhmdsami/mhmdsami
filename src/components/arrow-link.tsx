@@ -1,13 +1,14 @@
 import type { ReactNode } from "react";
-import { cn } from "@/components/ui/cn";
+import { cn } from "@/utils/cn";
 
 interface ArrowLinkProps {
   href: string;
   children: ReactNode;
   className?: string;
+  underline?: boolean;
 }
 
-export function ArrowLink({ href, children, className }: ArrowLinkProps) {
+export function ArrowLink({ href, children, className, underline = true }: ArrowLinkProps) {
   return (
     <a
       href={href}
@@ -15,7 +16,14 @@ export function ArrowLink({ href, children, className }: ArrowLinkProps) {
       rel="noreferrer"
       className={cn("group/link inline text-inherit transition-colors duration-150 hover:text-primary", className)}
     >
-      {children}
+      <span
+        className={cn(
+          underline &&
+            "underline decoration-foreground/40 decoration-1 underline-offset-[4px] group-hover/link:decoration-primary",
+        )}
+      >
+        {children}
+      </span>
       <svg
         aria-hidden="true"
         viewBox="0 0 12 12"
