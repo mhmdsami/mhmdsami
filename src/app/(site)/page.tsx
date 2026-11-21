@@ -34,7 +34,7 @@ export default async function Home() {
           <ul className="space-y-6">
             {experience.map(({ role, org, orgUrl, period, previous, detail }, index) => (
               <li key={`${org}-${period}-${index}`} data-reveal style={{ "--i": index } as React.CSSProperties}>
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between sm:gap-x-4">
                   <div className="min-w-0 wrap-break-word text-sm">
                     <span className="font-medium text-foreground">{role}</span>
                     <span className="text-tertiary"> · </span>
@@ -46,12 +46,12 @@ export default async function Home() {
                       <span className="text-secondary">{org}</span>
                     )}
                   </div>
-                  <span className="ml-auto shrink-0 text-2xs text-tertiary tabular-nums">{period}</span>
+                  <span className="shrink-0 text-2xs text-tertiary tabular-nums sm:ml-auto">{period}</span>
                 </div>
                 {previous && (
-                  <div className="mt-2.5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <div className="mt-2.5 flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between sm:gap-x-4">
                     <span className="min-w-0 wrap-break-word text-sm text-foreground">{previous.role}</span>
-                    <span className="ml-auto shrink-0 text-2xs text-tertiary tabular-nums">{previous.period}</span>
+                    <span className="shrink-0 text-2xs text-tertiary tabular-nums sm:ml-auto">{previous.period}</span>
                   </div>
                 )}
 
