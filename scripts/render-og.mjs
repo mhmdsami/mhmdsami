@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-// Renders the Open Graph image and the Apple touch icon with headless Chrome.
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
