@@ -1,6 +1,6 @@
-import NotFoundArt from "@/components/not-found-art";
-import NotFoundTerminal from "@/components/not-found-terminal";
-import { Button } from "@/components/ui/button";
+import NotFoundArt from "@/app/_components/not-found/art";
+import NotFoundTerminal from "@/app/_components/not-found/terminal";
+import { Button } from "@/components/button";
 
 export default function NotFound() {
   return (
@@ -23,7 +23,7 @@ export default function NotFound() {
           </Button>
         </div>
 
-        <div className="mx-auto w-full max-w-[24rem] text-foreground/80 lg:max-w-none">
+        <div className="mx-auto w-full max-w-96 text-foreground/80 lg:max-w-none">
           <NotFoundArt className="h-auto w-full" />
         </div>
       </div>
