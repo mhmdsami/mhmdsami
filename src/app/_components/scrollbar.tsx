@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 const FADE = 650;
 
-export default function PageScrollbar() {
+export default function Scrollbar() {
   const thumb = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

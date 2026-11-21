@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 const LETTERS = ["s", "a", "m", "i"];
 

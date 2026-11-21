@@ -6,10 +6,9 @@ import { toggleTheme } from "@/lib/theme";
 export default function ThemeToggle() {
   const onToggle = (event: MouseEvent<HTMLButtonElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    const keyboard = event.detail === 0;
     toggleTheme({
-      x: keyboard ? rect.left + rect.width / 2 : event.clientX,
-      y: keyboard ? rect.top + rect.height / 2 : event.clientY,
+      x: event.detail === 0 ? rect.left + rect.width / 2 : event.clientX,
+      y: event.detail === 0 ? rect.top + rect.height / 2 : event.clientY,
     });
   };
 

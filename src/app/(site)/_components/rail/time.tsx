@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 
-interface LocalTimeProps {
+interface TimeProps {
   timeZone?: string;
   label?: string;
 }
 
-export default function LocalTime({ timeZone = "Asia/Kolkata", label = "IST" }: LocalTimeProps) {
+export default function Time({ timeZone = "Asia/Kolkata", label = "IST" }: TimeProps) {
   const [time, setTime] = useState<string | null>(null);
 
   useEffect(() => {

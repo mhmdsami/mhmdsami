@@ -1,11 +1,12 @@
 "use client";
 
-import type { KeyboardEvent as ReactKeyboardEvent } from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
-import AccentPicker from "@/components/accent-picker";
-import { lockScroll } from "@/lib/scroll-lock";
-import { toggleTheme } from "@/lib/theme";
-import { site } from "@/shared/data/site";
+import type { KeyboardEvent as ReactKeyboardEvent, ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { site } from "@/data/site";
+import { goToSection, sections } from "@/lib/sections";
+import { type Accent, accents, applyAccent, currentAccent, toggleTheme } from "@/lib/theme";
+import { cn } from "@/utils/cn";
+import { lockScroll } from "@/utils/scroll-lock";
 
 interface Command {
   id: string;
@@ -15,27 +16,51 @@ interface Command {
   run: () => void;
 }
 
-const sections = [
-  { id: "projects", label: "projects" },
-  { id: "experience", label: "experience" },
-  { id: "education", label: "education" },
-  { id: "stack", label: "stack" },
-  { id: "activity", label: "activity" },
-];
-
-function jump(id: string) {
-  const target = document.getElementById(id);
-  if (!target) return;
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-}
-
 function open(href: string) {
   window.open(href, "_blank", "noopener,noreferrer");
 }
 
-export default function CommandMenu() {
-  const [openMenu, setOpenMenu] = useState(false);
+const CommandMenuContext = createContext<{ open: boolean; setOpen: (open: boolean) => void } | null>(null);
+
+export function useCommandMenu() {
+  const context = useContext(CommandMenuContext);
+  if (!context) throw new Error("useCommandMenu must be used inside CommandMenuProvider");
+  return context;
+}
+
+export function CommandMenuProvider({ children }: { children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement;
+      const typing = target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable;
+
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setOpen((current) => !current);
+        return;
+      }
+
+      if (event.key === "/" && !typing && !open) {
+        event.preventDefault();
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <CommandMenuContext.Provider value={{ open, setOpen }}>
+      {children}
+      <CommandMenu open={open} onOpenChange={setOpen} />
+    </CommandMenuContext.Provider>
+  );
+}
+
+function CommandMenu({ open: isOpen, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const [status, setStatus] = useState("");
@@ -45,30 +70,18 @@ export default function CommandMenu() {
 
   const commands = useMemo<Array<Command>>(
     () => [
-      ...sections.slice(0, 3).map(({ id, label }) => ({
+      ...sections.map(({ id, label }) => ({
         id,
         label,
         hint: "go",
-        run: () => jump(id),
-      })),
-      {
-        id: "ai-skills",
-        label: "ai skills",
-        hint: "↗",
-        run: () => open("https://skills.sam1.space"),
-      },
-      ...sections.slice(3).map(({ id, label }) => ({
-        id,
-        label,
-        hint: "go",
-        run: () => jump(id),
+        run: () => goToSection(id),
       })),
       {
         id: "theme",
         label: "toggle theme",
         hint: "◐",
         run: () => {
-          window.requestAnimationFrame(() => toggleTheme({ x: window.innerWidth / 2, y: window.innerHeight / 2 }));
+          toggleTheme({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
         },
       },
       ...site.work.flatMap((project) => {
@@ -91,9 +104,9 @@ export default function CommandMenu() {
         hint: "↵",
         run: async () => {
           try {
-            await navigator.clipboard.writeText("siamasdev@gmail.com");
-            setStatus("copied siamasdev@gmail.com");
-            window.setTimeout(() => setOpenMenu(false), 800);
+            await navigator.clipboard.writeText(site.profile.email);
+            setStatus(`copied ${site.profile.email}`);
+            window.setTimeout(() => onOpenChange(false), 800);
           } catch {
             setStatus("clipboard blocked");
           }
@@ -118,49 +131,16 @@ export default function CommandMenu() {
         run: () => open("https://www.linkedin.com/in/sm-sami"),
       },
       {
-        id: "x",
-        label: "x",
-        hint: "↗",
-        run: () => open("https://x.com/siamasdev"),
-      },
-      {
         id: "source",
         label: "source",
         hint: "↗",
         run: () => open("https://github.com/mhmdsami/mhmdsami"),
       },
     ],
-    [],
+    [onOpenChange],
   );
 
   const filtered = commands.filter((command) => command.label.toLowerCase().includes(query.trim().toLowerCase()));
-
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement;
-      const typing = target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable;
-
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        setOpenMenu((current) => !current);
-        return;
-      }
-
-      if (event.key === "/" && !typing && !openMenu) {
-        event.preventDefault();
-        setOpenMenu(true);
-      }
-    };
-
-    const onOpen = () => setOpenMenu(true);
-
-    window.addEventListener("keydown", onKey);
-    window.addEventListener("open-command", onOpen);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      window.removeEventListener("open-command", onOpen);
-    };
-  }, [openMenu]);
 
   useEffect(() => {
     const list = listRef.current;
@@ -180,7 +160,7 @@ export default function CommandMenu() {
   }, [active]);
 
   useEffect(() => {
-    if (!openMenu) return;
+    if (!isOpen) return;
 
     setQuery("");
     setActive(0);
@@ -195,20 +175,20 @@ export default function CommandMenu() {
       window.clearTimeout(timer);
       previousFocus.current?.focus();
     };
-  }, [openMenu]);
+  }, [isOpen]);
 
-  if (!openMenu) return null;
+  if (!isOpen) return null;
 
   const run = (command: Command | undefined) => {
     if (!command) return;
     command.run();
-    if (command.id !== "copy-email") setOpenMenu(false);
+    if (command.id !== "copy-email") onOpenChange(false);
   };
 
   const onPanelKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Escape") {
       event.preventDefault();
-      setOpenMenu(false);
+      onOpenChange(false);
       return;
     }
 
@@ -231,12 +211,12 @@ export default function CommandMenu() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-[var(--scrim)] px-4 pt-[16vh] backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-(--scrim) px-4 pt-[16vh] backdrop-blur-sm">
       <button
         type="button"
         aria-label="Close command menu"
         tabIndex={-1}
-        onClick={() => setOpenMenu(false)}
+        onClick={() => onOpenChange(false)}
         className="absolute inset-0 cursor-default"
       />
       <div
@@ -275,9 +255,10 @@ export default function CommandMenu() {
                 data-command={index}
                 onMouseMove={() => setActive(index)}
                 onClick={() => run(command)}
-                className={`flex w-full items-center justify-between px-4 py-2 text-left text-sm transition-colors duration-100 ${
-                  index === active ? "bg-surface-2 text-foreground" : "text-secondary"
-                }`}
+                className={cn(
+                  "flex w-full items-center justify-between px-4 py-2 text-left text-sm transition-colors duration-100",
+                  index === active ? "bg-surface-2 text-foreground" : "text-secondary",
+                )}
               >
                 <span>{command.label}</span>
                 <span className="flex items-center gap-2">
@@ -296,6 +277,41 @@ export default function CommandMenu() {
           <span>esc close</span>
         </div>
       </div>
+    </div>
+  );
+}
+
+function AccentPicker() {
+  const [active, setActive] = useState<Accent>("sage");
+
+  useEffect(() => {
+    setActive(currentAccent());
+  }, []);
+
+  const choose = (accent: Accent) => {
+    applyAccent(accent);
+    setActive(accent);
+  };
+
+  return (
+    <div className="flex items-center gap-1.5">
+      {accents.map(({ id, label }) => (
+        <button
+          key={id}
+          type="button"
+          data-accent-option
+          onClick={() => choose(id)}
+          aria-label={label}
+          aria-pressed={active === id}
+          className={cn(
+            "size-4 rounded-full border transition-[scale,opacity,border-color] duration-150",
+            active === id
+              ? "scale-100 border-foreground/60"
+              : "scale-90 border-transparent opacity-60 hover:opacity-100",
+          )}
+          style={{ background: `var(--swatch-${id})` }}
+        />
+      ))}
     </div>
   );
 }

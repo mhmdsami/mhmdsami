@@ -1,4 +1,4 @@
-import { cn } from "@/components/ui/cn";
+import { cn } from "@/utils/cn";
 
 export default function DeskScene({ className }: { className?: string }) {
   return (

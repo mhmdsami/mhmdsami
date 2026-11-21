@@ -1,4 +1,4 @@
-import type { SiteData } from "@/shared/types";
+import type { SiteData } from "@/types";
 
 export const agentSkills = [
   { name: "planning-protocol", description: "Plan, execute, and report multi-phase work." },
@@ -118,7 +118,7 @@ export const site: SiteData = {
     },
     {
       title: "Frontend",
-      items: ["React", "Next.js", "Tailwind CSS", "Base UI", "React Native", "Expo"],
+      items: ["React", "Next.js", "Tailwind CSS", "React Native", "Expo"],
     },
     {
       title: "Backend",
@@ -127,10 +127,6 @@ export const site: SiteData = {
     {
       title: "Data",
       items: ["PostgreSQL", "SQLite", "Drizzle ORM", "Cloudflare D1"],
-    },
-    {
-      title: "Platform",
-      items: ["Cloudflare Workers", "R2", "AWS", "Supabase", "GitHub Actions"],
     },
   ],
 };

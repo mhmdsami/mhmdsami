@@ -1,6 +1,6 @@
-import CommandMenu from "@/components/command-menu";
-import PageScrollbar from "@/components/page-scrollbar";
-import { SiteStateProvider } from "@/components/site-state-provider";
+import { CommandMenuProvider } from "@/app/_components/command-menu";
+import Scrollbar from "@/app/_components/scrollbar";
+import { SiteStateProvider } from "@/lib/site-state-context";
 import "@/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
 import type { Metadata, Viewport } from "next";
@@ -33,15 +33,6 @@ export const metadata: Metadata = {
         alt: "Mohamed Sami, software engineer at Headout",
       },
     ],
-    videos: [
-      {
-        url: "https://sam1.space/og.mp4",
-        secureUrl: "https://sam1.space/og.mp4",
-        type: "video/mp4",
-        width: 1760,
-        height: 550,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -69,35 +60,22 @@ export const viewport: Viewport = {
   ],
 };
 
-const bootScript = `(function(){try{
-var root=document.documentElement;
-var theme=localStorage.getItem("theme");
-root.dataset.theme=theme==="light"||theme==="dark"?theme:matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
-var accent=localStorage.getItem("accent");
-var aliases={blue:"tide",rose:"sakura",yellow:"honey",purple:"iris"};
-accent=aliases[accent]||accent;
-root.dataset.accent=["sage","tide","sakura","honey","iris"].indexOf(accent)>-1?accent:"sage";
-}catch(e){}})();`;
-
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const state = await getSiteState();
 
   return (
     <html lang="en" className={GeistMono.variable} suppressHydrationWarning>
-      <head>
-        <script>{bootScript}</script>
-      </head>
       <body>
-        <div className="starfield" aria-hidden="true" />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-foreground focus:px-3 focus:py-2 focus:text-sm focus:text-background"
         >
           Skip to content
         </a>
-        <SiteStateProvider initial={state}>{children}</SiteStateProvider>
-        <CommandMenu />
-        <PageScrollbar />
+        <CommandMenuProvider>
+          <SiteStateProvider initial={state}>{children}</SiteStateProvider>
+        </CommandMenuProvider>
+        <Scrollbar />
       </body>
     </html>
   );

@@ -1,14 +1,16 @@
-import Link from "next/link";
-import DeskOS from "@/components/desk-os";
-import LocalTime from "@/components/local-time";
-import RailNav from "@/components/rail-nav";
-import RotatingLocation from "@/components/rotating-location";
-import ThemeToggle from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import Wordmark from "@/components/wordmark";
-import { site } from "@/shared/data/site";
+"use client";
 
-export default function SiteRail() {
+import Link from "next/link";
+import Desk from "@/app/(site)/_components/desk";
+import Nav from "@/app/(site)/_components/rail/nav";
+import ThemeToggle from "@/app/(site)/_components/rail/theme-toggle";
+import Time from "@/app/(site)/_components/rail/time";
+import Wordmark from "@/app/(site)/_components/rail/wordmark";
+import { Button } from "@/components/button";
+import RotatingText from "@/components/rotating-text";
+import { site } from "@/data/site";
+
+export default function Rail() {
   const { profile } = site;
 
   return (
@@ -35,14 +37,17 @@ export default function SiteRail() {
         >
           at Headout
         </a>
-        <RotatingLocation items={profile.cities} country={profile.country} />
-        <LocalTime />
+        <RotatingText
+          items={profile.cities.map((city) => ({ text: `${city}, ${profile.country}`, lang: "en" }))}
+          interval={12000}
+        />
+        <Time />
       </div>
 
-      <RailNav />
+      <Nav />
 
       <div className="mt-6 hidden lg:mt-auto lg:block">
-        <DeskOS className="mb-6" />
+        <Desk className="mb-6" />
         <div className="flex items-center justify-between">
           <Button href="/resume.pdf" download="mohamed-sami-resume.pdf" size="xs">
             resume

@@ -9,7 +9,7 @@ interface SectionProps {
 
 export default function Section({ id, title, aside, children }: SectionProps) {
   return (
-    <section id={id} className="mt-10 scroll-mt-6 sm:mt-12">
+    <section id={id} className="mt-12 scroll-mt-6 sm:mt-16">
       <div className="flex items-baseline justify-between gap-4">
         <h2 className="text-xl font-medium tracking-tight" data-reveal>
           {title}

@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
-import DeskScene from "@/components/desk-scene";
-import DeskTerminal from "@/components/desk-terminal";
-import { cn } from "@/components/ui/cn";
-import { accents, applyAccent, currentAccent } from "@/lib/theme";
-import { useDeskKeys } from "@/lib/use-desk-keys";
+import DeskScene from "@/app/(site)/_components/desk/scene";
+import DeskTerminal from "@/app/(site)/_components/desk/terminal";
+import { useDeskKeys } from "@/app/(site)/_hooks/use-desk-keys";
+import { cycleAccent } from "@/lib/theme";
+import { cn } from "@/utils/cn";
 
-export default function DeskOS({ className }: { className?: string }) {
+export default function Desk({ className }: { className?: string }) {
   const [announcement, setAnnouncement] = useState("");
   const [terminal, setTerminal] = useState(false);
   const root = useRef<HTMLDivElement>(null);
@@ -16,9 +16,7 @@ export default function DeskOS({ className }: { className?: string }) {
   useDeskKeys(root);
 
   const cycle = () => {
-    const index = accents.findIndex(({ id }) => id === currentAccent());
-    const next = accents[(index + 1) % accents.length];
-    applyAccent(next.id);
+    const next = cycleAccent();
     setAnnouncement(`${next.label} accent`);
   };
 

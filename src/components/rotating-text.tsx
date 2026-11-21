@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { cn } from "@/components/ui/cn";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
+import { cn } from "@/utils/cn";
 
 export interface RotatingItem {
   text: string;

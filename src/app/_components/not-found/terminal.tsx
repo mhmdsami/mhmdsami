@@ -1,7 +1,7 @@
 "use client";
 
 import { type FormEvent, useRef } from "react";
-import { TerminalScreen, useTerminal } from "@/components/terminal-core";
+import { Terminal, useTerminal } from "@/app/_components/terminal";
 
 export default function NotFoundTerminal() {
   const { lines, value, setValue, submit, commands } = useTerminal({ welcome: "nothing here. try `man`." });
@@ -18,7 +18,7 @@ export default function NotFoundTerminal() {
   return (
     <div className="mt-8 h-56 overflow-hidden rounded-md border bg-surface-1 font-mono text-xs leading-5">
       <div ref={outputRef} className="h-full overflow-y-auto px-4 py-3">
-        <TerminalScreen
+        <Terminal
           lines={lines}
           value={value}
           onChange={setValue}
