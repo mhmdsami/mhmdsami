@@ -1,9 +1,9 @@
 "use client";
 
 import { type RefObject, useEffect, useRef } from "react";
-import { cn } from "@/components/ui/cn";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 import type { ContributionDay } from "@/lib/contributions";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+import { cn } from "@/utils/cn";
 
 interface ActivityGridProps {
   days: ContributionDay[];
