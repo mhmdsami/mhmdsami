@@ -57,6 +57,18 @@
       "allowComments": true
     }
   },
+  "overrides": [
+    {
+      "includes": ["src/lib/theme.ts"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noDocumentCookie": "off"
+          }
+        }
+      }
+    }
+  ],
   "assist": {
     "enabled": true,
     "actions": {
