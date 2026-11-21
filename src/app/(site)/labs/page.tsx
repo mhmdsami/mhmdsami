@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SynthArt } from "@/components/lab-art";
+import { SynthArt } from "@/app/(site)/labs/_components/synth-art";
 
 export const metadata: Metadata = {
   title: "Labs · Mohamed Sami",
   description: "Small experiments that don't belong on the home page.",
-  robots: { index: false, follow: false },
   alternates: { canonical: "/labs" },
   openGraph: {
     title: "Labs · Mohamed Sami",
