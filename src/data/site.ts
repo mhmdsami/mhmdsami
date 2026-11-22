@@ -95,7 +95,7 @@ export const site: SiteData = {
     {
       role: "Software Developer Intern",
       org: "Mable",
-      orgUrl: "https://mablesoftware.com",
+      orgUrl: "https://mable.ai",
       period: "Aug 2023 – May 2024",
       detail: "Built reusable design system and data components, migrated the dashboard to Remix.",
     },
