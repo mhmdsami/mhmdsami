@@ -10,11 +10,39 @@ permissions:
   contents: read
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      app: ${{ steps.diff.outputs.app }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect app changes
+        id: diff
+        run: |
+          if [ "${{ github.event_name }}" != "push" ]; then
+            echo "app=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          base="${{ github.event.before }}"
+          if [ -z "$base" ] || [[ "$base" =~ ^0+$ ]]; then
+            echo "app=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          changed=$(git diff --name-only "$base" "${{ github.sha }}" | grep -vE '(^|/)docs/|\.md$|^\.github/' || true)
+          if [ -n "$changed" ]; then
+            echo "app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "app=false" >> "$GITHUB_OUTPUT"
+          fi
+
   gate:
     uses: ./.github/workflows/gate.yml
 
   deploy:
-    needs: gate
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: [gate, changes]
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && needs.changes.outputs.app == 'true'
     uses: ./.github/workflows/deploy.yml
     secrets: inherit
