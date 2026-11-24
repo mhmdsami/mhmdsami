@@ -1,4 +1,4 @@
-name: ci
+name: CI
 
 on:
   push:
@@ -9,51 +9,12 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   gate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm gate
+    uses: ./.github/workflows/gate.yml
 
   deploy:
     needs: gate
-    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    concurrency:
-      group: deploy
-      cancel-in-progress: true
-    env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      NEXT_PUBLIC_STATE_URL: ${{ vars.STATE_URL }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-
-      - name: Deploy
-        if: env.CLOUDFLARE_API_TOKEN != ''
-        run: pnpm deploy
-
-      - name: Missing credentials
-        if: env.CLOUDFLARE_API_TOKEN == ''
-        run: echo "::warning::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets to enable deploys."
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
